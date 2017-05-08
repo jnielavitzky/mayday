@@ -1,17 +1,14 @@
 .navigation-bar {
-    display: inline-block;
-    width: 100%;
     height: 120px;
-    background-color: grey;
+    background-color: white;
 }
 
-.nav-line {
-    display: inline-block;
+.nav-t {
     height: 120px;
+    text-align: center;
 }
 
 .nav-items {
-    margin-left: 100px;
     font-size: 22px;
     font-family: coolvetica;
     src: url(.\fonts) format('truetype');
@@ -23,17 +20,18 @@
 }
 
 .sale {
-    display: inline-block;
-    width: 100%;
     height: 600px;
     background-color: #f6f6f6;
 }
 
 .title {
-    padding-top: 15px;
     text-align: center;
     font-family: lane;
     src: url(.\fonts) format('truetype');
+}
+
+.news-input {
+    align-items: center;
 }
 
 .main-nav {
@@ -42,26 +40,21 @@
 }
 
 .newsletter {
-    display: inline-block;
     background-color: #9ecdd8;
     height: 140px;
-    width: 100%;
 }
 
 .final-logo {
-    margin-top: 20px;
+    text-align: center;
     font-size: 50px;
     font-family: coolvetica, arial;
     src: url(.\fonts) format('truetype');
     color: white;
 }
 
-.ul {
-    height: 200px;
-}
-
 .final-titles {
-    padding-top: 30px;
+    padding-top: 10px;
+    text-align: left;
     font-size: 25px;
     color: white;
     font-family: coolvetica;
@@ -77,10 +70,6 @@
 }
 
 .footer {
-    column-count: 4;
-    column-width: 25%;
-    display: inline-block;
-    width: 100%;
     height: 200px;
     background-color: #3A3A3A;
 }
