@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Mayday</title>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
 
     <!-- Latest compiled and minified CSS -->
@@ -17,83 +23,156 @@
     integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
     crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
 </head>
 <body>
     <!--  NAV BAR  -->
-    <div class="row navigation-bar">
-        <div class="col-md-3 nav-t">
-            <a href="index.html"><img class="logo" src=".\images\logo.PNG"></a>
-        </div>
-        <div class="col-md-3">
-            <a class='nav-items' href="#">Home</a>
-        </div>
-        <div class="col-md-3">
-            <a class='nav-items' href="promociones.html">Promociones</a>
-        </div>
-        <div class="col-md-3">
-            <a class='nav-items' href="contacto.html">Contacto</a>
+    <div class="container">
+        <div class="row navigation-bar">
+            <div class="col-md-3">
+                <a href="index.html"><img class="logo" src=".\images\logo.PNG"></a>
+            </div>
+            <div class="col-md-2 nav-items">
+                <a href="#">Home</a>
+            </div>
+            <div class="col-md-3 nav-items">
+                <a href="promociones.html">Promociones</a>
+            </div>
+            <div class="col-md-2 nav-items">
+                <a href="contacto.html">Contacto</a>
+            </div>
         </div>
     </div>
     <!--  END HEADER  -->
 
     <!--  MAIN NAV  -->
-    <div class='row main-nav'>
-        <h1>lalaal</h1>
+    <div class="container main-nav">
+        <!-- FIRST ROW -->
+        <div class='row'>
+            <div class="col-sm-3 col-sm-offset-1 nav-comp">
+                <h3  class="nav-titles">Tipo de Vuelo</h3>
+                <div class="col-lg-12 col-lg-offset-2">
+                    <input type="text" class="form-control" placeholder="Ida y Vuelta">
+                </div>
+            </div>
+            <div class="col-sm-3 nav-comp">
+                <h3  class="nav-titles">Origen</h3>
+                <div class="col-lg-12 col-lg-offset-2">
+                    <input type="text" class="form-control" placeholder="Ingrese desde donde viaja">
+                </div>
+            </div>
+            <div class="col-sm-3 nav-comp">
+                <h3  class="nav-titles">Destino</h3>
+                <div class="col-lg-12 col-lg-offset-2">
+                    <input type="text" class="form-control" placeholder="Ingrese hacia donde viaja">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECOND ROW -->
+        <div class='row'>
+            <div class="col-sm-3 col-sm-offset-1 nav-int">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <div class="input-group date">
+                        <input type="text" class="form-control" placeholder="Partida">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 nav-int">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <div class="input-group date">
+                        <input type="text" class="form-control" placeholder="Partida">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a class="destino" href="">Añadir Destino</a>
+            </div>
+        </div>
+
+        <!-- THIRD ROW -->
+        <div class='row'>
+            <div class="col-md-2 col-md-offset-1">
+                <h3 class="nav-titles">Mayores</h3>
+            </div>
+            <div class="col-md-2">
+                <h3 class="nav-titles">Menores</h3>
+            </div>
+            <div class="col-md-2">
+                <h3 class="nav-titles">Infantes</h3>
+            </div>
+        </div>
+
+        <!-- FOURTH ROW -->
+        <div class='row'>
+            <div class="col-md-2 col-md-offset-1">
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Buscar</a>
+            </div>
+        </div>
     </div>
     <!--  END MAIN NAV -->
 
     <!--  SALE SECTION  -->
-    <div class='row sale' id='Sale'>
-        <div class="col-md-12 title">
-            <h1>Destacados de la Semana</h1>
+    <div class="container">
+        <div class='row sale' id='Sale'>
+            <div class="col-md-12 title">
+                <h1>Destacados de la Semana</h1>
+            </div>
         </div>
     </div>
     <!--  END SALE SECTION  -->
 
     <!--  NEWSLETTER  -->
-    <div class='row newsletter' id='Newsletter'>
-        <div class="col-md-12 title">
-            <h1>Suscribite a Nuestro Newsletter</h1>
-        </div>
-        <div class="input-group col-md-6 col-md-offset-3">
-          <input type="text" class="form-control" placeholder="Ingrese su emal aquí">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Enviar</button>
-          </span>
+    <div class="container">
+        <div class='row newsletter' id='Newsletter'>
+            <div class="col-md-12 title">
+                <h1>Suscribite a Nuestro Newsletter</h1>
+            </div>
+            <div class="input-group col-md-6 col-md-offset-3">
+              <input type="text" class="form-control" placeholder="Ingrese su emal aquí">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Enviar</button>
+              </span>
+            </div>
         </div>
     </div>
     <!--  END NEWSLETTER  -->
 
     <!--  FOOTER  -->
-    <div class='row footer' id='Footer'>
-        <div class="col-md-3">
-            <h2 class='final-logo'>MAYDAY</h2>
-        </div>
-        <div class="col-md-3">
-            <ul>
-                <h2 class='final-titles'>Contacto</h2>
-                <li class='final-text'>Av. Eduardo Madero 399</li>
-                <li class='final-text'>Ciudad Autónoma Bs. As.</li>
-                <li class='final-text'>+54 11 2150 4800</li>
-            </ul>
-        </div>
-        <div class="col-md-2">
-            <ul>
-                <h2 class='final-titles'>Home</h2>
-                <li class='final-text'>Promociones</li>
-                <li class='final-text'>Contacto</li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <ul>
-                <h2 class='final-titles'>Legales</h2>
-                <li class='final-text'>FAQ</li>
-                <li class='final-text'>Términos y Condiciones</li>
-            </ul>
+    <div class="container">
+        <div class='row footer' id='Footer'>
+            <div class="col-md-3">
+                <h2 class='final-logo'>MAYDAY</h2>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <h2 class='final-titles'>Contacto</h2>
+                    <li class='final-text'>Av. Eduardo Madero 399</li>
+                    <li class='final-text'>Ciudad Autónoma Bs. As.</li>
+                    <li class='final-text'>+54 11 2150 4800</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul>
+                    <h2 class='final-titles'>Home</h2>
+                    <li class='final-text'>Promociones</li>
+                    <li class='final-text'>Contacto</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <h2 class='final-titles'>Legales</h2>
+                    <li class='final-text'>FAQ</li>
+                    <li class='final-text'>Términos y Condiciones</li>
+                </ul>
+            </div>
         </div>
     </div>
     <!--  END FOOTER  -->
