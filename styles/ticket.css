@@ -1,0 +1,262 @@
+.ticket {
+	/*Props*/
+	vertical-align: top;
+
+	/*Dims*/
+	width: 900px;
+	height: 400px;
+	padding: 20px;
+	
+	/*Styles*/
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+}
+.ticket_info {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 65%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+
+	/*Styles*/
+	/*background-color: red;*/
+}
+
+.ticket_price {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 33.9%;
+	height: 100%;
+	padding: 0;
+
+	/*Stryles*/
+	/*background-color: green;*/
+}
+
+.ticket_separator1 {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 1px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+
+	/*Styles*/
+	background-color: gray;
+}
+
+.ticket_from {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 100%;
+	height: 60%;
+	padding: 0;
+	margin: 0;
+
+	/*Styles*/
+	/*background-color: #ad2018;*/
+}
+
+.ticket_separator2 {
+	/*Props*/
+	vertical-align: top;
+
+	/*Dims*/
+	width: 90%;
+	height: 1px;
+	margin-left: 5%;
+	padding: 0;
+
+	/*Styles*/
+	background-color: gray;
+}
+
+.ticket_to {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 100%;
+	height: 39.9%;
+	padding: 0;
+	margin: 0;
+	transform: scale(0.8, 0.8);
+	margin-left: -10%;
+
+	/*Styles*/
+	/*background-color: #dd0c30;*/
+}
+p.ticket_from_title {
+	/*Props*/
+	display: inline-block;
+
+	/*Dims*/
+	margin-right: 10px;
+
+	/*Style*/
+	font-size: 20px;
+}
+.ticket_airline_logo {
+	/*Props*/
+	display: inline-block;
+
+	/*Dims*/
+	width: 130px;
+}
+.ticket_from_details {
+	/*Props*/
+	display: block;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 100%;
+	height: 80%;
+
+	/*Styles*/
+	/*background-color: #ed2c21;*/
+
+}
+.flight {
+	/*Props*/
+	display: inline-block;
+	position: relative;
+
+	/*Dims*/
+	width: 57%;
+
+	/*Style*/
+	/*background-color: blue;*/
+}
+.from_plane_size {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+
+	/*Dims*/
+	width: 100%;
+	height: 35px;
+	margin-top: 2.5%;
+
+	/*Style*/
+	/*background-color: green;*/
+}
+.location {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+
+	/*Dims*/
+	margin-bottom: 30px;
+
+	/*Style*/
+	/*background-color: green;*/
+}
+.location_airport {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+
+	/*Dims*/
+	font-size: 35px;
+	margin-bottom: 0;
+
+	/*Style*/
+	font-weight: bold;
+}
+.location_city {
+	/*Props*/
+	display: block;
+	vertical-align: top;
+	position: absolute;
+
+	/*Dims*/
+	margin-top: -5px;
+
+	/*Style*/
+	font-size: 15px;
+}
+
+.total_time {
+	/*Props*/
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+
+	/*Dims*/
+	margin-right: 10px;
+	margin-top: 25px;
+
+	/*Style*/
+	font-size: 13px;
+}
+.ticket_time_details {
+
+	/*Dims*/
+
+
+	/*Styles*/
+	/*background-color: green;*/
+}
+.departure {
+	/*Props*/
+	display: inline-block;
+
+	/*Style*/
+}
+.time_departure {
+	/*Dims*/
+	margin-bottom: 5px;
+
+	/*Style*/
+	font-weight: bold;
+	font-size: 20px;
+}
+.time_arrival {
+
+	/*Dims*/
+	margin-bottom: 5px;
+
+	/*Style*/
+	font-weight: bold;
+	font-size: 20px;
+}
+.arrival {
+	/*Props*/
+	display: inline-block;
+	float: right;
+
+	/*Dims*/
+	margin-right: 10px;
+
+	/*Style*/
+
+}
+.flight_number {
+	/*Props*/
+	display: block;
+
+	/*Dims*/
+	margin-top: 10px;
+
+	/*Style*/
+}
+
+
+.ticket_test {
+	margin: 20px;
+}
