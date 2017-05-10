@@ -21,6 +21,7 @@
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	padding-right: 10px;
 
 	/*Styles*/
 	/*background-color: red;*/
@@ -32,7 +33,7 @@
 	vertical-align: top;
 
 	/*Dims*/
-	width: 33.9%;
+	width: 33.5%;
 	height: 100%;
 	padding: 0;
 
@@ -62,7 +63,7 @@
 
 	/*Dims*/
 	width: 100%;
-	height: 60%;
+	height: 50%;
 	padding: 0;
 	margin: 0;
 
@@ -75,9 +76,9 @@
 	vertical-align: top;
 
 	/*Dims*/
-	width: 90%;
+	width: 98%;
 	height: 1px;
-	margin-left: 5%;
+	margin-left: 0%;
 	padding: 0;
 
 	/*Styles*/
@@ -91,11 +92,10 @@
 
 	/*Dims*/
 	width: 100%;
-	height: 39.9%;
+	height: 49.9%;
 	padding: 0;
 	margin: 0;
-	transform: scale(0.8, 0.8);
-	margin-left: -10%;
+	margin-top: 2%;
 
 	/*Styles*/
 	/*background-color: #dd0c30;*/
@@ -116,6 +116,7 @@ p.ticket_from_title {
 
 	/*Dims*/
 	width: 130px;
+	margin-top: -10px;
 }
 .ticket_from_details {
 	/*Props*/
@@ -198,7 +199,7 @@ p.ticket_from_title {
 	float: right;
 
 	/*Dims*/
-	margin-right: 10px;
+	/*margin-right: 10px;*/
 	margin-top: 25px;
 
 	/*Style*/
@@ -241,21 +242,105 @@ p.ticket_from_title {
 	float: right;
 
 	/*Dims*/
-	margin-right: 10px;
+	/*margin-right: 10px;*/
 
 	/*Style*/
 
+}
+.date_departure {
+	/*Props*/
+	display: inline-block;
 }
 .flight_number {
 	/*Props*/
-	display: block;
+	display: inline-block;
 
 	/*Dims*/
-	margin-top: 10px;
+	margin-left: 20px;
 
 	/*Style*/
 }
 
+.favorite {
+	/*Props*/
+	float: right;
+	display: block;
+
+	/*Dims*/
+	height: 10%;
+
+	/*Styles*/
+	/*background-color: blue;*/
+}
+.prices_list {
+	/*Props*/
+	display: inline-block;
+
+	/*Dims*/
+	width: 100%;
+	height: 58%;
+	padding-left: 15px;
+
+	/*Styles*/
+	/*background-color: red;*/
+}
+.total_title {
+
+	/*Styles*/
+	/*background-color: brown;*/
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.total_price {
+	/*Styles*/
+	/*background-color: green;*/
+	font-size: 25px;
+	text-align: center;
+}
+.buy {
+	/*background-color: red;*/
+	font-size: 35px;
+	text-align: center;
+}
+ul.prices {
+	/*Style*/
+	list-style: none;
+
+	/*Dims*/
+	padding: 0;
+}
+li {
+	margin-bottom: 5%;
+}
+.list_title {
+	/*Props*/
+	display: inline-block;
+
+	/*Style*/
+	font-size: 18px;
+}
+.list_price {
+	/*Props*/
+	display: inline-block;
+	float: right;
+
+	/*Style*/
+	font-size: 18px;
+}
+
+.favorite_unselected {
+	/*Props*/
+	/*display: none !important;*/
+
+	/*Style*/
+}
+.favorite_selected {
+	/*Props*/
+	display: none !important;
+
+	/*Style*/	
+}
 
 .ticket_test {
 	margin: 20px;
