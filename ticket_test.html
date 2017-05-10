@@ -2,12 +2,6 @@
 <html>
 <head>
 	<title>Ticket Test</title>
-	<!-- Nuestro -->
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/ticket.css">
-    <link rel="stylesheet" href="styles/plane_line.css">
-    <!-- Fin nuestro -->
-
 
     <!-- JQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -19,6 +13,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Fin bootsrap -->
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Fin Google Icons -->
+
+
+    <!-- Nuestro -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/ticket.css">
+    <link rel="stylesheet" href="styles/plane_line.css">
+    <link rel="stylesheet" href="scripts/ticket.js">
+    <!-- Fin nuestro -->
+
 </head>
 <body>
 
@@ -85,6 +92,9 @@
 								<div class="date_departure">
 									Fecha: Jueves 20/4/2017
 								</div>
+								<div class="flight_number">
+									Vuelo: AA1231
+								</div>
 							</div>
 							<div class="arrival">
 								<div class="time_arrival">
@@ -94,9 +104,6 @@
 									Fecha: Viernes 21/4/2017
 								</div>
 							</div>
-						</div>
-						<div class="flight_number">
-							Vuelo: AA1231
 						</div>
 					</div>
 				</div>
@@ -161,6 +168,9 @@
 								<div class="date_departure">
 									Fecha: Jueves 20/4/2017
 								</div>
+								<div class="flight_number">
+									Vuelo: AA1231
+								</div>
 							</div>
 							<div class="arrival">
 								<div class="time_arrival">
@@ -177,7 +187,63 @@
 			</div>
 			<div class="ticket_separator1"></div>
 			<div class="ticket_price">
-
+				<div class="favorite">
+					<i class="favorite_selected material-icons">favorite</i>
+					<i class="favorite_unselected material-icons">favorite_border</i>
+				</div>
+				<div class="prices_list">
+					<ul class="prices">
+						<li>
+							<div class="list_title">
+								Por Adulto:
+							</div>
+							<div class="list_price">
+								11283.12 AR$
+							</div>
+						</li>
+						<li>
+							<div class="list_title">
+								Total infantes:
+							</div>
+							<div class="list_price">
+								11283.12 AR$
+							</div>
+						</li>
+						<li>
+							<div class="list_title">
+								Total adultos:
+							</div>
+							<div class="list_price">
+								11283.12 AR$
+							</div>
+						</li>
+						<li>
+							<div class="list_title">
+								Total Menores:
+							</div>
+							<div class="list_price">
+								11283.12 AR$
+							</div>
+						</li>
+						<li>
+							<div class="list_title">
+								Impuestos:
+							</div>
+							<div class="list_price">
+								11283.12 AR$
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="total_title">
+					Total
+				</div>
+				<div class="total_price">
+					11231.83 AR$
+				</div>
+				<div class="buy">
+					BUY
+				</div>
 			</div>
 		</div>
 	</div>
