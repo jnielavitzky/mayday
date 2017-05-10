@@ -3,6 +3,12 @@
     background-color: white;
 }
 
+.alignment {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 158px;
+}
+
 .nav-items {
     margin-top: 40px;
     font-size: 25px;
@@ -23,6 +29,27 @@
     max-height: 120px;
 }
 
+.counter {
+    font-size: 35px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: white;
+    font-family: lane;
+    src: url(./fonts) format('truetype');
+}
+
+button.btn-circular {
+    color: white;
+    font-size: 35px;
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid white;
+    height: 40px;
+    width: 40px;
+}
+
 .sale {
     height: 600px;
     background-color: #f6f6f6;
@@ -40,7 +67,13 @@
 }
 
 .nav-titles {
-    font-size: 25px;
+    font-size: 30px;
+    color: white;
+    padding-left: 60px;
+}
+
+.nav-titles-2 {
+    font-size: 27px;
     color: white;
     padding-left: 60px;
 }
@@ -57,6 +90,7 @@
     padding-left: 170px;
     font-size: 20px;
     color: white;
+    text-decoration: underline;
 }
 
 .final-logo {

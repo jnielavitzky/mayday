@@ -10,6 +10,7 @@
     crossorigin="anonymous"></script>
 
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
+    <script type="text/javascript" src="./js/main-nav.js"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet"
@@ -87,32 +88,35 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <a class="destino" href="">Añadir Destino</a>
+                <a class="destino" href="">Añadir tramo</a>
             </div>
         </div>
 
         <!-- THIRD ROW -->
         <div class='row'>
             <div class="col-md-2 col-md-offset-1">
-                <h3 class="nav-titles">Mayores</h3>
+                <h3 class="nav-titles-2">Mayores</h3>
             </div>
             <div class="col-md-2">
-                <h3 class="nav-titles">Menores</h3>
+                <h3 class="nav-titles-2">Menores</h3>
             </div>
             <div class="col-md-2">
-                <h3 class="nav-titles">Infantes</h3>
+                <h3 class="nav-titles-2">Infantes</h3>
             </div>
         </div>
 
         <!-- FOURTH ROW -->
         <div class='row'>
-            <div class="col-md-2 col-md-offset-1">
-
+            <div class="col-md-2 alignment">
+                <button class="btn-circular btn" type="button" onclick="onClickUP()">+</button>
+                <a class="counter" id="clicks">2</a>
+                <button class="btn-circular btn" type="button" onclick="onClickDOWN()">-</button>
             </div>
             <div class="col-md-2">
-
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-3">
                 <a class="btn btn-primary btn-lg" href="#" role="button">Buscar</a>
             </div>
         </div>
@@ -121,8 +125,8 @@
 
     <!--  SALE SECTION  -->
     <div class="container">
-        <div class='row sale' id='Sale'>
-            <div class="col-md-12 title">
+        <div class='row sale'>
+            <div class="title">
                 <h1>Destacados de la Semana</h1>
             </div>
         </div>
