@@ -4,24 +4,18 @@
     <meta charset="utf-8">
     <title>Mayday</title>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
+    <!-- JQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- End JQuery -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- End bootsrap -->
 
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-    crossorigin="anonymous">
+    <script type="text/javascript" src="./js/main-nav.js"></script>
 
 </head>
 <body>
@@ -87,32 +81,41 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <a class="destino" href="">Añadir Destino</a>
+                <a class="dest" href="">Añadir tramo</a>
             </div>
         </div>
 
         <!-- THIRD ROW -->
         <div class='row'>
             <div class="col-md-2 col-md-offset-1">
-                <h3 class="nav-titles">Mayores</h3>
+                <h3 class="nav-titles-2">Mayores</h3>
             </div>
             <div class="col-md-2">
-                <h3 class="nav-titles">Menores</h3>
+                <h3 class="nav-titles-2">Menores</h3>
             </div>
             <div class="col-md-2">
-                <h3 class="nav-titles">Infantes</h3>
+                <h3 class="nav-titles-2">Infantes</h3>
             </div>
         </div>
 
         <!-- FOURTH ROW -->
         <div class='row'>
-            <div class="col-md-2 col-md-offset-1">
-
+            <div class="col-md-2 alignment">
+                <button class="btn-circular" type="button" onclick="onClickUP(1)">+</button>
+                <a class="counter" id="clicks1">2</a>
+                <button class="btn-circular" type="button" onclick="onClickDOWN(1)">-</button>
             </div>
-            <div class="col-md-2">
-
+            <div class="col-md-2 alignment-2">
+                <button class="btn-circular" type="button" onclick="onClickUP(2)">+</button>
+                <a class="counter" id="clicks2">0</a>
+                <button class="btn-circular" type="button" onclick="onClickDOWN(2)">-</button>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2 alignment-2">
+                <button class="btn-circular" type="button" onclick="onClickUP(3)">+</button>
+                <a class="counter" id="clicks3">0</a>
+                <button class="btn-circular" type="button" onclick="onClickDOWN(3)">-</button>
+            </div>
+            <div class="col-md-2 alignment-3">
                 <a class="btn btn-primary btn-lg" href="#" role="button">Buscar</a>
             </div>
         </div>
@@ -121,8 +124,8 @@
 
     <!--  SALE SECTION  -->
     <div class="container">
-        <div class='row sale' id='Sale'>
-            <div class="col-md-12 title">
+        <div class='row sale'>
+            <div class="title">
                 <h1>Destacados de la Semana</h1>
             </div>
         </div>

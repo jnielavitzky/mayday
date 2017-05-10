@@ -1,0 +1,68 @@
+.min_container {
+	/*Dims*/
+	min-height: 1000px; /*Esto es para que las barras fijas entren*/
+	vertical-align: top;
+}
+.results_search_bar_container {
+	/*Props*/
+	position: absolute;
+	z-index: -1;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 290px;
+	height: 400px;
+	padding: 5px;
+
+	/*Style*/
+	/*background-color: red;*/
+}
+.results_filter_bar_container {
+	/*Props*/
+	position: absolute;
+	z-index: -1;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 290px;
+	height: 400px;
+	top: 400px;
+	padding: 5px; 
+	margin-top: 15px;
+
+	/*Style*/
+	/*background-color: green;*/
+}
+.results_tickets {
+	/*Props*/
+	position: relative;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 100% -400px;
+	height: 100%;
+	margin-left: 300px;
+	padding: 5px;
+
+	/*Style*/
+	/*background-color: blue;*/
+}
+
+.results_bar {
+
+	/*Dims*/
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+	padding-top: 10px;
+	
+	/*Style*/
+	/*background-color: blue;*/
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bar_title {
+	/*Style*/
+	font-size: 20px;
+	font-weight: bold;
+}

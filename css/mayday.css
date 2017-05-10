@@ -3,6 +3,24 @@
     background-color: white;
 }
 
+.alignment {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 158px;
+}
+
+.alignment-2 {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 5px;
+}
+
+.alignment-3 {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 145px;
+}
+
 .nav-items {
     margin-top: 40px;
     font-size: 25px;
@@ -23,6 +41,29 @@
     max-height: 120px;
 }
 
+.counter {
+    height: 40px;
+    font-size: 35px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: white;
+    font-family: lane;
+    src: url(./fonts) format('truetype');
+}
+
+button.btn-circular {
+    color: white;
+    font-size: 35px;
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid white;
+    line-height: 40px;
+    width: 43px;
+    padding: 0px;
+}
+
 .sale {
     height: 600px;
     background-color: #f6f6f6;
@@ -40,7 +81,13 @@
 }
 
 .nav-titles {
-    font-size: 25px;
+    font-size: 30px;
+    color: white;
+    padding-left: 60px;
+}
+
+.nav-titles-2 {
+    font-size: 27px;
     color: white;
     padding-left: 60px;
 }
@@ -50,13 +97,14 @@
     height: 140px;
 }
 
-.destino {
+.dest {
     font-family: coolvetica;
     src: url(./fonts) format('truetype');
     align-items: center;
     padding-left: 170px;
     font-size: 20px;
     color: white;
+    text-decoration: underline;
 }
 
 .final-logo {
@@ -81,7 +129,7 @@
     font-size: 20px;
     color: white;
     font-family: lane;
-    src: url(.\font) format('truetype');
+    src: url(.\fonts) format('truetype');
 }
 
 .footer {
