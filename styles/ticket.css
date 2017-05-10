@@ -3,9 +3,12 @@
 	vertical-align: top;
 
 	/*Dims*/
-	width: 900px;
+	/*width: 800px;*/
+	width: 100%;
+	min-width: 800px;
 	height: 400px;
 	padding: 20px;
+	margin-bottom: 20px; 
 	
 	/*Styles*/
 	background-color: white;
