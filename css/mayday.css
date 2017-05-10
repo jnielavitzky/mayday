@@ -48,6 +48,8 @@ button.btn-circular {
     border: 2px solid white;
     height: 40px;
     width: 40px;
+    padding: 0px;
+    margin: 0;
 }
 
 .sale {
@@ -115,7 +117,7 @@ button.btn-circular {
     font-size: 20px;
     color: white;
     font-family: lane;
-    src: url(.\font) format('truetype');
+    src: url(.\fonts) format('truetype');
 }
 
 .footer {
