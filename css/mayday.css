@@ -9,6 +9,18 @@
     margin-left: 158px;
 }
 
+.alignment-2 {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 5px;
+}
+
+.alignment-3 {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 145px;
+}
+
 .nav-items {
     margin-top: 40px;
     font-size: 25px;
@@ -30,6 +42,7 @@
 }
 
 .counter {
+    height: 40px;
     font-size: 35px;
     padding-left: 6px;
     padding-right: 6px;
@@ -46,10 +59,9 @@ button.btn-circular {
     border-radius: 50%;
     background-color: transparent;
     border: 2px solid white;
-    height: 40px;
-    width: 40px;
+    line-height: 40px;
+    width: 43px;
     padding: 0px;
-    margin: 0;
 }
 
 .sale {
@@ -85,7 +97,7 @@ button.btn-circular {
     height: 140px;
 }
 
-.destino {
+.dest {
     font-family: coolvetica;
     src: url(./fonts) format('truetype');
     align-items: center;
