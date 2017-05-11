@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Mayday</title>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+    <link rel='stylesheet' type='text/css' href='./InformacionPersonal.css'>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row" id="barra">
+			<div class="col-lg-3">
+				<p class="titulos">Información del pasajero</p>
+			</div>
+			<div class="col-lg-3">
+				<p class="titulos-no">Pago</p>
+			</div>
+			<div class="col-lg-3">
+				<p class="titulos-no">Contacto</p>
+			</div>
+			<div class="col-lg-3">
+				<p class="titulos-no">Resúmen</p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" id="pasajero">
+			<p class="resumido">Pasajero</p>
+		</div>
+	</div>
+	<form>
+		<div class="container" id="info">
+			<div class="row">
+				<div class="col-lg-6">
+					<label class="datos">Nombre</label>
+					<br>
+					<input type="text" name="nombre" class="fill-in">
+				</div>
+				<div class="col-lg-6">
+					<label class="datos">Apellido</label>
+					<br>
+					<input type="text" name="apellido" class="fill-in">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<label class="datos">Identificación</label>
+				</div>
+				<div class="col-lg-6">
+					<label class="datos">Fecha de Nacimiento</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1">
+					<select class="seleccion-doc">
+						<option value="DNI" selected>DNI</option>
+						<option value="Pasaporte">Pasaporte</option>
+					</select>
+				</div>
+				<div class="col-lg-5">
+					<input type="text" name="nroDocumento" class="fill-in-doc">
+				</div>
+				<div class="col-lg-1">
+					<select class="seleccion-fecha" id="dia">
+						<option selected="Dia">Dia</option>
+						<option >1</option>
+						<option >2</option>
+						<option >3</option>
+						<option >4</option>
+						<option >5</option>
+						<option >6</option>
+						<option >7</option>
+						<option >8</option>
+						<option >8</option>
+						<option >10</option>
+						<option >11</option>
+						<option >12</option>
+						<option >13</option>
+						<option >14</option>
+						<option >15</option>
+						<option >16</option>
+						<option >17</option>
+						<option >18</option>
+						<option >19</option>
+						<option >20</option>
+						<option >21</option>
+						<option >22</option>
+						<option >23</option>
+						<option >24</option>
+						<option >25</option>
+						<option >26</option>
+						<option >27</option>
+						<option >28</option><!--validar el mes jquery-->
+						<option >29</option>
+						<option >30</option>
+						<option >31</option>
+					</select>
+				</div>
+				<div class="col-lg-1">
+					<select class="seleccion-fecha">
+						<option selected>Mes</option>
+						<option>Enero</option>
+						<option>Febrero</option>
+						<option>Marzo</option>
+						<option>Abril</option>
+						<option>Mayo</option>
+						<option>Junio</option>
+						<option>Julio</option>
+						<option>Agosto</option>
+						<option>Septiembre</option>
+						<option>Octubre</option>
+						<option>Noviembre</option>
+						<option>Diciembre</option>		
+					</select>
+				</div>
+				<div class="col-lg-1">
+					<select class="seleccion-fecha">
+						<option selected>Año</option>
+						<option>1954</option>
+						<option>1955</option>
+						<option>1956</option>
+						<option>1957</option>
+						<option>1958</option>
+						<option>1959</option>
+						<option>1960</option>
+						<option>1961</option>
+						<option>1962</option>
+						<option>1963</option>
+						<option>1964</option>
+						<option>1965</option>
+						<option>1966</option>
+						<option>1967</option>
+						<option>1968</option>
+						<option>1969</option>
+						<option>1970</option>
+						<option>1971</option>
+						<option>1972</option>
+						<option>1973</option>
+						<option>1974</option>
+						<option>1975</option>
+						<option>1976</option>
+						<option>1977</option>
+						<option>1978</option>
+						<option>1979</option>
+						<option>1980</option>
+						<option>1981</option>
+						<option>1982</option>
+						<option>1983</option>
+						<option>1984</option>
+						<option>1985</option>
+						<option>1986</option>
+						<option>1987</option>
+						<option>1988</option>
+						<option>1989</option>
+						<option>1990</option>
+						<option>1991</option>
+						<option>1992</option>
+						<option>1993</option>
+						<option>1994</option>
+						<option>1995</option>
+						<option>1996</option>
+						<option>1997</option>
+						<option>1998</option>
+						<option>1999</option>
+						<option>2000</option>
+						<option>2001</option>
+						<option>2002</option>
+						<option>2003</option>
+						<option>2004</option>
+						<option>2005</option>
+						<option>2006</option>
+						<option>2007</option>
+						<option>2008</option>
+						<option>2009</option>
+						<option>2010</option>
+						<option>2011</option>
+						<option>2012</option>
+						<option>2013</option>
+						<option>2014</option>
+						<option>2015</option>
+						<option>2016</option>
+						<option>2017</option>
+					</select>
+				</div>
+				<div class="col-lg-3"></div>
+			</div>
+		</div>
+	</form>
+	<nav aria-label>
+  		<ul class="pager">
+    		<li><a href="#" class="anterior">&laquo; Anterior</a></li>
+    		<li><a href="#" class="siguiente">Siguiente &raquo;</a></li>
+  		</ul>
+	</nav>
+</body>
+</html>
