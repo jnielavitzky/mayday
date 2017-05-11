@@ -1,0 +1,137 @@
+#barra{
+	height: 60px; 
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	border-radius: 7px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-top:15px;
+	margin-bottom:20px;
+}
+
+.titulos{
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
+	font-weight: bold; 
+}
+
+.titulos-no{
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
+	color: grey; 
+}
+
+.resumido{
+	text-align: center;
+	padding-top: 10px;
+}
+
+#pasajero{
+	height: 40px; 
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 7px;
+	width: 1130px; 
+	margin-left: 5px; 
+}
+
+.numeros{
+	width: 100px; 
+	height: 100px; 
+	margin - left:100px;
+	margin-top: 50px; 
+
+}
+
+.titulo-datos{
+	text-align: left;
+	font-size: 40px; 
+	font-weight: bold; 
+	margin-top: 70px; 
+	margin-left: 20px;
+}
+
+.datos-pago{
+	text-align: left;
+	font-size: 20px; 
+	margin-left: 120px; 
+	margin-top: 20px; 
+}
+
+.datos-pago-derecha{
+	text-align: left;
+	font-size: 20px; 
+	margin-top: 25px; 
+}
+
+
+.fill-in-first{
+	height: 35px;
+	margin-left: 120px; 
+	border-radius: 7px; 
+	border-width: 1px; 
+	border-color: black;
+	border-style: solid; 
+	width: 100px;
+}
+
+.fill-in{
+	height: 35px;
+	border-radius: 7px; 
+	border-width: 1px; 
+	border-color: black;
+	border-style: solid; 
+	width: 100px;
+}
+
+.fill-in-long{
+	height: 35px;
+	border-radius: 7px; 
+	border-width: 1px; 
+	border-color: black;
+	border-style: solid; 
+	width: 300px;
+	margin-left: 120px; 
+}
+
+.fill-in-long-right{
+	height: 35px;
+	border-radius: 7px; 
+	border-width: 1px; 
+	border-color: black;
+	border-style: solid; 
+	width: 300px;
+}
+
+.seleccion-fecha{
+	background: transparent;
+	width: 90px; 
+	height: 34px; 
+	font-size: 16px; 
+	border:1px solid black;
+	border-radius: 7px; 
+}
+
+.anterior{ 
+	color: black;
+	margin-top: 100px; 
+	margin-right: 100px; 
+	width: 200px;
+	background-color: grey;
+	font-size: 30px; 
+	font-weight: bold;  
+}
+
+.siguiente{
+	color: black;
+	margin-top: 100px; 
+	margin-left: 100px; 
+	width: 200px;
+	background-color: grey;
+	font-size: 30px; 
+	font-weight: bold;   
+}
