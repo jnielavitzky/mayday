@@ -3,15 +3,30 @@
 	min-height: 1000px; /*Esto es para que las barras fijas entren*/
 	vertical-align: top;
 }
+
+.comparison_results {
+	/*Props*/
+	position: relative;
+	vertical-align: top;
+
+	/*Dims*/
+	width: 100% -400px;
+	height: 100%;
+	margin-left: 300px;
+	padding: 5px;
+
+	/*Style*/
+	/*background-color: blue;*/
+}
+
 .results_search_bar_container {
 	/*Props*/
 	position: absolute;
-	z-index: -1;
 	vertical-align: top;
 
 	/*Dims*/
 	width: 290px;
-	height: 400px;
+	height: auto;
 	padding: 5px;
 
 	/*Style*/
@@ -20,15 +35,14 @@
 .results_filter_bar_container {
 	/*Props*/
 	position: absolute;
-	z-index: -1;
 	vertical-align: top;
 
 	/*Dims*/
 	width: 290px;
 	height: 400px;
-	top: 400px;
+	top: 385px;
 	padding: 5px; 
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 
 	/*Style*/
 	/*background-color: green;*/
@@ -65,4 +79,62 @@
 	/*Style*/
 	font-size: 20px;
 	font-weight: bold;
+
+	/*Dims*/
+	margin-bottom: 15px;
 }
+
+.bar_subtitle {
+	/*Props*/
+	display: inline-block;
+
+	/*Dims*/
+	margin-bottom: 5px;
+	margin-top: 10px;
+
+	/*Style*/
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.bar_inline_subtitle {
+	/*Props*/
+	display: inline-block;
+	float: right;
+	text-align: left;
+
+	/*Dims*/
+	height: 100%;
+	width: 50%;
+	line-height: 28px;
+
+	/*Style*/
+
+
+}
+
+.inline_div {
+	/*Dims*/
+	margin-bottom: 10px;
+	width: 100%;
+}
+.filter-select {
+	/*Dims*/
+	width: 100%;
+}
+.filter-select-inline {
+	/*Props*/
+	display: inline-block;
+	/*Dims*/
+	width: 30%;
+}
+.search_button {
+	/*Props*/
+	text-align: center;
+
+	/*Dims*/
+	margin-top: 20px;
+}
+
+
+
