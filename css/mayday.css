@@ -23,10 +23,20 @@
 
 .nav-items {
     margin-top: 40px;
+    margin-left: 30px;
     font-size: 25px;
     font-family: coolvetica;
     src: url(./fonts) format('truetype');
     color: #3A3A3A;
+}
+
+.nm {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.nm-2 {
+    margin-left: 10px;
 }
 
 .nav-comp {
@@ -60,12 +70,11 @@ button.btn-circular {
     background-color: transparent;
     border: 2px solid white;
     line-height: 40px;
-    width: 43px;
+    width: 44px;
     padding: 0px;
 }
 
 .sale {
-    height: 600px;
     background-color: #f6f6f6;
 }
 
@@ -124,6 +133,54 @@ button.btn-circular {
     src: url(./fonts) format('truetype');
 }
 
+.card {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 0px;
+    height: 245px;
+    width: 270px;
+    border: 1px solid grey;
+}
+
+ul.tite-price {
+    padding: 0px;
+    column-count: 2;
+    column-gap: 20px;
+    text-align: left;
+    margin: 0px;
+}
+
+.card-img{
+    padding: 5px;
+    padding-right: 8px;
+    height: 180px;
+    width: 270px;
+}
+
+.card-main-text {
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+    font-size: 27px;
+    color: black;
+    list-style-type: none;
+    margin-left: 6px;
+}
+
+.card-main-text.price {
+    text-align: right;
+    margin-right: 6px;
+}
+
+p.card-text {
+    font-family: lane;
+    src: url(./fonts) format('truetype');
+    font-size: 15px;
+    color: black;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 5px;
+}
+
 .final-text {
     list-style-type: none;
     font-size: 20px;
@@ -135,4 +192,14 @@ button.btn-circular {
 .footer {
     height: 200px;
     background-color: #3A3A3A;
+}
+
+a.counter:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a.main-t:hover, a.main-t {
+    text-decoration: none;
+    color:#3A3A3A;
 }

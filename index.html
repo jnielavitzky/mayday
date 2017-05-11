@@ -16,7 +16,6 @@
 
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
     <script type="text/javascript" src="./js/main-nav.js"></script>
-
 </head>
 <body>
     <!--  NAV BAR  -->
@@ -25,14 +24,14 @@
             <div class="col-md-3">
                 <a href="index.html"><img class="logo" src=".\images\logo.PNG"></a>
             </div>
-            <div class="col-md-2 nav-items">
-                <a href="#">Home</a>
+            <div class="col-md-2 nav-items nm">
+                <a class="main-t" href="sobre-nosotros.html">Sobre Nosotros</a>
             </div>
-            <div class="col-md-3 nav-items">
-                <a href="promociones.html">Promociones</a>
+            <div class="col-md-2 col-md-offset-1 nav-items">
+                <a class="main-t" href="promociones.html">Promociones</a>
             </div>
-            <div class="col-md-2 nav-items">
-                <a href="contacto.html">Contacto</a>
+            <div class="col-md-1 nav-items nm-2">
+                <a class="main-t" href="contacto.html">Contacto</a>
             </div>
         </div>
     </div>
@@ -45,7 +44,12 @@
             <div class="col-sm-3 col-sm-offset-1 nav-comp">
                 <h3  class="nav-titles">Tipo de Vuelo</h3>
                 <div class="col-lg-12 col-lg-offset-2">
-                    <input type="text" class="form-control" placeholder="Ida y Vuelta">
+                    <button type="button" class="btn btn-block btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ida y Vuelta <span class="caret"></span>
+                    </button>
+                        <ul class="dropdown-menu">
+                        <li><a href="#">Solo Ida</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="col-sm-3 nav-comp">
@@ -64,25 +68,28 @@
 
         <!-- SECOND ROW -->
         <div class='row'>
-            <div class="col-sm-3 col-sm-offset-1 nav-int">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <div class="input-group date">
-                        <input type="text" class="form-control" placeholder="Partida">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            <form>
+                <div class="col-sm-3 col-sm-offset-1 nav-int">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <div class="input-group date">
+                            <input  type="date" class="form-control" placeholder="Partida">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            </input>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 nav-int">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <div class="input-group date">
-                        <input type="text" class="form-control" placeholder="Partida">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                <div class="col-md-3 nav-int">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <div class="input-group date">
+                            <input type="date" class="form-control" placeholder="Vuelta">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <a class="dest" href="">Añadir tramo</a>
-            </div>
+                <div class="col-md-4">
+                    <a class="dest" href="">Añadir tramo</a>
+                </div>
+            </form>
         </div>
 
         <!-- THIRD ROW -->
@@ -123,10 +130,74 @@
     <!--  END MAIN NAV -->
 
     <!--  SALE SECTION  -->
-    <div class="container">
-        <div class='row sale'>
-            <div class="title">
-                <h1>Destacados de la Semana</h1>
+    <div class="container sale">
+        <div class='row'>
+            <h1 class="title">Destacados de la Semana</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="card">
+                        <img class="card-img" src="http://www.panavision-tours.com/viajes/rumania-turismo/rumania-turismo.jpg">
+                        <ul class="tite-price">
+                            <li class="card-main-text">Rumania</li>
+                            <li class="card-main-text price">$14.532</li>
+                        </ul>
+                        <p class="card-text">Precio Por Adulto.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img" src="http://www.cienic.com/wp-content/uploads/2016/01/curiosidades-sobre-brasil-01.jpg">
+                        <ul class="tite-price">
+                            <li class="card-main-text">Brasil</li>
+                            <li class="card-main-text price">$10.245</li>
+                        </ul>
+                        <p class="card-text">Precio Por Adulto.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img" src="https://media-cdn.tripadvisor.com/media/photo-s/03/9b/2f/ce/maldives.jpg">
+                        <ul class="tite-price">
+                            <li class="card-main-text">I. Maldivas</li>
+                            <li class="card-main-text price">$50.256</li>
+                        </ul>
+                        <p class="card-text">Precio Por Adulto.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="card">
+                        <img class="card-img" src="http://issuespost.com/wp-content/uploads/2016/07/123912_islandia1.jpg">
+                        <ul class="tite-price">
+                            <li class="card-main-text">Islandia</li>
+                            <li class="card-main-text price">$8.352</li>
+                        </ul>
+                        <p class="card-text">Precio Por Adulto.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img" src="https://www.easyjet.com/es/vacaciones/shared/images/guides/portugal.jpg">
+                        <ul class="tite-price">
+                            <li class="card-main-text">Portugal</li>
+                            <li class="card-main-text price">$13.888</li>
+                        </ul>
+                        <p class="card-text">Precio Por Adulto.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img" src="https://ichef.bbci.co.uk/news/ws/660/amz/worldservice/live/assets/images/2015/01/22/150122081647_bergen_noruega_624x351_thinkstock.jpg">
+                        <ul class="tite-price">
+                            <li class="card-main-text">Noruega</li>
+                            <li class="card-main-text price">$4.578</li>
+                        </ul>
+                        <p class="card-text">Precio Por Adulto.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -139,7 +210,7 @@
                 <h1>Suscribite a Nuestro Newsletter</h1>
             </div>
             <div class="input-group col-md-6 col-md-offset-3">
-              <input type="text" class="form-control" placeholder="Ingrese su emal aquí">
+              <input type="email" class="form-control" placeholder="Ingrese su emal aquí">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Enviar</button>
               </span>
@@ -162,15 +233,16 @@
                     <li class='final-text'>+54 11 2150 4800</li>
                 </ul>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <ul>
-                    <h2 class='final-titles'>Home</h2>
+                    <h2 class='final-titles'>Institucional</h2>
+                    <li class='final-text'>Sobre Nosotros</li>
                     <li class='final-text'>Promociones</li>
                     <li class='final-text'>Contacto</li>
                 </ul>
             </div>
-            <div class="col-md-4">
-                <ul>
+            <div class="col-md-3 nm">
+                <ul class="nm">
                     <h2 class='final-titles'>Legales</h2>
                     <li class='final-text'>FAQ</li>
                     <li class='final-text'>Términos y Condiciones</li>
