@@ -1,0 +1,18 @@
+.table {
+    margin: 20px 20px 20px 20px; 
+
+    background: #fff;
+    border-radius: 2px;
+    width: 200px;
+}
+
+table.table thead th {
+    background-color:rgb(2,168,154);
+    text-align:center; 
+    font-weight: bold;
+    vertical-align:middle;
+}
+
+table.table tbody th { 
+    font-weight: normal;
+}
