@@ -1,5 +1,5 @@
 #barra{
-	height: 60px; 
+	height: 60px;
 	border-style: solid;
 	border-color: black;
 	border-width: 3px;
@@ -14,79 +14,83 @@
 	font-size: 20px;
 	text-align: center;
 	padding-top: 10px;
-	font-weight: bold; 
+	font-weight: bold;
+	font-family: lane;
+    src: url(./fonts) format('truetype');
 }
 
 .titulos-no{
 	font-size: 20px;
 	text-align: center;
 	padding-top: 10px;
-	color: grey; 
+	color: grey;
+	font-family: lane;
+    src: url(./fonts) format('truetype');
 }
 
 .datos-pago{
 	text-align: left;
-	font-size: 20px; 
-	margin-left: 120px; 
-	margin-top: 20px; 
+	font-size: 20px;
+	margin-left: 120px;
+	margin-top: 20px;
 }
 
 .fill-in-long{
 	height: 35px;
-	border-radius: 7px; 
-	border-width: 1px; 
+	border-radius: 7px;
+	border-width: 1px;
 	border-color: black;
-	border-style: solid; 
+	border-style: solid;
 	width: 300px;
-	margin-left: 120px;  
+	margin-left: 120px;
 }
 
 .fill-in{
 	height: 35px;
-	border-radius: 7px; 
-	border-width: 1px; 
+	border-radius: 7px;
+	border-width: 1px;
 	border-color: black;
-	border-style: solid; 
+	border-style: solid;
 	width: 50px;
 	margin-left: -20px;
 }
 
 .fill-in-first{
 	height: 35px;
-	margin-left: 120px; 
-	border-radius: 7px; 
-	border-width: 1px; 
+	margin-left: 120px;
+	border-radius: 7px;
+	border-width: 1px;
 	border-color: black;
-	border-style: solid; 
+	border-style: solid;
 	width: 50px;
 }
 
 .fill-in-long-derecha{
 	height: 35px;
-	border-radius: 7px; 
-	border-width: 1px; 
+	border-radius: 7px;
+	border-width: 1px;
 	border-color: black;
-	border-style: solid; 
+	border-style: solid;
 	width: 300px;
-	margin-left: -63px; 
+	margin-left: -63px;
 }
 
-.anterior{ 
+.anterior{
 	color: black;
-	margin-top: 100px; 
-	margin-right: 100px; 
+	margin-top: 100px;
+	margin-right: 100px;
 	width: 200px;
 	background-color: grey;
-	font-size: 30px; 
-	font-weight: bold;  
+	font-size: 30px;
+	font-weight: bold;
 }
 
 .siguiente{
 	color: black;
-	margin-top: 100px; 
-	margin-left: 100px; 
+	margin-top: 100px;
+	margin-left: 100px;
 	width: 200px;
 	background-color: grey;
-	font-size: 30px; 
-	font-weight: bold;   
+	font-size: 30px;
+	font-weight: bold;
 }
