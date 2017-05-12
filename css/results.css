@@ -39,7 +39,7 @@
 
 	/*Dims*/
 	width: 290px;
-	height: 400px;
+	height: auto;
 	top: 385px;
 	padding: 5px; 
 	/*margin-top: 15px;*/
@@ -141,5 +141,16 @@
 	/*Dims*/
 	margin-top: 10px;
 	width: 100%;
+}
+.slider-values {
+	/*Props*/
+	display: inline-block;
+
+	/*Dims*/
+	width: 100%;
+	margin-top: 10px;
+
+	/*Style*/
+	/*background-color: red;*/
 }
 
