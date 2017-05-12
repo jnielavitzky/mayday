@@ -1,0 +1,401 @@
+{
+  "meta": {
+    "uuid": "b8bb24f3-1aa8-41e2-b4e1-61d32f41ada6",
+    "time": "682.774ms"
+  },
+  "page": 1,
+  "page_size": 30,
+  "total": 52,
+  "airports": [
+    {
+      "id": "FCO",
+      "description": "Aeropuerto Internacional Leonardo da Vinci (Fiumicino), Roma, Italia",
+      "city": {
+        "id": "ROM",
+        "country": {
+          "id": "IT"
+        }
+      },
+      "time_zone": "01:00",
+      "longitude": 12.2511,
+      "latitude": 41.7956
+    },
+    {
+      "id": "CIA",
+      "description": "Aeropuerto Ciampino, Roma, Italia",
+      "city": {
+        "id": "ROM",
+        "country": {
+          "id": "IT"
+        }
+      },
+      "time_zone": "01:00",
+      "longitude": 12.5722,
+      "latitude": 41.8544
+    },
+    {
+      "id": "GRU",
+      "description": "Aeropuerto Internacional Guarulhos, San Pablo, Brasil",
+      "city": {
+        "id": "SAO",
+        "country": {
+          "id": "BR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -46.4817,
+      "latitude": -23.4257
+    },
+    {
+      "id": "CGH",
+      "description": "Aeropuerto Internacional Congonhas, San Pablo, Brasil",
+      "city": {
+        "id": "SAO",
+        "country": {
+          "id": "BR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -46.6596,
+      "latitude": -23.6267
+    },
+    {
+      "id": "VCP",
+      "description": "Aeropuerto Internacional Viracopos (Campinas), San Pablo, Brasil",
+      "city": {
+        "id": "SAO",
+        "country": {
+          "id": "BR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -47.1417,
+      "latitude": -23.0097
+    },
+    {
+      "id": "SCL",
+      "description": "Aeropuerto Arturo Merino Benitez, Santiago de Chile, Chile",
+      "city": {
+        "id": "SCL",
+        "country": {
+          "id": "CL"
+        }
+      },
+      "time_zone": "-04:00",
+      "longitude": -70.7945,
+      "latitude": -33.3972
+    },
+    {
+      "id": "ULC",
+      "description": "Aeropuerto Los Cerrillos, Santiago de Chile, Chile",
+      "city": {
+        "id": "SCL",
+        "country": {
+          "id": "CL"
+        }
+      },
+      "time_zone": "-04:00",
+      "longitude": -70.6947,
+      "latitude": -33.4897
+    },
+    {
+      "id": "BHI",
+      "description": "Aeropuerto Comandante Espora, Bahia Blanca, Argentina",
+      "city": {
+        "id": "BHI",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -62.1639,
+      "latitude": -38.7162
+    },
+    {
+      "id": "COR",
+      "description": "Aeropuerto Pajas Blancas, Cordoba, Argentina",
+      "city": {
+        "id": "COR",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -64.2138,
+      "latitude": -31.3154
+    },
+    {
+      "id": "NQN",
+      "description": "Aeropuerto Neuquen, Neuquen, Argentina",
+      "city": {
+        "id": "NQN",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -68.1404,
+      "latitude": -38.9523
+    },
+    {
+      "id": "UAQ",
+      "description": "Aeropuerto San Juan, San Juan, Argentina",
+      "city": {
+        "id": "UAQ",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -68.4228,
+      "latitude": -31.5715
+    },
+    {
+      "id": "BRC",
+      "description": "Aeropuerto Internacional San Carlos de Bariloche, San Carlos de Bariloche, Argentina",
+      "city": {
+        "id": "BRC",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -71.1615,
+      "latitude": -41.1465
+    },
+    {
+      "id": "IGR",
+      "description": "Aeropuerto Cataratas del Iguazu, Puerto Iguazu, Argentina",
+      "city": {
+        "id": "IGR",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -54.4762,
+      "latitude": -25.7315
+    },
+    {
+      "id": "PSS",
+      "description": "Aeropuerto Posadas, Posadas, Argentina",
+      "city": {
+        "id": "PSS",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -55.9665,
+      "latitude": -27.3916
+    },
+    {
+      "id": "REL",
+      "description": "Aeropuerto Almirante Zar, Trelew, Argentina",
+      "city": {
+        "id": "REL",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -65.2837,
+      "latitude": -43.2095
+    },
+    {
+      "id": "FTE",
+      "description": "Aeropuerto El Calafate, El Calafate, Argentina",
+      "city": {
+        "id": "FTE",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -72.0536,
+      "latitude": -50.2842
+    },
+    {
+      "id": "JUJ",
+      "description": "Aeropuerto El Cadillal, San Salvador de Jujuy, Argentina",
+      "city": {
+        "id": "JUJ",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -65.0939,
+      "latitude": -24.3859
+    },
+    {
+      "id": "RGL",
+      "description": "Aeropuerto Internacional, Rio Gallegos, Argentina",
+      "city": {
+        "id": "RGL",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -69.3063,
+      "latitude": -51.612
+    },
+    {
+      "id": "TUC",
+      "description": "Aeropuerto Benjamin Matienzo, San Miguel de Tucuman, Argentina",
+      "city": {
+        "id": "TUC",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -65.1083,
+      "latitude": -26.8357
+    },
+    {
+      "id": "CRD",
+      "description": "Aeropuerto Comodoro Rivadavia, Comodoro Rivadavia , Argentina",
+      "city": {
+        "id": "CRD",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -67.4684,
+      "latitude": -45.7902
+    },
+    {
+      "id": "MDZ",
+      "description": "Aeropuerto El Plumerillo, Mendoza, Argentina",
+      "city": {
+        "id": "MDZ",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -68.7988,
+      "latitude": -32.8279
+    },
+    {
+      "id": "SLA",
+      "description": "Aeropuerto Gen Belgrano, Salta, Argentina",
+      "city": {
+        "id": "SLA",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -65.4784,
+      "latitude": -24.8441
+    },
+    {
+      "id": "USH",
+      "description": "Aeropuerto Internacional Islas Malvinas Argentinas, Ushuaia, Argentina",
+      "city": {
+        "id": "USH",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -68.3124,
+      "latitude": -54.8393
+    },
+    {
+      "id": "EZE",
+      "description": "Aeropuerto Ezeiza Ministro Pistarini, Buenos Aires, Argentina",
+      "city": {
+        "id": "BUE",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -58.5397,
+      "latitude": -34.8126
+    },
+    {
+      "id": "AEP",
+      "description": "Aeropuerto Jorge Newbery, Buenos Aires, Argentina",
+      "city": {
+        "id": "BUE",
+        "country": {
+          "id": "AR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -58.4166,
+      "latitude": -34.5562
+    },
+    {
+      "id": "ASU",
+      "description": "Aeropuerto Silvio Pettirossi, Asuncion, Paraguay",
+      "city": {
+        "id": "ASU",
+        "country": {
+          "id": "PY"
+        }
+      },
+      "time_zone": "-04:00",
+      "longitude": -57.5138,
+      "latitude": -25.2416
+    },
+    {
+      "id": "BCN",
+      "description": "Aeropuerto El Prat De Llobregat, Barcelona, Espa\uFFFDa",
+      "city": {
+        "id": "BCN",
+        "country": {
+          "id": "ES"
+        }
+      },
+      "time_zone": "01:00",
+      "longitude": 2.0768,
+      "latitude": 41.3028
+    },
+    {
+      "id": "BOG",
+      "description": "Aeropuerto Internacional El Nuevo Dorado, Bogota, Colombia",
+      "city": {
+        "id": "BOG",
+        "country": {
+          "id": "CO"
+        }
+      },
+      "time_zone": "-05:00",
+      "longitude": -74.1431,
+      "latitude": 4.6986
+    },
+    {
+      "id": "CUN",
+      "description": "Aeropuerto Internacional Cancun, Cancun, Mexico",
+      "city": {
+        "id": "CUN",
+        "country": {
+          "id": "MX"
+        }
+      },
+      "time_zone": "-06:00",
+      "longitude": -86.8743,
+      "latitude": 21.0403
+    },
+    {
+      "id": "FLN",
+      "description": "Aeropuerto Hercilio Luz, Florianopolis, Brasil",
+      "city": {
+        "id": "FLN",
+        "country": {
+          "id": "BR"
+        }
+      },
+      "time_zone": "-03:00",
+      "longitude": -48.545,
+      "latitude": -27.6645
+    }
+  ]
+}

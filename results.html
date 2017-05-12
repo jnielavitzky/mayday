@@ -22,6 +22,7 @@
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
     <link rel='stylesheet' type='text/css' href='.\css\results.css'>
     <script type="text/javascript" src="./js/main-nav.js"></script>
+    <script type="text/javascript" src="./js/results.js"></script>
     <link rel="stylesheet" href="styles/ticket.css">
     <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="stylesheet" href="components/ComparisonTable/ComparisonTable.css">
@@ -30,8 +31,19 @@
     <!-- Select2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <!-- https://select2.github.io -->
+    <!-- Ejemplo: https://select2.github.io -->
     <!-- Fin de Select2 -->
+
+    <!-- NoUISlider -->
+    <link href="noUiSlider/nouislider.css" rel="stylesheet">
+    <script src="noUiSlider/nouislider.js"></script>
+    <!-- Fin NoUISlider -->
+
+    <!-- wNumb -->
+    <script src="wnumb/wNumb.js"></script>
+    <!-- Fin wNumb -->
+
+
 
 </head>
 <body>
@@ -64,27 +76,26 @@
                         <div class="bar_subtitle">
                             Desde:
                         </div>
-                        <select class="js-example-basic-single filter-select">
-                            <option value="AL">Alabama</option>
-                            <option value="WY">Wyoming</option>
+                        <select id="cities-from" class="js-example-basic-single filter-select">
+                            
                         </select>
                         <div class="bar_subtitle">
                             Hasta:
                         </div>
-                        <select class="js-example-basic-single filter-select">
-                            <option value="AL">Alabama</option>
-                            <option value="WY">Wyoming</option>
+                        <select id="cities-to" class="js-example-basic-single filter-select">
+                            
                         </select>
                         <div class="bar_subtitle">
                             Pasajeros:
                         </div>
                         <div class="inline_div">
                             <select class="js-example-basic-single filter-select-inline">
-                                <option value="AL">1</option>
-                                <option value="WY">2</option>
-                                <option value="WY">3</option>
-                                <option value="WY">4</option>
-                                <option value="WY">5</option>
+                                <option value="0">0</option>
+                                <option value="1" selected="">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                             <div class="bar_inline_subtitle">
                                 menores
@@ -92,11 +103,12 @@
                         </div>
                         <div class="inline_div">
                             <select class="js-example-basic-single filter-select-inline">
-                                <option value="AL">1</option>
-                                <option value="WY">2</option>
-                                <option value="WY">3</option>
-                                <option value="WY">4</option>
-                                <option value="WY">5</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                             <div class="bar_inline_subtitle">
                                 mayores
@@ -114,6 +126,10 @@
                         <div class="bar_title">
                             Filtros
                         </div>
+                        <div class="bar_subtitle">
+                            Rango de precios:
+                        </div>
+                        <div class="my_sliders sliders" id="price_range"></div>
                     </div>
                 </div>
                <!--  <div class="comparison_results">
@@ -863,4 +879,16 @@
 </html>
 <script type="text/javascript">
     $(".js-example-basic-single").select2();
+
+    var slider = document.getElementById('price_range');
+
+    noUiSlider.create(slider, {
+        start: [1000, 10000],
+        connect: true,
+        
+        range: {
+            'min': 0,
+            'max': 11000
+        }
+    });
 </script>
