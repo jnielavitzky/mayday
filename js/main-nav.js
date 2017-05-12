@@ -2,6 +2,10 @@ var clicks_1 = 2;
 var clicks_2 = 0;
 var clicks_3 = 0;
 
+    $(document).ready(function() {
+        $('.datepicker').datepicker();
+    });
+
     function onClickUP(item) {
         switch (item) {
             case 1:

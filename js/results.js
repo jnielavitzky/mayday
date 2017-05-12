@@ -4,11 +4,11 @@ var cities;
 var airport_city_map = {};
 
 $( document ).ready(function() {
-	$.getJSON( "ejemplo.json", function( data ) {
+	$.getJSON( "./ejemplo.json", function( data ) {
 		airports = data["airports"];
 		done();
 	});
-	$.getJSON( "ejemplo2.json", function( data ) {
+	$.getJSON( "./ejemplo2.json", function( data ) {
 		cities = data["cities"];
 		done();
 	});
@@ -16,7 +16,7 @@ $( document ).ready(function() {
 });
 
 function done() {
-	if (airports == null || cities == null) 
+	if (airports == null || cities == null)
 		return;
 
 	console.log("Tengo ambos! " + cities.length + " : " + airports.length);
@@ -36,6 +36,6 @@ function done() {
 		$('#cities-to').append("<option value='" + key + "'>" + airport_city_map[key] + "</option>");
 	}
 
-	
+
 
 }

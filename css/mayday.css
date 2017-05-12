@@ -135,10 +135,10 @@ button.btn-circular {
 
 .card {
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding-left: 0px;
-    height: 245px;
-    width: 270px;
+    height: 235px;
+    width: 330px;
     border: 1px solid grey;
 }
 
@@ -154,13 +154,13 @@ ul.tite-price {
     padding: 5px;
     padding-right: 8px;
     height: 180px;
-    width: 270px;
+    width: 330px;
 }
 
 .card-main-text {
     font-family: coolvetica;
     src: url(./fonts) format('truetype');
-    font-size: 27px;
+    font-size: 22px;
     color: black;
     list-style-type: none;
     margin-left: 6px;
