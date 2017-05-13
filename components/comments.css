@@ -24,10 +24,11 @@
     width: 80%;
 }
 
-.commentBox .form-group:nth-child(2),
+
+/*.commentBox .form-group:nth-child(2),
 .actionBox .form-group:nth-child(2) {
     width: 18%;
-}
+}*/
 
 
 /*.actionBox .form-group * {
@@ -67,6 +68,10 @@
 .actionBox {
     border-top: 1px dotted #bbb;
     padding: 0px 15px 10px 10px;
+}
+
+.form-group {
+    text-align: center;
 }
 
 .form-group input[type='text'] {

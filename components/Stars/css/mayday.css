@@ -1,0 +1,138 @@
+.navigation-bar {
+    height: 120px;
+    background-color: white;
+}
+
+.alignment {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 158px;
+}
+
+.alignment-2 {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 5px;
+}
+
+.alignment-3 {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-left: 145px;
+}
+
+.nav-items {
+    margin-top: 40px;
+    font-size: 25px;
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+    color: #3A3A3A;
+}
+
+.nav-comp {
+    padding-top: 50px;
+}
+
+.nav-int {
+    padding-top: 30px;
+}
+
+.logo {
+    max-height: 120px;
+}
+
+.counter {
+    height: 40px;
+    font-size: 35px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: white;
+    font-family: lane;
+    src: url(./fonts) format('truetype');
+}
+
+button.btn-circular {
+    color: white;
+    font-size: 35px;
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid white;
+    line-height: 40px;
+    width: 43px;
+    padding: 0px;
+}
+
+.sale {
+    height: 600px;
+    background-color: #f6f6f6;
+}
+
+.title {
+    text-align: center;
+    font-family: lane;
+    src: url(./fonts) format('truetype');
+}
+
+.main-nav {
+    height: 500px;
+    background-image: url(../images/back-img.png);
+}
+
+.nav-titles {
+    font-size: 30px;
+    color: white;
+    padding-left: 60px;
+}
+
+.nav-titles-2 {
+    font-size: 27px;
+    color: white;
+    padding-left: 60px;
+}
+
+.newsletter {
+    background-color: #9ecdd8;
+    height: 140px;
+}
+
+.dest {
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+    align-items: center;
+    padding-left: 170px;
+    font-size: 20px;
+    color: white;
+    text-decoration: underline;
+}
+
+.final-logo {
+    text-align: center;
+    font-size: 50px;
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+    color: white;
+}
+
+.final-titles {
+    padding-top: 10px;
+    text-align: left;
+    font-size: 25px;
+    color: white;
+    font-family: coolvetica;
+    src: url(./fonts) format('truetype');
+}
+
+.final-text {
+    list-style-type: none;
+    font-size: 20px;
+    color: white;
+    font-family: lane;
+    src: url(./fonts) format('truetype');
+}
+
+.footer {
+    height: 200px;
+    background-color: #3A3A3A;
+}
