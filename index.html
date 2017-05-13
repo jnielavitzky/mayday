@@ -14,10 +14,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- End bootsrap -->
 
+    <!-- Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- Ejemplo: https://select2.github.io -->
+    <!-- Fin de Select2 -->
+
     <link rel='stylesheet' type='text/css' href='./css/mayday.css'>
     <link rel='stylesheet' type='text/css' href='./css/datepicker.css'>
     <script type="text/javascript" src="./js/main-nav.js"></script>
-    <script type="text/javascript" src="./js/results.js"></script>
+    <script type="text/javascript" src="./js/server_data.js"></script>
     <script type="text/javascript" src="./js/bootstrap-datepicker.js"></script>
 
 </head>
@@ -59,7 +65,7 @@
             <div class="col-sm-3 nav-comp">
                 <h3  class="nav-titles">Origen</h3>
                 <div class="col-lg-12 col-lg-offset-2">
-                    <select id="cities-from" class="form-control"></select>
+                    <select id="cities-from" class="form-control js-example-basic-single"></select>
                     <!-- <input id="cities-from" type="text" class="form-control" placeholder="Ingrese desde donde viaja"> -->
                 </div>
             </div>
@@ -250,3 +256,6 @@
     <!--  END FOOTER  -->
 </body>
 </html>
+<script type="text/javascript">
+    $(".js-example-basic-single").select2();
+</script>
