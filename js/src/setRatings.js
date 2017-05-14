@@ -73,8 +73,13 @@ jQuery(document).ready(function() {
         return toggle;
     }
 
+
+    // CHECKBOX
+    $(':checkbox').checkboxpicker.defaults.onLabel = 'Sí';
     $(':checkbox').checkboxpicker();
 
+
+    // WRAPS UP ALL FEEDBACK
     finish = function() {
         var toggle = getToggle();
         var cl = getCmtList();

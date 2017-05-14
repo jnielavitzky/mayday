@@ -1,51 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Mayday</title>
-
     <!-- JQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- End JQuery -->
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- End bootsrap -->
-
     <!-- Google Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Fin Google Icons -->
-
     <!-- Select2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <!-- Ejemplo: https://select2.github.io -->
     <!-- Fin de Select2 -->
-
     <!-- NoUISlider -->
     <link href="noUiSlider/nouislider.css" rel="stylesheet">
     <script src="noUiSlider/nouislider.js"></script>
     <!-- Fin NoUISlider -->
-
     <!-- wNumb -->
     <script src="wnumb/wNumb.js"></script>
     <!-- Fin wNumb -->
-
     <!-- Moment.js -->
     <script src="js/moment.js"></script>
     <!-- Fin Moment.js -->
-
     <!-- Lo nuestro -->
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
     <link rel='stylesheet' type='text/css' href='.\css\results.css'>
     <link rel="stylesheet" href="styles/ticket.css">
     <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="stylesheet" href="components/ComparisonTable/ComparisonTable.css">
+    <!-- STAR RATING -->
+    <link rel="stylesheet" type='text/css' href=".\css\rating.css">
+    <!-- END STAR RATING -->
     <!-- Fin lo nuestro -->
-
 </head>
+
 <body>
     <!--  NAV BAR  -->
     <div class="container">
@@ -77,13 +73,11 @@
                             Origen:
                         </div>
                         <select id="cities-from" class="js-example-basic-single filter-select">
-
                         </select>
                         <div class="bar_subtitle">
                             Destino:
                         </div>
                         <select id="cities-to" class="js-example-basic-single filter-select">
-
                         </select>
                         <div class="bar_subtitle">
                             Pasajeros:
@@ -131,7 +125,7 @@
                         </div>
                         <div class="my_sliders sliders" id="price_range"></div>
                         <div id="price-slider-values" class="slider-values">
-                            Min: , max: 
+                            Min: , max:
                         </div>
                         <div class="bar_subtitle">
                             Moneda:
@@ -139,42 +133,39 @@
                         <select id="currency" class="js-example-basic-single filter-select">
                             <option value="ARS">Peso Argentino</option>
                             <option value="MX">Peso Mexicano</option>
-                            <option value="USD">Dolar Estadounidense</option>
+                            <option value="USD">Dólar Estadounidense</option>
                         </select>
                         <div class="bar_subtitle">
-                            Rango de duracion:
+                            Rango de duración:
                         </div>
                         <div class="my_sliders sliders" id="duration_range"></div>
                         <div id="duration-slider-values" class="slider-values">
-                            Min: , max: 
+                            Min: , max:
                         </div>
                         <div class="bar_subtitle">
-                            Aerolineas:
+                            Aerolíneas:
                         </div>
                         <div id="airlines_checkboxes">
                             <div class="checkbox">
-                              <label>
-                                <input type="checkbox" value="" checked>
-                                American Airelines
-                              </label>
+                                <label>
+                                    <input type="checkbox" value="" checked> American Airelines
+                                </label>
                             </div>
                             <div class="checkbox">
-                              <label>
-                                <input type="checkbox" value="" checked>
-                                Aerolineas Argentinas
-                              </label>
+                                <label>
+                                    <input type="checkbox" value="" checked> Aerolineas Argentinas
+                                </label>
                             </div>
                             <div class="checkbox">
-                              <label>
-                                <input type="checkbox" value="" checked>
-                                Delta Airlines
-                              </label>
+                                <label>
+                                    <input type="checkbox" value="" checked> Delta Airlines
+                                </label>
                             </div>
                         </div>
                         <div class="bar_subtitle">
-                            Rango de opinion:
+                            Rango de opinión:
                         </div>
-                        <br><!-- SACAR ESTO -->
+                        <div id="ratings"></div>
                         <div class="bar_subtitle">
                             Vuelo:
                         </div>
@@ -185,7 +176,7 @@
                         </select>
                     </div>
                 </div>
-               <!--  <div class="comparison_results">
+                <!--  <div class="comparison_results">
                     <table class="card-2 table table-bordered table-responsive table-striped">
                         <thead>
                             <tr>
@@ -273,7 +264,6 @@
                                                         <!-- <p class="duration">2 horas</p> -->
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -341,7 +331,6 @@
                                                         <!-- <p class="duration">2 horas</p> -->
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -377,7 +366,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -448,7 +436,6 @@
             </main>
         </div>
     </div>
-
     <!--  FOOTER  -->
     <div class="container">
         <div class='row footer' id='Footer'>
@@ -481,6 +468,11 @@
     </div>
     <!--  END FOOTER  -->
 </body>
+
 </html>
 <script type="text/javascript" src="./js/server_data.js"></script>
 <script type="text/javascript" src="./js/results.js"></script>
+<!-- STAR RATING -->
+<script src="js/rating.min.js"></script>
+<script src="js/opinionRange.js"></script>
+<!-- END STAR RATING -->

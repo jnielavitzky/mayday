@@ -68,6 +68,6 @@ function getCmtList() {
 
 //Get the comments on page ready
 $(function() {
-    localStorage.clear();
+    // localStorage.clear();
     bindCmt();
 });
