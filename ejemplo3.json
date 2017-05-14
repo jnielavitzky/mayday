@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "uuid": "34cd38fe-e1ac-4399-afbb-979a4b2d1bfb",
+    "time": "281.799617ms"
+  },
+  "page": 1,
+  "page_size": 30,
+  "total": 3,
+  "currency": {
+    "id": "USD"
+  },
+  "flights": [
+    {
+      "price": {
+        "adults": {
+          "base_fare": 278.00,
+          "quantity": 1
+        },
+        "children": null,
+        "infants": null,
+        "total": {
+          "charges": 11.12,
+          "taxes": 55.60,
+          "fare": 278.00,
+          "total": 344.72
+        }
+      },
+      "outbound_routes": [
+        {
+          "segments": [
+            {
+              "arrival": {
+                "date": "2017-12-26 07:09:00",
+                "airport": {
+                  "id": "TUC",
+                  "description": "Aeropuerto Benjamin Matienzo, San Miguel de Tucuman, Argentina",
+                  "time_zone": "-03:00",
+                  "city": {
+                    "id": "TUC",
+                    "name": "San Miguel de Tucuman, Tucuman",
+                    "country": {
+                      "id": "AR",
+                      "name": "Argentina"
+                    }
+                  }
+                }
+              },
+              "departure": {
+                "date": "2017-12-25 05:50:00",
+                "airport": {
+                  "id": "EZE",
+                  "description": "Aeropuerto Ezeiza Ministro Pistarini, Buenos Aires, Argentina",
+                  "time_zone": "-03:00",
+                  "city": {
+                    "id": "BUE",
+                    "name": "Buenos Aires, Ciudad de Buenos Aires",
+                    "country": {
+                      "id": "AR",
+                      "name": "Argentina"
+                    }
+                  }
+                }
+              },
+              "id": 94588,
+              "number": 8700,
+              "cabin_type": "ECONOMY",
+              "airline": {
+                "id": "8R",
+                "name": "SOL",
+                "rating": 4.80
+              },
+              "duration": "01:19",
+              "stopovers": [
+                
+              ]
+            }
+          ],
+          "duration": "01:19"
+        }
+      ]
+    },
+    {
+      "price": {
+        "adults": {
+          "base_fare": 293.00,
+          "quantity": 1
+        },
+        "children": null,
+        "infants": null,
+        "total": {
+          "charges": 11.72,
+          "taxes": 58.60,
+          "fare": 293.00,
+          "total": 363.32
+        }
+      },
+      "outbound_routes": [
+        {
+          "segments": [
+            {
+              "arrival": {
+                "date": "2017-12-25 08:37:00",
+                "airport": {
+                  "id": "TUC",
+                  "description": "Aeropuerto Benjamin Matienzo, San Miguel de Tucuman, Argentina",
+                  "time_zone": "-03:00",
+                  "city": {
+                    "id": "TUC",
+                    "name": "San Miguel de Tucuman, Tucuman",
+                    "country": {
+                      "id": "AR",
+                      "name": "Argentina"
+                    }
+                  }
+                }
+              },
+              "departure": {
+                "date": "2017-12-25 07:20:00",
+                "airport": {
+                  "id": "EZE",
+                  "description": "Aeropuerto Ezeiza Ministro Pistarini, Buenos Aires, Argentina",
+                  "time_zone": "-03:00",
+                  "city": {
+                    "id": "BUE",
+                    "name": "Buenos Aires, Ciudad de Buenos Aires",
+                    "country": {
+                      "id": "AR",
+                      "name": "Argentina"
+                    }
+                  }
+                }
+              },
+              "id": 94592,
+              "number": 2874,
+              "cabin_type": "ECONOMY",
+              "airline": {
+                "id": "8R",
+                "name": "SOL",
+                "rating": 4.80
+              },
+              "duration": "01:17",
+              "stopovers": [
+                
+              ]
+            }
+          ],
+          "duration": "01:17"
+        }
+      ]
+    },
+    {
+      "price": {
+        "adults": {
+          "base_fare": 266.00,
+          "quantity": 1
+        },
+        "children": null,
+        "infants": null,
+        "total": {
+          "charges": 10.64,
+          "taxes": 53.20,
+          "fare": 266.00,
+          "total": 329.84
+        }
+      },
+      "outbound_routes": [
+        {
+          "segments": [
+            {
+              "arrival": {
+                "date": "2017-12-25 22:06:00",
+                "airport": {
+                  "id": "TUC",
+                  "description": "Aeropuerto Benjamin Matienzo, San Miguel de Tucuman, Argentina",
+                  "time_zone": "-03:00",
+                  "city": {
+                    "id": "TUC",
+                    "name": "San Miguel de Tucuman, Tucuman",
+                    "country": {
+                      "id": "AR",
+                      "name": "Argentina"
+                    }
+                  }
+                }
+              },
+              "departure": {
+                "date": "2017-12-25 20:50:00",
+                "airport": {
+                  "id": "AEP",
+                  "description": "Aeropuerto Jorge Newbery, Buenos Aires, Argentina",
+                  "time_zone": "-03:00",
+                  "city": {
+                    "id": "BUE",
+                    "name": "Buenos Aires, Ciudad de Buenos Aires",
+                    "country": {
+                      "id": "AR",
+                      "name": "Argentina"
+                    }
+                  }
+                }
+              },
+              "id": 94660,
+              "number": 9738,
+              "cabin_type": "ECONOMY",
+              "airline": {
+                "id": "8R",
+                "name": "SOL",
+                "rating": 4.80
+              },
+              "duration": "01:16",
+              "stopovers": [
+                
+              ]
+            }
+          ],
+          "duration": "01:16"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "key": "airline",
+      "values": [
+        {
+          "id": "8R",
+          "name": "SOL",
+          "logo": "http://hci.it.itba.edu.ar/v1/images/8R.png",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "key": "stopover",
+      "values": [
+        {
+          "id": 0,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "key": "price",
+      "min": 329.84,
+      "max": 363.32
+    }
+  ]
+}
