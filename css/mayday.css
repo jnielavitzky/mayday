@@ -101,6 +101,11 @@ button.btn-circular {
     padding-left: 60px;
 }
 
+.nav-titles-3 {
+    font-size: 20px;
+    color: white;
+}
+
 .newsletter {
     background-color: #9ecdd8;
     height: 140px;
@@ -136,10 +141,10 @@ button.btn-circular {
 .card {
     margin-top: 20px;
     margin-bottom: 20px;
-    padding-left: 0px;
     height: 235px;
     width: 330px;
     border: 1px solid grey;
+    display: inline-block;
 }
 
 ul.tite-price {

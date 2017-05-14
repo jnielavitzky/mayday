@@ -6,6 +6,8 @@ var clicks_3 = 0;
         $('.datepicker').datepicker();
     });
 
+    $(".js-example-basic-single").select2();
+
     function onClickUP(item) {
         switch (item) {
             case 1:
