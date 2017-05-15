@@ -2,11 +2,15 @@ var offers = [];
 var ratio;
 var selected = [];
 
+var call;
+
 $(document).ready(function() {
-    $.getJSON('http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getlastminuteflightdeals&from=BUE', function(json) {
+    setTimeout(defaultCreator, 1000);
+    call = $.getJSON('http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getlastminuteflightdeals&from=BUE', function(json) {
             offers = json["deals"];
             var id = json["currency"]["id"];
             var url = "http://hci.it.itba.edu.ar/v1/api/misc.groovy?method=getcurrenciesratio&id1=" + id + "&id2=ARS";
+
             if(offers != "999"){
                 $.getJSON(url, function(currency) {
                         ratio = currency["ratio"];
@@ -18,6 +22,7 @@ $(document).ready(function() {
             }
     });
 });
+
 
     function bestOffers() {
         var todelete = 0;
@@ -37,6 +42,8 @@ $(document).ready(function() {
     }
 
     function defaultCreator() {
+        console.log("Canceled");
+        call.abort();
          $('#card-container').load('./defaultoffers.html');
     }
 
