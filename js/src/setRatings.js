@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
             html += "<div class='category_title'>";
             var currentTitle = cat.title;
 
-            html += String(currentTitle) + ': ' + cat.stars + '</div>';
+            html += String(currentTitle) + ": " + "<p>" + cat.stars + "</p>" + '</div>';
         }
 
         return html;

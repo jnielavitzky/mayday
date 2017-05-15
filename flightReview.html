@@ -40,8 +40,9 @@
             <div class="bar_subtitle">
                 Número de vuelo:
             </div>
-            <input id="flight_number">
-            </input>
+            <div id="flight_number_container" class="form-group has-feedback">
+                    <input class="form-control" id="flight_number" required="true" />
+            </div>
             <div class="search_button">
                 <button id="search_review_button" type="button" class="btn btn-primary btn-lg">
                     <span class="glyphicon glyphicon-search"></span> Buscar
@@ -52,22 +53,7 @@
 </div>
 <div class="container feedback">
     <div class="row">
-        <div class="o-container card-2">
             <div id="ratings"></div>
-            <br>
-            <!-- from https://codepen.io/magnus16/pen/buGiB -->
-            <div id="comments">
-                <div class="detailBox">
-                    <div class="titleBox">
-                        <label>Comentarios</label>
-                    </div>
-                    <div class="actionBox">
-                        <ul class="commentList">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </div>
