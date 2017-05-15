@@ -1,4 +1,6 @@
 var finish;
+var getCategories;
+var buildReviewFromCategories;
 
 jQuery(document).ready(function() {
 
@@ -6,43 +8,52 @@ jQuery(document).ready(function() {
 
     var categories = [{
         title: "Amabilidad",
+        id: "friendliness",
         stars: 0
     }, {
         title: "Comida",
+        id: "food",
         stars: 0
     }, {
         title: "Puntualidad",
+        id: "punctuality",
         stars: 0
     }, {
         title: "Programa de viajeros frecuentes",
+        id: "mileage_program",
         stars: 0
     }, {
         title: "Confort",
+        id: "comfort",
         stars: 0
     }, {
         title: "Relación precio/calidad",
+        id: "quality_price",
         stars: 0
     }, {
         title: "General",
+        id: "overall",
         stars: 0
     }];
 
     // INITIALIZE
-    (function init() {
+    function init() {
         for (var i = 0; i < categories.length; i++) {
             addRatingWidget(buildCategory(categories[i]), categories[i]);
         }
-    })();
+    };
 
     // BUILD CATEGORY
     function buildCategory(data) {
         var category = document.createElement('div');
 
-        var html = '<h2>';
+        category.id = data.id;
+
+        var html = "<div class='category_title'>";
 
         var currentTitle = data.title;
 
-        html += String(currentTitle) + ':</h2>';
+        html += String(currentTitle) + ':</div>';
 
         html += '<ul class="c-rating"></ul>';
 
@@ -50,6 +61,21 @@ jQuery(document).ready(function() {
         ratings.appendChild(category);
 
         return category;
+    }
+
+    buildReviewFromCategories = function() {
+        var html = "";
+
+        for (c in categories) {
+            var cat = categories[c];
+
+            html += "<div class='category_title'>";
+            var currentTitle = cat.title;
+
+            html += String(currentTitle) + ': ' + cat.stars + '</div>';
+        }
+
+        return html;
     }
 
     // ADD RATING WIDGET
@@ -62,7 +88,7 @@ jQuery(document).ready(function() {
         var r = rating(ratingElement, null, maxRating, callback);
     }
 
-    function getCategories() {
+    getCategories = function() {
         return categories;
     }
 
@@ -84,8 +110,8 @@ jQuery(document).ready(function() {
         var toggle = getToggle();
         var cl = getCmtList();
         var categories = getCategories();
-        console.log(categories);
-        console.log(cl);
+        // console.log(categories);
+        // console.log(cl);
     }
 
 });
