@@ -88,14 +88,18 @@ $("#search_review_button").click(function loadReviews() {
 
                     html += '<hr>';
 
+                    document.getElementById("ratings").className = " o-container card-2";
+                    document.getElementById("ratings").innerHTML = html;
+
                 }
             }
-
-            document.getElementById("ratings").className = " o-container card-2";
-            document.getElementById("ratings").innerHTML = html;
         }
     };
+
+    var f = document.getElementById("orderby");
+    var filter = f.value;
+
     xhttp.open("GET", "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
-        airlineID + "&flight_number=" + flight_number + "&sort_key=rating", true);
+        airlineID + "&flight_number=" + flight_number + "&sort_key=" + filter, true);
     xhttp.send();
 });
