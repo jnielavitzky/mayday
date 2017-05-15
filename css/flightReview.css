@@ -1,0 +1,12 @@
+.feedback {
+    margin-top: 10px;
+}
+
+.category_title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.pStar {
+    display: inline-block;
+}
