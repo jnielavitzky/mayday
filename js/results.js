@@ -13,7 +13,7 @@ $( document ).ready(function() {
         in_flights = data["flights"];
         setTimeout(function() {
             done_flights();
-        }, 1000);
+        }, 000);
     });
     timeout_timer = setTimeout(timeout, 5000);
 });
@@ -74,6 +74,54 @@ function fill_price_list(out_flight, in_flight, ticket) {
 
     var total_div = ticket.find(".total_price");
     total_div.text(total_flight_cost);
+
+
+    // Per adult
+    if (out_flight_price["adults"] != null && in_flight_price["adults"] != null) {
+        var out_per_adult = out_flight_price["adults"]["base_fare"];
+        var in_per_adult = in_flight_price["adults"]["base_fare"];
+        var per_adult_div = ticket.find(".per_adult");
+        per_adult_div.text(toMoneyString(in_per_adult + out_per_adult));
+    }
+
+
+    // Total adults
+    if (out_flight_price["adults"] != null && in_flight_price["adults"] != null) {
+        var out_total_adults = out_flight_price["adults"]["base_fare"];
+        var in_total_adults = in_flight_price["adults"]["base_fare"];
+        var quantity_adults_out = out_flight_price["adults"]["quantity"];
+        var quantity_adults_in = in_flight_price["adults"]["quantity"];
+        var total_adults_div = ticket.find(".total_adults");
+        total_adults_div.text(toMoneyString(in_total_adults*quantity_adults_in + out_total_adults*quantity_adults_out));
+    }
+
+    // Total children
+    if (out_flight_price["children"] != null && in_flight_price["children"] != null) {
+        var out_total_adults = out_flight_price["children"]["base_fare"];
+        var in_total_adults = in_flight_price["children"]["base_fare"];
+        var quantity_adults_out = out_flight_price["children"]["quantity"];
+        var quantity_adults_in = in_flight_price["children"]["quantity"];
+        var total_adults_div = ticket.find(".total_minors");
+        total_adults_div.text(toMoneyString(in_total_adults*quantity_adults_in + out_total_adults*quantity_adults_out));
+    }
+
+    // Total infant
+    if (out_flight_price["infants"] != null && in_flight_price["infants"] != null) {
+        var out_total_adults = out_flight_price["infants"]["base_fare"];
+        var in_total_adults = in_flight_price["infants"]["base_fare"];
+        var quantity_adults_out = out_flight_price["infants"]["quantity"];
+        var quantity_adults_in = in_flight_price["infants"]["quantity"];
+        var total_adults_div = ticket.find(".total_infants");
+        total_adults_div.text(toMoneyString(in_total_adults*quantity_adults_in + out_total_adults*quantity_adults_out));
+    }
+
+    // Charges and taxes
+    var taxes_div = ticket.find(".taxes_charges");
+    var taxes_in = in_total_list["taxes"];
+    var charges_in = in_total_list["charges"];
+    var taxes_out = out_total_list["taxes"];
+    var charges_out = out_total_list["charges"];
+    taxes_div.text(toMoneyString(taxes_in + charges_in + taxes_out + charges_out));
 }
 
 function fill_half_ticket(flight, parent) {
@@ -128,9 +176,18 @@ function fill_half_ticket(flight, parent) {
 
     var total_time_div = parent.find(".total_time");
     var total_time = (routes[0])["duration"];
-    total_time_div.text("Total: " + total_time.split(':')[0] + "hs.");
+    total_time_div.text("Total: " + total_time.split(':')[0] + "hs");
 
 
+
+    // Flight number
+    var flight_number = seg["number"];
+    var airline = seg["airline"];
+    var airline_id = airline["id"];
+    var readable_flight_number = airline_id + "" + flight_number;
+
+    var flight_number_div = parent.find(".flight_number");
+    flight_number_div.text("Vuelo: " + readable_flight_number);
 
 }
 

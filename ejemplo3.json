@@ -16,7 +16,10 @@
           "base_fare": 278.00,
           "quantity": 1
         },
-        "children": null,
+        "children": {
+          "base_fare": 15.00,
+          "quantity": 1
+        },
         "infants": null,
         "total": {
           "charges": 11.12,
@@ -205,7 +208,7 @@
               "airline": {
                 "id": "8R",
                 "name": "SOL",
-                "rating": 4.80 
+                "rating": 4.80
               },
               "duration": "01:16",
               "stopovers": [
