@@ -1,7 +1,7 @@
 var out_flights;
 var in_flights;
 
-
+var timeout_timer;
 // Data parce and show
 
 $( document ).ready(function() {
@@ -11,16 +11,30 @@ $( document ).ready(function() {
     });
     $.getJSON( "./ejemplo4.json", function( data ) {
         in_flights = data["flights"];
-        done_flights();
+        setTimeout(function() {
+            done_flights();
+        }, 1000);
     });
-
+    timeout_timer = setTimeout(timeout, 5000);
 });
+
+function timeout() {
+    $("#results_tickets").hide();
+
+    $('#page').fadeTo(500, 0.2);
+    $('#page').css("pointer-events", "none");
+
+    $("#error").removeClass("hidden");
+}
 
 function done_flights() {
     var ticket_container = $("#results_tickets");
 
     if (out_flights == null || in_flights == null)
         return;
+
+    clearTimeout(timeout_timer);
+    $(".loader_container").hide();
 
     for (var out_key in out_flights) {
         var out_flight = out_flights[out_key];
@@ -31,7 +45,6 @@ function done_flights() {
             var hidden_ticket = ticket_container.find("#hidden_ticket");
             var new_ticket = hidden_ticket.clone();
             new_ticket.removeClass("hidden");
-            // new_ticket.attr("id", key);
             ticket_container.append(new_ticket);
 
             var ticket_from = new_ticket.find(".ticket_from");
@@ -41,21 +54,26 @@ function done_flights() {
             fill_half_ticket(in_flight, ticket_to);
 
 
+            fill_price_list(out_flight, in_flight, new_ticket);
 
-            var out_flight_price = out_flight["price"];
-            var out_total_list = out_flight_price["total"];
-            var out_total_value = out_total_list["total"];
 
-            var in_flight_price = in_flight["price"];
-            var in_total_list = in_flight_price["total"];
-            var in_total_value = in_total_list["total"];
-
-            total_flight_cost = toMoneyString(in_total_value + out_total_value);
-
-            var total_div = new_ticket.find(".total_price");
-            total_div.text(total_flight_cost);
         }
     }
+}
+
+function fill_price_list(out_flight, in_flight, ticket) {
+    var out_flight_price = out_flight["price"];
+    var out_total_list = out_flight_price["total"];
+    var out_total_value = out_total_list["total"];
+
+    var in_flight_price = in_flight["price"];
+    var in_total_list = in_flight_price["total"];
+    var in_total_value = in_total_list["total"];
+
+    total_flight_cost = toMoneyString(in_total_value + out_total_value);
+
+    var total_div = ticket.find(".total_price");
+    total_div.text(total_flight_cost);
 }
 
 function fill_half_ticket(flight, parent) {
@@ -113,19 +131,21 @@ function fill_half_ticket(flight, parent) {
     total_time_div.text("Total: " + total_time.split(':')[0] + "hs.");
 
 
+
 }
 
 function toMoneyString(number) {
     var moneyFormat = wNumb({
         mark: ',',
         thousand: '.',
-        suffix: 'AR$',
+        suffix: ' AR$',
         decimals: 2
     });
     return moneyFormat.to(number);
 }
 
 function shorten_name(name, l) {
+    // return name;
     if (name == null)
         return null;
     if (name.length <= l)

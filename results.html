@@ -7,29 +7,36 @@
     <!-- JQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- End JQuery -->
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- End bootsrap -->
+
     <!-- Google Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Fin Google Icons -->
+
     <!-- Select2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <!-- Ejemplo: https://select2.github.io -->
     <!-- Fin de Select2 -->
+
     <!-- NoUISlider -->
     <link href="noUiSlider/nouislider.css" rel="stylesheet">
     <script src="noUiSlider/nouislider.js"></script>
     <!-- Fin NoUISlider -->
+
     <!-- wNumb -->
     <script src="wnumb/wNumb.js"></script>
     <!-- Fin wNumb -->
+
     <!-- Moment.js -->
     <script src="js/moment.js"></script>
     <!-- Fin Moment.js -->
+
     <!-- Lo nuestro -->
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
     <link rel='stylesheet' type='text/css' href='.\css\results.css'>
@@ -44,417 +51,447 @@
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <!-- Fin lo nuestro -->
 </head>
-
+<noscript>
+    <style type="text/css">
+        .pagecontainer {display:none;}
+        .noscriptmsg {
+            font-size: 30px;
+            margin-top: 30px;
+            color: red;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+    <div class="noscriptmsg">
+        Javascript no esta habilitado. Por favor, habilitelo
+    </div>
+</noscript>
 <body>
-    <!--  NAV BAR  -->
-    <div class="container">
-        <div class="row navigation-bar">
-            <div class="col-md-3">
-                <a href="index.html"><img class="logo" src=".\images\logo.PNG"></a>
-            </div>
-            <div class="col-md-2 nav-items">
-                <a href="#">Home</a>
-            </div>
-            <div class="col-md-3 nav-items">
-                <a href="promociones.html">Promociones</a>
-            </div>
-            <div class="col-md-2 nav-items">
-                <a href="contacto.html">Contacto</a>
+    <div id="page">
+        <!--  NAV BAR  -->
+        <div class="container pagecontainer">
+            <div class="row navigation-bar">
+                <div class="col-md-3">
+                    <a href="index.html"><img class="logo" src=".\images\logo.PNG"></a>
+                </div>
+                <div class="col-md-2 nav-items">
+                    <a href="#">Home</a>
+                </div>
+                <div class="col-md-3 nav-items">
+                    <a href="promociones.html">Promociones</a>
+                </div>
+                <div class="col-md-2 nav-items">
+                    <a href="contacto.html">Contacto</a>
+                </div>
             </div>
         </div>
-    </div>
-    <!--  END HEADER  -->
-    <div class="container min_container">
-        <div class="row">
-            <main class="my_main col-sm-12">
-                <div class="results_search_bar_container">
-                    <div class="results_bar">
-                        <div class="bar_title">
-                            Búsqueda
-                        </div>
-                        <div class="bar_subtitle">
-                            Origen:
-                        </div>
-                        <select id="cities-from" class="js-example-basic-single filter-select">
-                        </select>
-                        <div class="bar_subtitle">
-                            Destino:
-                        </div>
-                        <select id="cities-to" class="js-example-basic-single filter-select">
-                        </select>
-                        <div class="bar_subtitle">
-                            Pasajeros:
-                        </div>
-                        <div class="inline_div">
-                            <select class="js-example-basic-single filter-select-inline">
-                                <option value="0">0</option>
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                            <div class="bar_inline_subtitle">
-                                menores
+        <!--  END HEADER  -->
+        <div class="container min_container pagecontainer">
+            <div class="row">
+                <main class="my_main col-sm-12">
+                    <div class="results_search_bar_container">
+                        <div class="results_bar">
+                            <div class="bar_title">
+                                Búsqueda
                             </div>
-                        </div>
-                        <div class="inline_div">
-                            <select class="js-example-basic-single filter-select-inline">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                            <div class="bar_inline_subtitle">
-                                mayores
+                            <div class="bar_subtitle">
+                                Origen:
                             </div>
-                        </div>
-                        <div class="search_button">
-                            <button type="button" class="btn btn-primary btn-lg">
-                                <span class="glyphicon glyphicon-search"></span> Buscar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="results_filter_bar_container">
-                    <div class="results_bar">
-                        <div class="bar_title">
-                            Filtros
-                        </div>
-                        <div class="bar_subtitle">
-                            Rango de precios:
-                        </div>
-                        <div class="my_sliders sliders" id="price_range"></div>
-                        <div id="price-slider-values" class="slider-values">
-                            Min: , max:
-                        </div>
-                        <div class="bar_subtitle">
-                            Moneda:
-                        </div>
-                        <select id="currency" class="js-example-basic-single filter-select">
-                            <option value="ARS">Peso Argentino</option>
-                            <option value="MX">Peso Mexicano</option>
-                            <option value="USD">Dólar Estadounidense</option>
-                        </select>
-                        <div class="bar_subtitle">
-                            Rango de duración:
-                        </div>
-                        <div class="my_sliders sliders" id="duration_range"></div>
-                        <div id="duration-slider-values" class="slider-values">
-                            Min: , max:
-                        </div>
-                        <div class="bar_subtitle">
-                            Aerolíneas:
-                        </div>
-                        <select id="airlines_select" class="js-example-basic-single filter-select">
-                        </select>
-                        <div class="bar_subtitle">
-                            Rango de opinión:
-                        </div>
-                        <div id="ratings"></div>
-                        <div class="bar_subtitle">
-                            Vuelo:
-                        </div>
-                        <select id="flight_select" class="js-example-basic-single filter-select">
-                            <option value="ARS">AR2342</option>
-                            <option value="MX">AA2347</option>
-                            <option value="USD">DA2147</option>
-                        </select>
-                    </div>
-                </div>
-                <!--  <div class="comparison_results">
-                    <table class="card-2 table table-bordered table-responsive table-striped">
-                        <thead>
-                            <tr>
-                                <th>Properties</th>
-                                <th>Ticket 1</th>
-                                <th>Ticket 2</th>
-                                <th>Ticket 3</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Total</th>
-                                <th>-</th>
-                                <th>-</th>
-                                <th>-</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Duración</th>
-                                <th>-</th>
-                                <th>-</th>
-                                <th>-</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Cant. escalas vuelta</th>
-                                <th>-</th>
-                                <th>-</th>
-                                <th>-</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Cant. escalas ida</th>
-                                <th>-</th>
-                                <th>-</th>
-                                <th>-</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hora de salida</th>
-                                <th>-</th>
-                                <th>-</th>
-                                <th>-</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hora de llegada</th>
-                                <th>-</th>
-                                <th>-</th>
-                                <th>-</th>
-                            </tr>
-                            <tr>
-                                <th scope="row">Comprar</th>
-                                <th>-</th>
-                                <th>-</th>
-                                <th>-</th>
-                            </tr>
-                        </tbody>
-                      </table>
-                </div> -->
-                <div id="results_tickets" class="results_tickets">
-                    <div id="hidden_ticket" class="ticket hidden">
-                        <div class="ticket_info">
-                            <div class="ticket_from">
-                                <p class="ticket_from_title">Ida:</p>
-                                <!-- <img class="ticket_airline_logo" src="american_logo.jpeg"></img> -->
-                                <div class="ticket_from_details">
-                                    <div class="location">
-                                        <div class="location_airport airport_departure">
-                                            EZE
-                                        </div>
-                                        <div class="location_city city_departure">
-                                            Buenos Aires
-                                        </div>
-                                    </div>
-                                    <div class="flight">
-                                        <div class="from_plane_size">
-                                            <div class="plane_line">
-                                                <div class="line5">
-                                                    <div class="line">
-                                                        <!-- <p class="duration">5 horas</p> -->
-                                                    </div>
-                                                </div>
-                                                <div class="plane">
-                                                    <!-- <p class="info">i</p> -->
-                                                    <!-- <p class="name">RIO</p> -->
-                                                </div>
-                                                <div class="line6">
-                                                    <div class="line">
-                                                        <!-- <p class="duration">2 horas</p> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="location">
-                                        <div class="location_airport airport_arrival">
-                                            JFK
-                                        </div>
-                                        <div class="location_city city_arrival">
-                                            New York
-                                        </div>
-                                    </div>
-                                    <div class="total_time">
-                                        Total: 15hs.
-                                    </div>
-                                    <div class="ticket_time_details">
-                                        <div class="departure">
-                                            <div class="time_departure">
-                                                Salida: 18:00hs (ARG)
-                                            </div>
-                                            <div class="date_departure">
-                                                Fecha: Jueves 20/4/2017
-                                            </div>
-                                            <div class="flight_number">
-                                                Vuelo: AA1231
-                                            </div>
-                                        </div>
-                                        <div class="arrival">
-                                            <div class="time_arrival">
-                                                Llegada: 9:00hs (NY)
-                                            </div>
-                                            <div class="date_arrival">
-                                                Fecha: Viernes 21/4/2017
-                                            </div>
-                                        </div>
-                                    </div>
+                            <select id="cities-from" class="js-example-basic-single filter-select">
+                            </select>
+                            <div class="bar_subtitle">
+                                Destino:
+                            </div>
+                            <select id="cities-to" class="js-example-basic-single filter-select">
+                            </select>
+                            <div class="bar_subtitle">
+                                Pasajeros:
+                            </div>
+                            <div class="inline_div">
+                                <select class="js-example-basic-single filter-select-inline">
+                                    <option value="0">0</option>
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <div class="bar_inline_subtitle">
+                                    menores
                                 </div>
                             </div>
-                            <div class="ticket_separator2"></div>
-                            <div class="ticket_to">
-                                <p class="ticket_from_title">Vuelta:</p>
-                                <!-- <img class="ticket_airline_logo" src="american_logo.jpeg"></img> -->
-                                <div class="ticket_from_details">
-                                    <div class="location">
-                                        <div class="location_airport airport_departure">
-                                            EZE
-                                        </div>
-                                        <div class="location_city city_departure">
-                                            Buenos Aires
-                                        </div>
-                                    </div>
-                                    <div class="flight">
-                                        <div class="from_plane_size">
-                                            <div class="plane_line">
-                                                <div class="line5">
-                                                    <div class="line">
-                                                        <!-- <p class="duration">5 horas</p> -->
-                                                    </div>
-                                                </div>
-                                                <div class="plane">
-                                                    <!-- <p class="info">i</p> -->
-                                                    <!-- <p class="name">RIO</p> -->
-                                                </div>
-                                                <div class="line6">
-                                                    <div class="line">
-                                                        <!-- <p class="duration">2 horas</p> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="location">
-                                        <div class="location_airport airport_arrival">
-                                            JFK
-                                        </div>
-                                        <div class="location_city city_arrival">
-                                            New York
-                                        </div>
-                                    </div>
-                                    <div class="total_time">
-                                        Total: 15hs.
-                                    </div>
-                                    <div class="ticket_time_details">
-                                        <div class="departure">
-                                            <div class="time_departure">
-                                                Salida: 18:00hs (ARG)
-                                            </div>
-                                            <div class="date_departure">
-                                                Fecha: Jueves 20/4/2017
-                                            </div>
-                                            <div class="flight_number">
-                                                Vuelo: AA1231
-                                            </div>
-                                        </div>
-                                        <div class="arrival">
-                                            <div class="time_arrival">
-                                                Llegada: 9:00hs (NY)
-                                            </div>
-                                            <div class="date_arrival">
-                                                Fecha: Viernes 21/4/2017
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="inline_div">
+                                <select class="js-example-basic-single filter-select-inline">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <div class="bar_inline_subtitle">
+                                    mayores
                                 </div>
                             </div>
-                        </div>
-                        <div class="ticket_separator1"></div>
-                        <div class="ticket_price">
-                            <div class="favorite">
-                                <i class="favorite_selected material-icons">favorite</i>
-                                <i class="favorite_unselected material-icons">favorite_border</i>
-                            </div>
-                            <div class="prices_list">
-                                <ul class="prices">
-                                    <li>
-                                        <div class="list_title">
-                                            Por Adulto:
-                                        </div>
-                                        <div class="list_price">
-                                            11283.12 AR$
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_title">
-                                            Total infantes:
-                                        </div>
-                                        <div class="list_price">
-                                            11283.12 AR$
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_title">
-                                            Total adultos:
-                                        </div>
-                                        <div class="list_price">
-                                            11283.12 AR$
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_title">
-                                            Total Menores:
-                                        </div>
-                                        <div class="list_price">
-                                            11283.12 AR$
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_title">
-                                            Impuestos:
-                                        </div>
-                                        <div class="list_price">
-                                            11283.12 AR$
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="total_title">
-                                Total
-                            </div>
-                            <div class="total_price">
-                                11231.83 AR$
-                            </div>
-                            <div class="buy">
+                            <div class="search_button">
                                 <button type="button" class="btn btn-primary btn-lg">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                                    <span class="glyphicon glyphicon-search"></span> Buscar
                                 </button>
                             </div>
                         </div>
                     </div>
+                    <div class="results_filter_bar_container">
+                        <div class="results_bar">
+                            <div class="bar_title">
+                                Filtros
+                            </div>
+                            <div class="bar_subtitle">
+                                Rango de precios:
+                            </div>
+                            <div class="my_sliders sliders" id="price_range"></div>
+                            <div id="price-slider-values" class="slider-values">
+                                Min: , max:
+                            </div>
+                            <div class="bar_subtitle">
+                                Moneda:
+                            </div>
+                            <select id="currency" class="js-example-basic-single filter-select">
+                                <option value="ARS">Peso Argentino</option>
+                                <option value="MX">Peso Mexicano</option>
+                                <option value="USD">Dólar Estadounidense</option>
+                            </select>
+                            <div class="bar_subtitle">
+                                Rango de duración:
+                            </div>
+                            <div class="my_sliders sliders" id="duration_range"></div>
+                            <div id="duration-slider-values" class="slider-values">
+                                Min: , max:
+                            </div>
+                            <div class="bar_subtitle">
+                                Aerolíneas:
+                            </div>
+                            <select id="airlines_select" class="js-example-basic-single filter-select">
+                            </select>
+                            <div class="bar_subtitle">
+                                Rango de opinión:
+                            </div>
+                            <div id="ratings"></div>
+                            <div class="bar_subtitle">
+                                Vuelo:
+                            </div>
+                            <select id="flight_select" class="js-example-basic-single filter-select">
+                                <option value="ARS">AR2342</option>
+                                <option value="MX">AA2347</option>
+                                <option value="USD">DA2147</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--  <div class="comparison_results">
+                        <table class="card-2 table table-bordered table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Properties</th>
+                                    <th>Ticket 1</th>
+                                    <th>Ticket 2</th>
+                                    <th>Ticket 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Total</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Duración</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cant. escalas vuelta</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cant. escalas ida</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hora de salida</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hora de llegada</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Comprar</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                            </tbody>
+                          </table>
+                    </div> -->
+
+                    <div id="results_tickets" class="results_tickets">
+                        <div class="loader_container">
+                            <div class="loader">
+                                <div id="loader_plane" class="plane">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="hidden_ticket" class="ticket hidden">
+                            <div class="ticket_info">
+                                <div class="ticket_from">
+                                    <p class="ticket_from_title">Ida:</p>
+                                    <!-- <img class="ticket_airline_logo" src="american_logo.jpeg"></img> -->
+                                    <div class="ticket_from_details">
+                                        <div class="location">
+                                            <div class="location_airport airport_departure">
+                                                EZE
+                                            </div>
+                                            <div class="location_city city_departure">
+                                                Buenos Aires
+                                            </div>
+                                        </div>
+                                        <div class="flight">
+                                            <div class="from_plane_size">
+                                                <div class="plane_line">
+                                                    <div class="line5">
+                                                        <div class="line">
+                                                            <!-- <p class="duration">5 horas</p> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="plane">
+                                                        <!-- <p class="info">i</p> -->
+                                                        <!-- <p class="name">RIO</p> -->
+                                                    </div>
+                                                    <div class="line6">
+                                                        <div class="line">
+                                                            <!-- <p class="duration">2 horas</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="location">
+                                            <div class="location_airport airport_arrival">
+                                                JFK
+                                            </div>
+                                            <div class="location_city city_arrival">
+                                                New York
+                                            </div>
+                                        </div>
+                                        <div class="total_time">
+                                            Total: 15hs.
+                                        </div>
+                                        <div class="ticket_time_details">
+                                            <div class="departure">
+                                                <div class="time_departure">
+                                                    Salida: 18:00hs (ARG)
+                                                </div>
+                                                <div class="date_departure">
+                                                    Fecha: Jueves 20/4/2017
+                                                </div>
+                                                <div class="flight_number">
+                                                    Vuelo: AA1231
+                                                </div>
+                                            </div>
+                                            <div class="arrival">
+                                                <div class="time_arrival">
+                                                    Llegada: 9:00hs (NY)
+                                                </div>
+                                                <div class="date_arrival">
+                                                    Fecha: Viernes 21/4/2017
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ticket_separator2"></div>
+                                <div class="ticket_to">
+                                    <p class="ticket_from_title">Vuelta:</p>
+                                    <!-- <img class="ticket_airline_logo" src="american_logo.jpeg"></img> -->
+                                    <div class="ticket_from_details">
+                                        <div class="location">
+                                            <div class="location_airport airport_departure">
+                                                EZE
+                                            </div>
+                                            <div class="location_city city_departure">
+                                                Buenos Aires
+                                            </div>
+                                        </div>
+                                        <div class="flight">
+                                            <div class="from_plane_size">
+                                                <div class="plane_line">
+                                                    <div class="line5">
+                                                        <div class="line">
+                                                            <!-- <p class="duration">5 horas</p> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="plane">
+                                                        <!-- <p class="info">i</p> -->
+                                                        <!-- <p class="name">RIO</p> -->
+                                                    </div>
+                                                    <div class="line6">
+                                                        <div class="line">
+                                                            <!-- <p class="duration">2 horas</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="location">
+                                            <div class="location_airport airport_arrival">
+                                                JFK
+                                            </div>
+                                            <div class="location_city city_arrival">
+                                                New York
+                                            </div>
+                                        </div>
+                                        <div class="total_time">
+                                            Total: 15hs.
+                                        </div>
+                                        <div class="ticket_time_details">
+                                            <div class="departure">
+                                                <div class="time_departure">
+                                                    Salida: 18:00hs (ARG)
+                                                </div>
+                                                <div class="date_departure">
+                                                    Fecha: Jueves 20/4/2017
+                                                </div>
+                                                <div class="flight_number">
+                                                    Vuelo: AA1231
+                                                </div>
+                                            </div>
+                                            <div class="arrival">
+                                                <div class="time_arrival">
+                                                    Llegada: 9:00hs (NY)
+                                                </div>
+                                                <div class="date_arrival">
+                                                    Fecha: Viernes 21/4/2017
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket_separator1"></div>
+                            <div class="ticket_price">
+                                <div class="favorite">
+                                    <i class="favorite_selected material-icons">favorite</i>
+                                    <i class="favorite_unselected material-icons">favorite_border</i>
+                                </div>
+                                <div class="prices_list">
+                                    <ul class="prices">
+                                        <li>
+                                            <div class="list_title">
+                                                Por Adulto:
+                                            </div>
+                                            <div class="list_price">
+                                                11283.12 AR$
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list_title">
+                                                Total infantes:
+                                            </div>
+                                            <div class="list_price">
+                                                11283.12 AR$
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list_title">
+                                                Total adultos:
+                                            </div>
+                                            <div class="list_price">
+                                                11283.12 AR$
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list_title">
+                                                Total Menores:
+                                            </div>
+                                            <div class="list_price">
+                                                11283.12 AR$
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="list_title">
+                                                Impuestos:
+                                            </div>
+                                            <div class="list_price">
+                                                11283.12 AR$
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="total_title">
+                                    Total
+                                </div>
+                                <div class="total_price">
+                                    11231.83 AR$
+                                </div>
+                                <div class="buy">
+                                    <button type="button" class="btn btn-primary btn-lg">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!--  FOOTER  -->
+        <div class="container pagecontainer">
+            <div class='row footer' id='Footer'>
+                <div class="col-md-3">
+                    <h2 class='final-logo'>MAYDAY</h2>
                 </div>
-            </main>
-        </div>
-    </div>
-    <!--  FOOTER  -->
-    <div class="container">
-        <div class='row footer' id='Footer'>
-            <div class="col-md-3">
-                <h2 class='final-logo'>MAYDAY</h2>
-            </div>
-            <div class="col-md-3">
-                <ul>
-                    <h2 class='final-titles'>Contacto</h2>
-                    <li class='final-text'>Av. Eduardo Madero 399</li>
-                    <li class='final-text'>Ciudad Autónoma Bs. As.</li>
-                    <li class='final-text'>+54 11 2150 4800</li>
-                </ul>
-            </div>
-            <div class="col-md-2">
-                <ul>
-                    <h2 class='final-titles'>Home</h2>
-                    <li class='final-text'>Promociones</li>
-                    <li class='final-text'>Contacto</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul>
-                    <h2 class='final-titles'>Legales</h2>
-                    <li class='final-text'>FAQ</li>
-                    <li class='final-text'>Términos y Condiciones</li>
-                </ul>
+                <div class="col-md-3">
+                    <ul>
+                        <h2 class='final-titles'>Contacto</h2>
+                        <li class='final-text'>Av. Eduardo Madero 399</li>
+                        <li class='final-text'>Ciudad Autónoma Bs. As.</li>
+                        <li class='final-text'>+54 11 2150 4800</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul>
+                        <h2 class='final-titles'>Home</h2>
+                        <li class='final-text'>Promociones</li>
+                        <li class='final-text'>Contacto</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <h2 class='final-titles'>Legales</h2>
+                        <li class='final-text'>FAQ</li>
+                        <li class='final-text'>Términos y Condiciones</li>
+                    </ul>
+                </div>
             </div>
         </div>
+        <!--  END FOOTER  -->
     </div>
-    <!--  END FOOTER  -->
+    <div id="error" class="hidden">
+        <img src="images/error-js.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta.">
+        Error de comunicacion con el sistema. Por favor, intente de vuelta.
+    </div>
 </body>
 
 </html>
@@ -464,4 +501,4 @@
 <script src="js/rating.min.js"></script>
 <script src="js/opinionRange.js"></script>
 <!-- END STAR RATING -->
-<script type="text/javascript" src="./js/loadAirlines.js"></script>
+<!-- <script type="text/javascript" src="./js/loadAirlines.js"></script> -->

@@ -71,7 +71,7 @@
               },
               "duration": "01:19",
               "stopovers": [
-                
+
               ]
             }
           ],
@@ -140,7 +140,7 @@
               },
               "duration": "01:17",
               "stopovers": [
-                
+
               ]
             }
           ],
@@ -205,11 +205,11 @@
               "airline": {
                 "id": "8R",
                 "name": "SOL",
-                "rating": 4.80
+                "rating": 4.80 
               },
               "duration": "01:16",
               "stopovers": [
-                
+
               ]
             }
           ],

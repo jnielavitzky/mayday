@@ -23,6 +23,7 @@ var showAirlines = (function loadAirlines() {
             }
 
             document.getElementById("airlines_select").innerHTML = html;
+
         }
     };
     xhttp.open("GET", "http://hci.it.itba.edu.ar/v1/api/misc.groovy?method=getairlines&sort_key=name&sort_order=asc", true);
