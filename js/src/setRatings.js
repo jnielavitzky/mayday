@@ -110,8 +110,6 @@ jQuery(document).ready(function() {
         var toggle = getToggle();
         var cl = getCmtList();
         var categories = getCategories();
-        // console.log(categories);
-        // console.log(cl);
     }
 
 });
