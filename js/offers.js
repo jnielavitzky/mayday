@@ -46,24 +46,25 @@ $(document).ready(function() {
              var country = selected[i]["city"]["country"]["name"];
              var description = selected[i]["city"]["name"];
              description = description.split(",",1);
-             getPhoto(price, country, description);
+             $.when(result, getPhoto(description, country)).then(function(){
+                 $('#card-container').append('<div class="col-md-4"><div class="card">' +
+                 '<img class="card-img" src=' + result + '></img>' +
+                 '<ul class="tite-price"><li class="card-main-text">' + country + '</li><li class="card-main-text price">$ ' + price + '</li></ul>' +
+                 '<p class="card-text">' + description + '</p></div></div>');
+             });
           }
     }
 
-    function getPhoto(price, country, description) {
-            var myurl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=10515b3263b7673c158f26fc4ce01a36&tags="+ description.toString()+ "&per_page=15&safe_search=2&accuracy=5&format=json&jsoncallback=?";
+    function getPhoto(description, country) {
+            var myurl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=10515b3263b7673c158f26fc4ce01a36&tags=" + description.toString() + "," + country + "&per_page=20&safe_search=2&accuracy=5&format=json&jsoncallback=?";
             var result = '"https://farm';
+            var randint = Math.floor((Math.random() * 10) + 1);
+            console.log("entre a getphoto");
             $.getJSON(myurl, function(flickrJson) {
-                var randint = Math.floor((Math.random() * 6) + 1);
                 var farmid = flickrJson["photos"]["photo"][randint]["farm"];
                 var serverid = flickrJson["photos"]["photo"][randint]["server"];
                 var usrid = flickrJson["photos"]["photo"][randint]["id"];
                 var secret = flickrJson["photos"]["photo"][randint]["secret"];
-                result = result + farmid + ".staticflickr.com/" + serverid + "/" + usrid + "_" + secret +'.jpg"';
-
-                $('#card-container').append('<div class="col-md-4"><div class="card">' +
-                '<img class="card-img" src=' + result + '></img>' +
-                '<ul class="tite-price"><li class="card-main-text">' + country + '</li><li class="card-main-text price">$ ' + price + '</li></ul>' +
-                '<p class="card-text">' + description + '</p></div></div>');
+                return result = result + farmid + ".staticflickr.com/" + serverid + "/" + usrid + "_" + secret +'.jpg"';
             });
     }
