@@ -4,12 +4,12 @@ var in_flights;
 var timeout_timer;
 // Data parce and show
 
-$( document ).ready(function() {
-    $.getJSON( "./ejemplo3.json", function( data ) {
+$(document).ready(function() {
+    $.getJSON("./ejemplo3.json", function(data) {
         out_flights = data["flights"];
         done_flights();
     });
-    $.getJSON( "./ejemplo4.json", function( data ) {
+    $.getJSON("./ejemplo4.json", function(data) {
         in_flights = data["flights"];
         setTimeout(function() {
             done_flights();
@@ -92,7 +92,7 @@ function fill_price_list(out_flight, in_flight, ticket) {
         var quantity_adults_out = out_flight_price["adults"]["quantity"];
         var quantity_adults_in = in_flight_price["adults"]["quantity"];
         var total_adults_div = ticket.find(".total_adults");
-        total_adults_div.text(toMoneyString(in_total_adults*quantity_adults_in + out_total_adults*quantity_adults_out));
+        total_adults_div.text(toMoneyString(in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out));
     }
 
     // Total children
@@ -102,7 +102,7 @@ function fill_price_list(out_flight, in_flight, ticket) {
         var quantity_adults_out = out_flight_price["children"]["quantity"];
         var quantity_adults_in = in_flight_price["children"]["quantity"];
         var total_adults_div = ticket.find(".total_minors");
-        total_adults_div.text(toMoneyString(in_total_adults*quantity_adults_in + out_total_adults*quantity_adults_out));
+        total_adults_div.text(toMoneyString(in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out));
     }
 
     // Total infant
@@ -112,7 +112,7 @@ function fill_price_list(out_flight, in_flight, ticket) {
         var quantity_adults_out = out_flight_price["infants"]["quantity"];
         var quantity_adults_in = in_flight_price["infants"]["quantity"];
         var total_adults_div = ticket.find(".total_infants");
-        total_adults_div.text(toMoneyString(in_total_adults*quantity_adults_in + out_total_adults*quantity_adults_out));
+        total_adults_div.text(toMoneyString(in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out));
     }
 
     // Charges and taxes
@@ -209,7 +209,7 @@ function shorten_name(name, l) {
         return name;
     if (name.indexOf(',') != -1)
         return shorten_name(name.split(',')[1], l);
-    return name.substring(0, l-4) + "...";
+    return name.substring(0, l - 4) + "...";
 }
 
 // UI Element set up
@@ -228,8 +228,8 @@ noUiSlider.create(price_slider, {
     }
 });
 
-price_slider.noUiSlider.on('update', function( values, handle ) {
-	$("#price-slider-values").html("Min: " + numberWithCommas(Math.floor(values[0])) + ", max: " + numberWithCommas(Math.floor(values[1])));
+price_slider.noUiSlider.on('update', function(values, handle) {
+    $("#price-slider-values").html("Min: " + numberWithCommas(Math.floor(values[0])) + ", max: " + numberWithCommas(Math.floor(values[1])));
 });
 
 var duration_range = document.getElementById('duration_range');
@@ -244,8 +244,8 @@ noUiSlider.create(duration_range, {
     }
 });
 
-duration_range.noUiSlider.on('update', function( values, handle ) {
-	$("#duration-slider-values").html("Min: " + Math.floor(values[0]) + "hs, max: " + Math.floor(values[1]) + "hs");
+duration_range.noUiSlider.on('update', function(values, handle) {
+    $("#duration-slider-values").html("Min: " + Math.floor(values[0]) + "hs, max: " + Math.floor(values[1]) + "hs");
 });
 
 function numberWithCommas(x) {

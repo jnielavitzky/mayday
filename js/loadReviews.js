@@ -1,4 +1,48 @@
+var timeout_timer;
+
 $(document).ready(function() {
+
+
+    var test = {
+        "flight": {
+            "airline": {
+                "id": "AR"
+            },
+            "number": 1490
+        },
+        "rating": {
+            "friendliness": 9,
+            "food": 9,
+            "punctuality": 9,
+            "mileage_program": 9,
+            "comfort": 9,
+            "quality_price": 9
+        },
+        "yes_recommend": true,
+        "comments": "Best flight ever!"
+    }
+
+    console.log(JSON.stringify(test));
+
+    $.ajax({
+        type: "POST",
+        url: "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=reviewairline",
+        // The key needs to match your method's input parameter (case-sensitive).
+        data: JSON.stringify(test),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+        },
+        failure: function(errMsg) {
+            alert("error" + errMsg);
+        }
+    });
+
+
+
+
+    $(".loader_container_reviews").hide();
 
     $.fn.modal.Constructor.prototype.enforceFocus = function() {};
 
@@ -8,9 +52,15 @@ $(document).ready(function() {
 
     $("#search_review_button").click(function() {
 
+        $(".loader_container_reviews").show();
+        $("#reviews").html("");
+
+        if ($("#airlines_select").select2('data').length == 0) {
+            error("No internet");
+        }
         var airlineID = $("#airlines_select").val();
         var airlineName = $("#airlines_select").select2('data')[0].text;
-        var flight_number = $("#flight_number").val();
+        var flight_number = "1490"; //$("#flight_number").val();
         var filter = $("#orderby").val();
 
         var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
@@ -22,7 +72,11 @@ $(document).ready(function() {
 
         var myObj, html = "";
 
+        timeout_timer = setTimeout(timeout, 5000);
         $.getJSON(URL, function(result, status) {
+
+            $(".loader_container_reviews").hide();
+            clearTimeout(timeout_timer);
 
             myObj = result;
 
@@ -104,3 +158,16 @@ $(document).ready(function() {
         });
     });
 });
+
+function timeout() {
+    error("TIMEOUT!");
+}
+
+function error(s) {
+    clearTimeout(timeout_timer);
+    $(".loader_container_reviews").hide();
+    $(".review_errors").text(s);
+
+
+
+}
