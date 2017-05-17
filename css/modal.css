@@ -1,0 +1,11 @@
+.modal-dialog {
+    overflow-y: initial !important
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+
+#reviews {
+    margin-top: 20px;
+}
