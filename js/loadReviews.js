@@ -2,46 +2,6 @@ var timeout_timer;
 
 $(document).ready(function() {
 
-
-    var test = {
-        "flight": {
-            "airline": {
-                "id": "AR"
-            },
-            "number": 1490
-        },
-        "rating": {
-            "friendliness": 9,
-            "food": 9,
-            "punctuality": 9,
-            "mileage_program": 9,
-            "comfort": 9,
-            "quality_price": 9
-        },
-        "yes_recommend": true,
-        "comments": "Best flight ever!"
-    }
-
-    console.log(JSON.stringify(test));
-
-    $.ajax({
-        type: "POST",
-        url: "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=reviewairline",
-        // The key needs to match your method's input parameter (case-sensitive).
-        data: JSON.stringify(test),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function(data) {
-            console.log(data);
-        },
-        failure: function(errMsg) {
-            alert("error" + errMsg);
-        }
-    });
-
-
-
-
     $(".loader_container_reviews").hide();
 
     $.fn.modal.Constructor.prototype.enforceFocus = function() {};
@@ -57,10 +17,12 @@ $(document).ready(function() {
 
         if ($("#airlines_select").select2('data').length == 0) {
             error("No internet");
+            return;
         }
+
         var airlineID = $("#airlines_select").val();
         var airlineName = $("#airlines_select").select2('data')[0].text;
-        var flight_number = "1490"; //$("#flight_number").val();
+        var flight_number = $("#flight_number").val();
         var filter = $("#orderby").val();
 
         var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
@@ -73,6 +35,7 @@ $(document).ready(function() {
         var myObj, html = "";
 
         timeout_timer = setTimeout(timeout, 5000);
+
         $.getJSON(URL, function(result, status) {
 
             $(".loader_container_reviews").hide();
@@ -80,7 +43,7 @@ $(document).ready(function() {
 
             myObj = result;
 
-            console.log(status);
+            // console.log(status);
 
             // var container = document.getElementById("flight_number_container");
             // var child = document.getElementById("warning_icon");
@@ -92,13 +55,13 @@ $(document).ready(function() {
             var reviews = myObj.reviews;
 
             if (reviews.length == 0) {
-                $("#reviews").html("No hay comentarios para este vuelo.");
+                $("#reviews").html("No hay reseñas para este vuelo.");
                 return;
             }
 
             $(".modal-body").css("height", "70vh");
 
-            var html = "";
+            var html = $("<div></div>");;
 
             var a = $("#airlines_select");
 
@@ -122,12 +85,11 @@ $(document).ready(function() {
                     if (categories[c].id == "overall") categories[c].stars = overall;
                 }
 
-                html += "<div class='category_title'>" + "Nombre de aerolínea: " + "<p>" +
-                    airlineName + "</p>" + "</div>";
+                html.append("<div class='category_title'>" + "Nombre de aerolínea: " + "<p>" + airlineName + "</p>" + "</div>");
 
-                if (flight_number != "") html += "<div class='category_title'>" + "Número de vuelo: " + "<p>" + flight_number + "</p>" + "</div>";
+                if (flight_number != "") html.append("<div class='category_title'>" + "Número de vuelo: " + "<p>" + flight_number + "</p>" + "</div>");
 
-                html += buildReviewFromCategories(categories);
+                html.append(buildReviewFromCategories(categories));
 
                 var recommendOther = reviews[x].yes_recommend;
                 var yesRecommend = "";
@@ -141,17 +103,17 @@ $(document).ready(function() {
 
                 yesRecommend += '</div>';
 
-                html += yesRecommend;
+                html.append(yesRecommend);
 
                 if (reviews[x].comments != "") {
                     var commentsDiv = "<div class='category_title'>Comentarios: " + "<p>" +
                         reviews[x].comments + "</p>" + "</div>";
-                    html += commentsDiv;
+                    $("#overall .category_title").css("font-size", "large");
+                    html.append(commentsDiv);
                 }
 
-                html += '<hr>';
+                html.append('<hr>');
 
-                // $("#reviews").addClass("o-container card-2");
                 $("#reviews").html(html);
 
             }
@@ -165,9 +127,7 @@ function timeout() {
 
 function error(s) {
     clearTimeout(timeout_timer);
-    $(".loader_container_reviews").hide();
-    $(".review_errors").text(s);
-
-
+    $(".loader_container_comments").hide();
+    $(".comments_errors").text(s);
 
 }

@@ -153,6 +153,13 @@
     /*visibility: hidden;*/
 }
 
+.loader_container_comments {
+    margin-left: 43%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /*visibility: hidden;*/
+}
+
 .loader {
     border: 8px dashed #f3f3f3;
     /* Light grey */

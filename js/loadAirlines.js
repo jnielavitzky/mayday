@@ -1,34 +1,33 @@
 $(document).ready(function() {
 
-    // Modal fix for select2.
+    // fix for Modal with select2.
     $.fn.modal.Constructor.prototype.enforceFocus = function() {};
 
-    (function loadAirlines() {
+    var URL = "http://hci.it.itba.edu.ar/v1/api/misc.groovy?method=getairlines&sort_key=name&sort_order=asc";
 
-        var URL = "http://hci.it.itba.edu.ar/v1/api/misc.groovy?method=getairlines&sort_key=name&sort_order=asc";
+    var myObj, html = "";
 
-        var myObj, html = "";
+    $.getJSON(URL, function(result) {
 
-        $.getJSON(URL, function(result) {
+        myObj = result;
 
-            myObj = result;
+        var airlines = myObj.airlines;
 
-            var airlines = myObj.airlines;
+        for (x in airlines) {
+            var logo = airlines[x].logo;
+            html += "<option value='" + airlines[x].id + "' data-image='" + airlines[x].logo + "'>" + airlines[x].name + "</option>";
+        }
 
-            for (x in airlines) {
-                var logo = airlines[x].logo;
-                html += "<option value='" + airlines[x].id + "' data-image='" + airlines[x].logo + "'>" + airlines[x].name + "</option>";
-            }
+        $('#airlines_select').html(html);
 
-            $('#airlines_select').html(html);
 
-        });
+    });
 
-        $(".js-example-basic-single").select2({
-            templateResult: formatAirline
-        });
-
-    }());
+    $('#airlines_select').select2();
+    $('#airlines_select').select2('val', $('#airlines_select option:eq(1)').val());
+    $(".js-example-basic-single").select2({
+        templateResult: formatAirline
+    });
 
     function formatAirline(opt) {
         if (!opt.id) {

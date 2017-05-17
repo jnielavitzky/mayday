@@ -1,10 +1,6 @@
-var finish;
-var getCategories;
-var buildReviewFromCategories;
-
 jQuery(document).ready(function() {
 
-    var ratings = document.querySelector('#ratings');
+    var ratings = $('#review');
 
     var categories = [{
         title: "Amabilidad",
@@ -37,50 +33,51 @@ jQuery(document).ready(function() {
     }];
 
     // INITIALIZE
-    function init() {
+    $(function init() {
         for (var i = 0; i < categories.length; i++) {
             addRatingWidget(buildCategory(categories[i]), categories[i]);
         }
-    };
+        $('.category_title').css("font-size", "large");
+    });
 
     // BUILD CATEGORY
     function buildCategory(data) {
-        var category = document.createElement('div');
+        var category = $('<div></div>');
+        var id = data.id;
+        category.attr("id", id);
 
-        category.id = data.id;
-
-        var html = "<div class='category_title'>";
-
-        var currentTitle = data.title;
-
-        html += String(currentTitle) + ':</div>';
-
-        html += '<ul class="c-rating"></ul>';
-
-        category.innerHTML = html;
-        ratings.appendChild(category);
+        var html = $("<div class='category_title'></div>");
+        html.append(String(data.title) + '<ul class="c-rating"></ul>');
+        category.append(html);
+        ratings.append(category);
 
         return category;
     }
 
-    buildReviewFromCategories = function() {
-        var html = "";
+    window.buildReviewFromCategories = function(categories) {
+        var ans = $("<div class='category_container'></div>");
 
         for (c in categories) {
+            var html = $("<div class='category_title'></div>");
             var cat = categories[c];
-
-            html += "<div class='category_title'>";
-            var currentTitle = cat.title;
-
-            html += String(currentTitle) + ": " + "<p>" + cat.stars + "</p>" + '</div>';
+            html.append(String(cat.title) + ": " + "<p>" + cat.stars + "</p>");
+            ans.append(html);
         }
 
-        return html;
+        return ans;
+    }
+
+    window.getStars = function(categoryId) {
+        $.each(categories, function(index) {
+            if(categories[index].id == categoryId){
+                return categories[index].stars;
+            }
+        });
     }
 
     // ADD RATING WIDGET
     function addRatingWidget(category, data) {
-        var ratingElement = category.querySelector('.c-rating');
+        var ratingElement = category.find('.c-rating')[0];
         var maxRating = 10;
         var callback = function(rating) {
             data.stars = rating;
@@ -88,28 +85,28 @@ jQuery(document).ready(function() {
         var r = rating(ratingElement, null, maxRating, callback);
     }
 
-    getCategories = function() {
+    window.getCategories = function() {
         return categories;
     }
 
     function getToggle() {
-        var something = document.getElementById('recOther');
+        var something = $('#recOther');
         var toggle = something.checked;
-        console.log(toggle);
         return toggle;
     }
 
-
     // CHECKBOX
-    $(':checkbox').checkboxpicker.defaults.onLabel = 'Sí';
-    $(':checkbox').checkboxpicker();
-
+    if ($(':checkbox')[0] !== undefined) {
+        $(':checkbox').checkboxpicker.defaults.onLabel = 'Sí';
+        $(':checkbox').checkboxpicker();
+    }
 
     // WRAPS UP ALL FEEDBACK
-    finish = function() {
-        var toggle = getToggle();
-        var cl = getCmtList();
-        var categories = getCategories();
+    function finish() {
+        var ans = {};
+        ans[toggle] = getToggle();
+        ans[cl] = getCmtList();
+        ans[categories] = getCategories();
     }
 
 });

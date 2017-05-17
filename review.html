@@ -11,18 +11,24 @@
     <!-- Google Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Fin Google Icons -->
+    <!-- Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- Ejemplo: https://select2.github.io -->
+    <!-- Fin de Select2 -->
     <!-- Nuestro -->
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/ticket.css">
-    <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel='stylesheet' href='css/mayday.css'>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/rating.css">
     <link rel="stylesheet" href="css/Cards.css">
     <link rel="stylesheet" href="css/comments.css">
+    <link rel="stylesheet" href="css/results.css">
+    <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="js/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js" defer></script>
+    <!-- DONT ASK FOR FAVICON -->
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 </head>
 <!-- Fin nuestro -->
 <div class="container">
@@ -41,8 +47,25 @@
         </div>
     </div>
     <div class="o-container card-2">
-        <h1>Feedback:</h1>
-        <div id="ratings"></div>
+        <h1>¿Cómo estuvo su viaje?</h1>
+        <div class="bar_subtitle">
+            Aerolínea:
+        </div>
+        <div class="select_container_review">
+            <select id="airlines_select" class="js-example-basic-single filter-select" style="width: 30%">
+            </select>
+        </div>
+        <div class="bar_subtitle">
+            Vuelo:
+        </div>
+        <div class="select_container_review">
+            <select id="flight_number" class="js-example-basic-single filter-select" style="width: 20%">
+                <option value="5620">AA5620</option>
+                <option value="2347">AA2347</option>
+                <option value="2147">DA2147</option>
+            </select>
+        </div>
+        <div id="review"></div>
         <br>
         <div id="recommend">
             <h1>¿Lo recomendaría a otros usuarios?</h1>
@@ -55,30 +78,39 @@
                     <label>Comentarios</label>
                 </div>
                 <div class="actionBox">
-                    <div class="commentText">
+                    <div class="loader_container_comments">
+                        <div class="loader">
+                            <div id="loader_plane" class="plane">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comments_errors">
+                    </div>
+                    <!-- <div class="commentText">
                         <p class="pText">Muy buen vuelo!</p><span class="date sub-text">05/11/2017</span>
                     </div>
                     <hr>
                     <div class="commentText">
                         <p class="pText">La comida es tan buena como HCI.</p><span class="date sub-text">05/10/2017</span>
                     </div>
-                    <hr>
+                    <hr> -->
                     <ul class="commentList">
                     </ul>
                     <div class="form-group">
-                        <input class="form-control inputComment" type="text" placeholder="Su comentario" />
+                        <input class="form-control inputComment" type="text" placeholder="Ingrese aquí su comentario." />
                     </div>
                     <div class="form-group ">
-                        <button class="btn btn-default" onclick="uploadComment()">Enviar</button>
+                        <button id="upload_review_button" class="btn btn-default">Enviar</button>
                     </div>
                 </div>
             </div>
         </div>
         <div id="button">
-            <button id="finishBtn" type="button" class="btn btn-primary btn-md" onclick="finish()">Terminar</button>
+            <button id="finishBtn" type="button" class="btn btn-primary btn-md">Terminar</button>
         </div>
     </div>
 </div>
-<script src="js/dist/rating.min.js"></script>
-<script src="js/src/setRatings.js"></script>
-<script src="js/uploadComment.js"></script>
+<script type="text/javascript" src="./js/dist/rating.min.js"></script>
+<script type="text/javascript" src="./js/src/setRatings.js"></script>
+<script type="text/javascript" src="./js/loadAirlines.js"></script>
+<script type="text/javascript" src="./js/uploadReview.js"></script>

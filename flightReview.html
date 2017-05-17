@@ -15,7 +15,7 @@
 <!-- Fin de Select2 -->
 <!-- Lo nuestro -->
 <link rel='stylesheet' type='text/css' href='.\css\results.css'>
-<link rel='stylesheet' href='css/mayday.css'>
+<link rel='stylesheet' type='text/css' href='css/mayday.css'>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/rating.css">
 <link rel="stylesheet" href="css/flightReview.css">
@@ -24,7 +24,6 @@
 <!-- STAR RATING -->
 <link rel="stylesheet" type='text/css' href=".\css\rating.css">
 <!-- END STAR RATING -->
-<script src="js/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js" defer></script>
 <!-- Fin lo nuestro -->
 <div class="container">
     <div class="row">
@@ -33,7 +32,7 @@
                 Búsqueda de opiniones de vuelo
             </div>
             <div class="bar_subtitle">
-                Aerolíneas:
+                Aerolínea:
             </div>
             <select id="airlines_select" class="js-example-basic-single filter-select">
             </select>
@@ -44,7 +43,7 @@
                 <input class="form-control" id="flight_number" required="true" />
             </div>
             <div class="bar_subtitle">Ordenar por:</div>
-            <select id="orderby" class="js-example-basic-single filter-select">
+            <select id="orderby">
                 <option value="airline">Nombre de aerolínea</option>
                 <option value="flight">Número de vuelo</option>
                 <option value="rating">Opinión general</option>
@@ -59,13 +58,14 @@
 </div>
 <div class="container feedback">
     <div class="row">
-        <div id="ratings"></div>
+        <div id="reviews"></div>
     </div>
 </div>
 </div>
 <script type="text/javascript" src="./js/src/setRatings.js"></script>
 <script type="text/javascript" src="./js/loadAirlines.js"></script>
 <script type="text/javascript" src="./js/loadReviews.js"></script>
+<script type="text/javascript" src="./js/getLogos.js"></script>
 <!-- STAR RATING -->
 <script src="js/rating.min.js"></script>
 <!-- END STAR RATING -->
