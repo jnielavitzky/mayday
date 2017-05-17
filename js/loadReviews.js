@@ -1,41 +1,52 @@
-var warned = false;
+$(document).ready(function() {
 
-$("#search_review_button").click(function() {
+    $.fn.modal.Constructor.prototype.enforceFocus = function() {};
 
-    var airlineID = document.getElementById("airlines_select").value;
-    var flight_number = document.getElementById("flight_number").value;
-    var f = document.getElementById("orderby");
-    var filter = f.value;
-    var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
-        airlineID + "&flight_number=" + flight_number + "&sort_key=" + filter;
+    $("#search_comments_button").click(function() {
+        $("#reviews").empty();
+    });
 
-    var myObj, html = "";
+    $("#search_review_button").click(function() {
 
-    $.getJSON(URL, function(result) {
+        var airlineID = $("#airlines_select").val();
+        var airlineName = $("#airlines_select").select2('data')[0].text;
+        var flight_number = $("#flight_number").val();
+        var filter = $("#orderby").val();
 
-        myObj = result;
+        var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
+            airlineID + "&sort_key=" + filter;
 
-        if (myObj.error != undefined) {
-            if (!warned) {
-                var errorMessage = myObj.error.message;
-                var container = document.getElementById("flight_number_container");
-                container.innerHTML += "<span id='warning_icon' class='glyphicon glyphicon-warning-sign form-control-feedback'></span>";
-                container.className += " has-warning";
-                document.getElementById("flight_number").placeholder = errorMessage;
-                warned = true;
-            }
-        } else {
-            var container = document.getElementById("flight_number_container");
-            var child = document.getElementById("warning_icon");
-            if (child != undefined) container.removeChild(child);
-            container.className = "form-group has-feedback";
-            document.getElementById("flight_number").placeholder = "";
-            warned = false;
+        if (flight_number != "") {
+            URL += "&flight_number=" + flight_number;
+        }
+
+        var myObj, html = "";
+
+        $.getJSON(URL, function(result, status) {
+
+            myObj = result;
+
+            console.log(status);
+
+            // var container = document.getElementById("flight_number_container");
+            // var child = document.getElementById("warning_icon");
+            // if (child != undefined) container.removeChild(child);
+            // container.className = "form-group has-feedback";
+            // document.getElementById("flight_number").placeholder = "";
+            // warned = false;
 
             var reviews = myObj.reviews;
-            var html = ""
 
-            var a = document.getElementById("airlines_select");
+            if (reviews.length == 0) {
+                $("#reviews").html("No hay comentarios para este vuelo.");
+                return;
+            }
+
+            $(".modal-body").css("height", "70vh");
+
+            var html = "";
+
+            var a = $("#airlines_select");
 
             for (x in reviews) {
                 var categories = getCategories();
@@ -57,16 +68,16 @@ $("#search_review_button").click(function() {
                     if (categories[c].id == "overall") categories[c].stars = overall;
                 }
 
-                html += "<div class='category_title' id='airline_name'>" + "Nombre de aerolínea: " + "<p>" +
-                    a.options[a.selectedIndex].text + "</p>" + "</div>";
+                html += "<div class='category_title'>" + "Nombre de aerolínea: " + "<p>" +
+                    airlineName + "</p>" + "</div>";
 
-                html += "<div class='category_title' id='flight_number_review'>" + "Número de vuelo: " + "<p>" + flight_number + "</p>" + "</div>";
+                if (flight_number != "") html += "<div class='category_title'>" + "Número de vuelo: " + "<p>" + flight_number + "</p>" + "</div>";
 
                 html += buildReviewFromCategories(categories);
 
                 var recommendOther = reviews[x].yes_recommend;
                 var yesRecommend = "";
-                yesRecommend += "<div class='category_title' id='yes_recommend'>Lo recomendaría a otro: ";
+                yesRecommend += "<div class='category_title'>Lo recomendaría a otro: ";
 
                 if (recommendOther) {
                     yesRecommend += "<p>Sí</p>";
@@ -78,21 +89,18 @@ $("#search_review_button").click(function() {
 
                 html += yesRecommend;
 
-                commentsDiv = "<div class='category_title' id='comments'>Comentarios: " + "<p>" +
-                    reviews[x].comments + "</p>" + "</div>";
-
-                html += commentsDiv;
+                if (reviews[x].comments != "") {
+                    var commentsDiv = "<div class='category_title'>Comentarios: " + "<p>" +
+                        reviews[x].comments + "</p>" + "</div>";
+                    html += commentsDiv;
+                }
 
                 html += '<hr>';
 
-                document.getElementById("ratings").className = " o-container card-2";
-                document.getElementById("ratings").innerHTML = html;
+                // $("#reviews").addClass("o-container card-2");
+                $("#reviews").html(html);
 
             }
-        }
+        });
     });
-
-    // xhttp.open("GET", "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
-    //     airlineID + "&flight_number=" + flight_number + "&sort_key=" + filter, true);
-    // xhttp.send();
 });
