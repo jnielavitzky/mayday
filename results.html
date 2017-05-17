@@ -7,66 +7,63 @@
     <!-- JQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- End JQuery -->
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- End bootsrap -->
-
     <!-- Google Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Fin Google Icons -->
-
     <!-- Select2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <!-- Ejemplo: https://select2.github.io -->
     <!-- Fin de Select2 -->
-
     <!-- NoUISlider -->
     <link href="noUiSlider/nouislider.css" rel="stylesheet">
     <script src="noUiSlider/nouislider.js"></script>
     <!-- Fin NoUISlider -->
-
     <!-- wNumb -->
     <script src="wnumb/wNumb.js"></script>
     <!-- Fin wNumb -->
-
     <!-- Moment.js -->
     <script src="js/moment.js"></script>
     <!-- Fin Moment.js -->
-
     <!-- Lo nuestro -->
     <link rel='stylesheet' type='text/css' href='.\css\mayday.css'>
     <link rel='stylesheet' type='text/css' href='.\css\results.css'>
     <link rel="stylesheet" href="styles/ticket.css">
     <link rel="stylesheet" href="styles/plane_line.css">
-    <link rel="stylesheet" href="components/ComparisonTable/ComparisonTable.css">
+    <link rel="stylesheet" type='text/css' href=".\css\flightReview.css">
+    <link rel="stylesheet" type='text/css' href=".\css\modal.css">
     <!-- STAR RATING -->
     <link rel="stylesheet" type='text/css' href=".\css\rating.css">
     <!-- END STAR RATING -->
-
     <!-- DONT ASK FOR FAVICON -->
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <!-- Fin lo nuestro -->
 </head>
 <noscript>
     <style type="text/css">
-        .pagecontainer {display:none;}
-        .noscriptmsg {
-            font-size: 30px;
-            margin-top: 30px;
-            color: red;
-            height: 100%;
-            text-align: center;
-            vertical-align: middle;
-        }
+    .pagecontainer {
+        display: none;
+    }
+    
+    .noscriptmsg {
+        font-size: 30px;
+        margin-top: 30px;
+        color: red;
+        height: 100%;
+        text-align: center;
+        vertical-align: middle;
+    }
     </style>
     <div class="noscriptmsg">
         Javascript no esta habilitado. Por favor, habilitelo
     </div>
 </noscript>
+
 <body>
     <div id="page">
         <!--  NAV BAR  -->
@@ -147,7 +144,6 @@
                                     adultos
                                 </div>
                             </div>
-
                             <div class="search_button">
                                 <button type="button" class="btn btn-primary btn-lg">
                                     <span class="glyphicon glyphicon-search"></span> Buscar
@@ -188,17 +184,48 @@
                             <select id="airlines_select" class="js-example-basic-single filter-select">
                             </select>
                             <div class="bar_subtitle">
+                                Vuelo:
+                            </div>
+                            <select id="flight_number" class="js-example-basic-single filter-select">
+                                <option value="5620">AA5620</option>
+                                <option value="2347">AA2347</option>
+                                <option value="2147">DA2147</option>
+                            </select>
+                            <div class="bar_subtitle">
                                 Rango de opinión:
                             </div>
                             <div id="ratings"></div>
-                            <div class="bar_subtitle">
-                                Vuelo:
+                            <div class="search_button">
+                                <button id="search_comments_button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-comment"></span> Buscar comentarios
+                                </button>
                             </div>
-                            <select id="flight_select" class="js-example-basic-single filter-select">
-                                <option value="ARS">AR2342</option>
-                                <option value="MX">AA2347</option>
-                                <option value="USD">DA2147</option>
-                            </select>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" focus="false">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Búsqueda de opiniones de vuelo</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="bar_subtitle">Ordenar por:</div>
+                                            <select id="orderby">
+                                                <option value="airline">Nombre de aerolínea</option>
+                                                <option value="flight">Número de vuelo</option>
+                                                <option value="rating">Opinión general</option>
+                                            </select>
+                                            <button id="search_review_button" type="button" class="btn btn-primary btn-md">
+                                                Buscar
+                                            </button>
+                                            <div id="reviews"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!--  <div class="comparison_results">
@@ -257,15 +284,12 @@
                             </tbody>
                           </table>
                     </div> -->
-
                     <div id="results_tickets" class="results_tickets">
                         <div class="loader_container">
                             <div class="loader">
                                 <div id="loader_plane" class="plane">
-
                                 </div>
                             </div>
-
                         </div>
                         <div id="hidden_ticket" class="ticket hidden">
                             <div class="ticket_info">
@@ -503,8 +527,7 @@
         <!--  END FOOTER  -->
     </div>
     <div id="error" class="hidden">
-        <img src="images/error-js.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta.">
-        Error de comunicacion con el sistema. Por favor, intente de vuelta.
+        <img src="images/error-js.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicacion con el sistema. Por favor, intente de vuelta.
     </div>
 </body>
 
@@ -514,5 +537,8 @@
 <!-- STAR RATING -->
 <script src="js/rating.min.js"></script>
 <script src="js/opinionRange.js"></script>
+<script type="text/javascript" src="./js/loadAirlines.js"></script>
+<script type="text/javascript" src="./js/loadReviews.js"></script>
+<!-- <script type="text/javascript" src="./js/src/setRatings.js"></script> -->  
 <!-- END STAR RATING -->
 <!-- <script type="text/javascript" src="./js/loadAirlines.js"></script> -->
