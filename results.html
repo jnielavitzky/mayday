@@ -45,45 +45,12 @@
     <!-- Fin lo nuestro -->
 </head>
 <noscript>
-    <style type="text/css">
-    .pagecontainer {
-        display: none;
-    }
-    
-    .noscriptmsg {
-        font-size: 30px;
-        margin-top: 30px;
-        color: red;
-        height: 100%;
-        text-align: center;
-        vertical-align: middle;
-    }
-    </style>
-    <div class="noscriptmsg">
-        JavaScript no está habilitado. Por favor, habilítelo.
-    </div>
+    <img class="row col-md-offset-2" img src=".\images\javascript-error-09.png">
 </noscript>
 
 <body>
-    <div id="page">
-        <!--  NAV BAR  -->
-        <div class="container pagecontainer">
-            <div class="row navigation-bar">
-                <div class="col-md-3">
-                    <a href="index.html"><img class="logo" src=".\images\logo.PNG"></a>
-                </div>
-                <div class="col-md-2 nav-items">
-                    <a href="#">Home</a>
-                </div>
-                <div class="col-md-3 nav-items">
-                    <a href="promociones.html">Promociones</a>
-                </div>
-                <div class="col-md-2 nav-items">
-                    <a href="contacto.html">Contacto</a>
-                </div>
-            </div>
-        </div>
-        <!--  END HEADER  -->
+    <div id="every" class="">
+        <div class="container" id="n4v"></div>
         <div class="container min_container pagecontainer">
             <div class="row">
                 <main class="my_main col-sm-12">
@@ -303,7 +270,12 @@
                             <div class="ticket_info">
                                 <div class="ticket_from">
                                     <p class="ticket_from_title">Ida:</p>
-                                    <!-- <img class="ticket_airline_logo" src="american_logo.jpeg"></img> -->
+                                    <div class="ticket_airline_logo_container">
+                                        <img class="ticket_airline_logo" src="american_logo.jpeg"></img>
+                                        <div class="ticket_airline_name">
+
+                                        </div>
+                                    </div>
                                     <div class="ticket_from_details">
                                         <div class="location">
                                             <div class="location_airport airport_departure">
@@ -370,7 +342,12 @@
                                 <div class="ticket_separator2"></div>
                                 <div class="ticket_to">
                                     <p class="ticket_from_title">Vuelta:</p>
-                                    <!-- <img class="ticket_airline_logo" src="american_logo.jpeg"></img> -->
+                                    <div class="ticket_airline_logo_container">
+                                        <img class="ticket_airline_logo" src="american_logo.jpeg"></img>
+                                        <div class="ticket_airline_name">
+
+                                        </div>
+                                    </div>
                                     <div class="ticket_from_details">
                                         <div class="location">
                                             <div class="location_airport airport_departure">
@@ -535,7 +512,7 @@
         <!--  END FOOTER  -->
     </div>
     <div id="error" class="hidden">
-        <img src="images/error-js.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicacion con el sistema. Por favor, intente de vuelta.
+        <img src="" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicacion con el sistema. Por favor, intente de vuelta.
     </div>
 </body>
 
@@ -547,3 +524,5 @@
 <script type="text/javascript" src="./js/src/setRatings.js"></script>
 <script type="text/javascript" src="./js/loadAirlines.js"></script>
 <script type="text/javascript" src="./js/loadReviews.js"></script>
+<script type="text/javascript" src="./js/getLogos.js"></script>
+<script type="text/javascript" src="./js/show.js"></script>

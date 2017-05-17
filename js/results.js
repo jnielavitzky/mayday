@@ -1,6 +1,8 @@
 var out_flights;
 var in_flights;
 
+var airline_logos;
+
 var timeout_timer;
 // Data parce and show
 
@@ -16,13 +18,18 @@ $(document).ready(function() {
         }, 000);
     });
     timeout_timer = setTimeout(timeout, 5000);
+
+    getLogos(function(logos) {
+        airline_logos = logos;
+        done_flights();
+    });
 });
 
 function timeout() {
     $("#results_tickets").hide();
 
-    $('#page').fadeTo(500, 0.2);
-    $('#page').css("pointer-events", "none");
+    $('#every').fadeTo(500, 0.2);
+    $('#every').css("pointer-events", "none");
 
     $("#error").removeClass("hidden");
 }
@@ -30,7 +37,7 @@ function timeout() {
 function done_flights() {
     var ticket_container = $("#results_tickets");
 
-    if (out_flights == null || in_flights == null)
+    if (out_flights == null || in_flights == null || airline_logos == null)
         return;
 
     clearTimeout(timeout_timer);
@@ -139,6 +146,8 @@ function fill_half_ticket(flight, parent) {
     // Ticket 1
 
 
+
+
     // Search for de div of the timedate details
     var ticket_time_details_from = parent.find(".ticket_time_details");
 
@@ -184,10 +193,17 @@ function fill_half_ticket(flight, parent) {
     var flight_number = seg["number"];
     var airline = seg["airline"];
     var airline_id = airline["id"];
+    var airline_name = airline["name"];
     var readable_flight_number = airline_id + "" + flight_number;
 
     var flight_number_div = parent.find(".flight_number");
     flight_number_div.text("Vuelo: " + readable_flight_number);
+
+    var logo_img_elem = parent.find(".ticket_airline_logo");
+    logo_img_elem.attr("src", airline_logos[airline_id]);
+
+    var airline_name_div = parent.find(".ticket_airline_name");
+    airline_name_div.text(airline_name);
 
 }
 
