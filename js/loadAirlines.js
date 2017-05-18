@@ -13,6 +13,8 @@ $(document).ready(function() {
 
         var airlines = myObj.airlines;
 
+        html += "<option value=''></option>";
+
         for (x in airlines) {
             var logo = airlines[x].logo;
             html += "<option value='" + airlines[x].id + "' data-image='" + airlines[x].logo + "'>" + airlines[x].name + "</option>";
@@ -20,12 +22,10 @@ $(document).ready(function() {
 
         $('#airlines_select').html(html);
 
-
     });
 
-    $('#airlines_select').select2();
-    $('#airlines_select').select2('val', $('#airlines_select option:eq(1)').val());
     $(".js-example-basic-single").select2({
+        placeholder: "Seleccione aerolínea",
         templateResult: formatAirline
     });
 

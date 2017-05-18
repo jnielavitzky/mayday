@@ -69,7 +69,7 @@ jQuery(document).ready(function() {
 
     window.getStars = function(categoryId) {
         $.each(categories, function(index) {
-            if(categories[index].id == categoryId){
+            if (categories[index].id == categoryId) {
                 return categories[index].stars;
             }
         });

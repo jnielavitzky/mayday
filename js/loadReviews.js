@@ -17,12 +17,13 @@ $(document).ready(function() {
 
         if ($("#airlines_select").select2('data').length == 0) {
             error("No internet");
+            console.log("estoy en error");
             return;
         }
 
         var airlineID = $("#airlines_select").val();
         var airlineName = $("#airlines_select").select2('data')[0].text;
-        var flight_number = $("#flight_number").val();
+        var flight_number = "5260"//$("#flight_number").val();
         var filter = $("#orderby").val();
 
         var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
@@ -39,6 +40,7 @@ $(document).ready(function() {
         $.getJSON(URL, function(result, status) {
 
             $(".loader_container_reviews").hide();
+
             clearTimeout(timeout_timer);
 
             myObj = result;

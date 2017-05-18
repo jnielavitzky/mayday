@@ -148,15 +148,7 @@
 }
 
 .loader_container_reviews {
-    margin-left: 40%;
-    margin-top: 10%;
-    /*visibility: hidden;*/
-}
-
-.loader_container_comments {
-    margin-left: 43%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    height: 35vh;
     /*visibility: hidden;*/
 }
 
@@ -169,6 +161,25 @@
     width: 120px;
     height: 120px;
     animation: spin 3s linear infinite;
+}
+
+.loader_comments {
+    border: 8px dashed #f3f3f3;
+    /* Light grey */
+    border-top: 8px dashed #f3f3f3;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 3s linear infinite;
+    margin-left: 43%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /*visibility: hidden;*/
+}
+
+.loader_reviews {
+    margin: -16px 0 0 -60px;
 }
 
 @keyframes spin {

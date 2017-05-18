@@ -1,5 +1,9 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="utf-8">
+    <title>Reseña</title>
     <!-- JQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Fin JQuery -->
@@ -27,90 +31,78 @@
     <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="js/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js" defer></script>
-    <!-- DONT ASK FOR FAVICON -->
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="shortcut icon" href="images/paper-plane.png">
 </head>
-<!-- Fin nuestro -->
-<div class="container">
-    <div class="row navigation-bar">
-        <div class="col-md-3">
-            <a href="index.html"><img class="logo" src=".\images\logo.PNG"></a>
-        </div>
-        <div class="col-md-2 nav-items nm">
-            <a class="main-t" href="sobre-nosotros.html">Sobre Nosotros</a>
-        </div>
-        <div class="col-md-2 col-md-offset-1 nav-items">
-            <a class="main-t" href="promociones.html">Promociones</a>
-        </div>
-        <div class="col-md-1 nav-items nm-2">
-            <a class="main-t" href="contacto.html">Contacto</a>
-        </div>
-    </div>
-    <div class="o-container card-2">
-        <h1>¿Cómo estuvo su viaje?</h1>
-        <div class="bar_subtitle">
-            Aerolínea:
-        </div>
-        <div class="select_container_review">
-            <select id="airlines_select" class="js-example-basic-single filter-select" style="width: 30%">
-            </select>
-        </div>
-        <div class="bar_subtitle">
-            Vuelo:
-        </div>
-        <div class="select_container_review">
-            <select id="flight_number" class="js-example-basic-single filter-select" style="width: 20%">
-                <option value="5620">AA5620</option>
-                <option value="2347">AA2347</option>
-                <option value="2147">DA2147</option>
-            </select>
-        </div>
-        <div id="review"></div>
-        <br>
-        <div id="recommend">
-            <h1>¿Lo recomendaría a otros usuarios?</h1>
-            <input id="recOther" type="checkbox" checked>
-        </div>
-        <!-- from https://codepen.io/magnus16/pen/buGiB -->
-        <div id="comments">
-            <div class="detailBox">
-                <div class="titleBox">
-                    <label>Comentarios</label>
+
+<body>
+    <noscript>
+        <img class="row col-md-offset-2" img src=".\images\javascript-error-09.png">
+    </noscript>
+    <div id="every" class="container scriptavailable">
+        <div class="container">
+            <div class="container" id="n4v"></div>
+            <div class="o-container card-2">
+                <h1>¿Cómo estuvo su viaje?</h1>
+                <div class="bar_subtitle">
+                    Aerolínea:
                 </div>
-                <div class="actionBox">
-                    <div class="loader_container_comments">
-                        <div class="loader">
-                            <div id="loader_plane" class="plane">
+                <div class="select_container_review">
+                    <select id="airlines_select" class="js-example-basic-single filter-select" style="width: 30%">
+                    </select>
+                </div>
+                <div class="bar_subtitle">
+                    Vuelo:
+                </div>
+                <div class="select_container_review">
+                    <select id="flight_number" class="js-example-basic-single filter-select" style="width: 20%">
+                        <option value="5620">AA5620</option>
+                        <option value="2347">AA2347</option>
+                        <option value="2147">DA2147</option>
+                    </select>
+                </div>
+                <div id="review"></div>
+                <br>
+                <div id="recommend">
+                    <h2>¿Lo recomendaría a otros usuarios?</h2>
+                    <input id="recOther" type="checkbox" checked>
+                </div>
+                <!-- from https://codepen.io/magnus16/pen/buGiB -->
+                <div id="comments">
+                    <div class="detailBox">
+                        <div class="titleBox">
+                            <label>Comentarios</label>
+                        </div>
+                        <div class="actionBox">
+                            <div class="loader_container_comments">
+                                <div class="loader_comments">
+                                    <div id="loader_plane" class="plane">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comments_errors">
+                            </div>
+                            <ul class="commentList">
+                            </ul>
+                            <div class="form-group">
+                                <input class="form-control inputComment" type="text" placeholder="Ingrese aquí su comentario." />
+                            </div>
+                            <div class="form-group">
+                                <button id="upload_review_button" class="btn btn-default">Enviar</button>
                             </div>
                         </div>
                     </div>
-                    <div class="comments_errors">
-                    </div>
-                    <!-- <div class="commentText">
-                        <p class="pText">Muy buen vuelo!</p><span class="date sub-text">05/11/2017</span>
-                    </div>
-                    <hr>
-                    <div class="commentText">
-                        <p class="pText">La comida es tan buena como HCI.</p><span class="date sub-text">05/10/2017</span>
-                    </div>
-                    <hr> -->
-                    <ul class="commentList">
-                    </ul>
-                    <div class="form-group">
-                        <input class="form-control inputComment" type="text" placeholder="Ingrese aquí su comentario." />
-                    </div>
-                    <div class="form-group ">
-                        <button id="upload_review_button" class="btn btn-default">Enviar</button>
-                    </div>
+                </div>
+                <div id="button">
+                    <button id="finishBtn" type="button" class="btn btn-primary btn-md">Terminar</button>
                 </div>
             </div>
         </div>
-        <div id="button">
-            <button id="finishBtn" type="button" class="btn btn-primary btn-md">Terminar</button>
-        </div>
     </div>
-</div>
+</body>
+
+</html>
+<script type="text/javascript" src="./js/loadAirlines.js"></script>
+<script type="text/javascript" src="./js/show.js"></script>
 <script type="text/javascript" src="./js/dist/rating.min.js"></script>
 <script type="text/javascript" src="./js/src/setRatings.js"></script>
-<script type="text/javascript" src="./js/loadAirlines.js"></script>
 <script type="text/javascript" src="./js/uploadReview.js"></script>
