@@ -5,6 +5,7 @@ var result;
 var call;
 
 $(document).ready(function() {
+    call = setTimeout(time,5000);
     $.getJSON('http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getlastminuteflightdeals&from=BUE', function(json) {
         var error = json;
         if(error != null){
@@ -67,6 +68,10 @@ function getPhoto(description, country) {
         var usrid = flickrJson["photos"]["photo"][randint]["id"];
         var secret = flickrJson["photos"]["photo"][randint]["secret"];
         result = '"https://farm' + farmid + ".staticflickr.com/" + serverid + "/" + usrid + "_" + secret +'.jpg"';
-        console.log(result);
     });
+}
+
+var time = function time() {
+    $('.loader').hide();
+    $("#card-container").removeClass('hide');
 }
