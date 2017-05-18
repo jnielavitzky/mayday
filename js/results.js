@@ -1,21 +1,30 @@
 var out_flights;
 var in_flights;
 
+var out_filters;
+var in_filters;
+
 var airline_logos;
 
 var timeout_timer;
-// Data parce and show
+
+var flight_codes = {};
+
 
 $(document).ready(function() {
     $.getJSON("./ejemplo3.json", function(data) {
         out_flights = data["flights"];
+        out_filters = data["filters"];
         done_flights();
+        done_filters();
     });
     $.getJSON("./ejemplo4.json", function(data) {
         in_flights = data["flights"];
-        setTimeout(function() {
-            done_flights();
-        }, 000);
+        in_filters = data["filters"];
+
+        done_flights();
+        done_filters();
+
     });
     timeout_timer = setTimeout(timeout, 5000);
 
@@ -43,6 +52,8 @@ function done_flights() {
     clearTimeout(timeout_timer);
     $(".loader_container").hide();
 
+
+
     for (var out_key in out_flights) {
         var out_flight = out_flights[out_key];
         for (var in_key in in_flights) {
@@ -60,12 +71,13 @@ function done_flights() {
             var ticket_to = new_ticket.find(".ticket_to");
             fill_half_ticket(in_flight, ticket_to);
 
-
             fill_price_list(out_flight, in_flight, new_ticket);
 
 
         }
     }
+    setDurationSlider();
+    setFlightFilter();
 }
 
 function fill_price_list(out_flight, in_flight, ticket) {
@@ -131,6 +143,9 @@ function fill_price_list(out_flight, in_flight, ticket) {
     taxes_div.text(toMoneyString(taxes_in + charges_in + taxes_out + charges_out));
 }
 
+var min_dur = Infinity;
+var max_dur = -Infinity;
+
 function fill_half_ticket(flight, parent) {
     //Get out data
     var routes = flight["outbound_routes"];
@@ -144,9 +159,6 @@ function fill_half_ticket(flight, parent) {
     var arrival_datetime = moment(arrival["date"]);
 
     // Ticket 1
-
-
-
 
     // Search for de div of the timedate details
     var ticket_time_details_from = parent.find(".ticket_time_details");
@@ -185,9 +197,12 @@ function fill_half_ticket(flight, parent) {
 
     var total_time_div = parent.find(".total_time");
     var total_time = (routes[0])["duration"];
-    total_time_div.text("Total: " + total_time.split(':')[0] + "hs");
-
-
+    var total_time_split = parseInt(total_time.split(':')[0], 10);
+    total_time_div.text("Total: " + total_time_split + "hs");
+    if (total_time_split < min_dur)
+        min_dur = total_time_split;
+    if (total_time_split > max_dur)
+        max_dur = total_time_split;
 
     // Flight number
     var flight_number = seg["number"];
@@ -195,6 +210,7 @@ function fill_half_ticket(flight, parent) {
     var airline_id = airline["id"];
     var airline_name = airline["name"];
     var readable_flight_number = airline_id + "" + flight_number;
+    flight_codes[readable_flight_number] = true;
 
     var flight_number_div = parent.find(".flight_number");
     flight_number_div.text("Vuelo: " + readable_flight_number);
@@ -228,41 +244,92 @@ function shorten_name(name, l) {
     return name.substring(0, l - 4) + "...";
 }
 
+
+function done_filters() {
+    if (in_filters == null || out_filters == null)
+        return;
+
+    var price_filters = out_filters[2];
+    var price_min = price_filters["min"];
+    var price_max = price_filters["max"];
+
+    price_filters = in_filters[2];
+    price_min = price_min + price_filters["min"];
+    price_max = price_max + price_filters["max"];
+
+    createPriceSlider(price_min, price_max);
+
+
+}
+var price_slider;
+
+function createPriceSlider(min, max) {
+    if (price_slider != undefined)
+        return;
+    price_slider = document.getElementById("price_range");
+    noUiSlider.create(price_slider, {
+        start: [min, max],
+        connect: true,
+
+        range: {
+            'min': [min, 1],
+            'max': max
+        }
+    });
+
+    price_slider.noUiSlider.on('update', function(values, handle) {
+        $("#price-slider-values").html("Min: " + numberWithCommas(Math.floor(values[0])) + ", max: " + numberWithCommas(Math.floor(values[1])));
+    });
+}
+var duration_range = undefined;
+
+function setDurationSlider() {
+
+    if (duration_range != undefined)
+        return;
+    // min_dur = max_dur;
+    min_dur = parseInt(min_dur, 10);
+    max_dur = parseInt(max_dur, 10);
+
+    if (max_dur == min_dur) {
+        $(".duration_range_container").hide();
+        return;
+    }
+
+    duration_range = document.getElementById('duration_range');
+
+    noUiSlider.create(duration_range, {
+        start: [min_dur, max_dur],
+        connect: true,
+        margin: 1,
+        range: {
+            'min': [min_dur, 1],
+            'max': max_dur
+        }
+    });
+
+    duration_range.noUiSlider.on('update', function(values, handle) {
+        $("#duration-slider-values").html("Min: " + Math.floor(values[0]) + "hs, max: " + Math.floor(values[1]) + "hs");
+    });
+}
+
+function setFlightFilter() {
+    for (var key in flight_codes) {
+        var option = "<option value='" + key + "'>" + key + "</option>";
+        $("#flight_number").append(option);
+    }
+}
+
+
 // UI Element set up
 
 $(".js-example-basic-single").select2();
 
-var price_slider = document.getElementById('price_range');
 
-noUiSlider.create(price_slider, {
-    start: [5000, 15000],
-    connect: true,
 
-    range: {
-        'min': [1000, 100],
-        'max': 20000
-    }
-});
 
-price_slider.noUiSlider.on('update', function(values, handle) {
-    $("#price-slider-values").html("Min: " + numberWithCommas(Math.floor(values[0])) + ", max: " + numberWithCommas(Math.floor(values[1])));
-});
 
-var duration_range = document.getElementById('duration_range');
 
-noUiSlider.create(duration_range, {
-    start: [15, 20],
-    connect: true,
-
-    range: {
-        'min': [10, 1],
-        'max': 25
-    }
-});
-
-duration_range.noUiSlider.on('update', function(values, handle) {
-    $("#duration-slider-values").html("Min: " + Math.floor(values[0]) + "hs, max: " + Math.floor(values[1]) + "hs");
-});
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "AR$";
