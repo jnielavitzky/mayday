@@ -191,7 +191,7 @@ a:focus{
     text-align: left;
     margin-top: 30px; 
     font-size: 30px;
-    margin-left: -197px; 
+    margin-left: -180px; 
     margin-top: 80px; 
     font-weight: 600; 
 }
@@ -299,10 +299,14 @@ label{
     margin-left: 0px; 
 }
 
+#vencimiento-año{
+   margin-left: 0px;  
+}
+
 .numero{
     width: 100px; 
     height: 100px; 
-    margin-left: -40px; 
+    margin-left: 0px; 
     margin-top: 50px; 
     align-items: center; 
 }
@@ -342,4 +346,66 @@ label{
     background-color:#337ab7;
     color:white; 
 
+}
+
+.obligatorio{
+    color:red;
+    font-weight: 200; 
+}
+
+.error{
+    color: red;
+}
+
+.error-nombre{
+    margin-left: 100px;  
+}
+
+#dia-error{
+    margin-left: 117px;
+}
+
+#mes-error{
+    margin-left: 117px;
+}
+
+#año-error{
+    margin-left: 117px;
+}
+
+#vencimiento-mes-error{
+    margin-left: 100px;
+}
+
+#vencimiento-año-error{
+    margin-left: 100px; 
+}
+
+#nombre-p-error{
+    margin-left: 100px;
+}
+
+#apellido-p-error{
+    margin-left: 100px;
+}
+
+#provincia-error{
+    margin-left: 100px;
+}
+
+#número_casa-error{
+    margin-left: 117px;
+}
+
+#correo-electronico-error{
+    margin-left: 100px;
+}
+
+#phone-error{
+    margin-left: 100px;
+}
+
+.terminos{
+    width: 200px;
+    font-size: 20px;
 }
