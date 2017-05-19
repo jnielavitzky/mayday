@@ -359,7 +359,7 @@ function shorten_name(name, l) {
 function done_filters() {
 
 
-    if (in_filters == null || out_filters == null || currencies == null)
+    if ((in_filters == null && !single_flight) || out_filters == null || currencies == null)
         return;
 
     var price_filters = out_filters[2];
@@ -436,8 +436,13 @@ function filter_by_rating(obj) {
             return false;
         }
 
-        return true;
+
+    }else{
+        if (rating1 < selected_rating) {
+            return false;
+        }
     }
+    return true;
 }
 
 function filter_by_price(obj) {
@@ -450,7 +455,7 @@ function filter_by_price(obj) {
 
     var total = $(obj).find(".total_price").attr("data");
     total = parseInt(total, 10);
-    //console.log(max + " > " + total + " >" + min);
+    // console.log(max + " > " + total + " >" + min);
     if (total >= min && total <= max) {
         //console.log("show" + i);
         return true;
@@ -584,7 +589,6 @@ var price_slider_max;
 var price_slider_min;
 
 function createPriceSlider(min, max) {
-
     if (price_slider != undefined)
         return;
 
