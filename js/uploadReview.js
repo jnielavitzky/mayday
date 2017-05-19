@@ -1,84 +1,16 @@
 $(document).ready(function() {
 
-    // $("#airlines_select")[0].selectedIndex = 0;
+    $('#flight_number').on("change", function() {
+        console.log("flight_number: " + $('#flight_number').val());
+    });
 
-    // if ($("#airlines_select").select2('data').length == 0) {
-    //     error("No internet");
-    //     console.log($("#airlines_select"));
-    //     return;
-    // }
+    $('#airlines_select').on("change", function() { console.log("change"); });
 
-    // if ($("#airlines_select").select2('data')[0] === undefined) {
-    //         error("smth");
-    //         return;
-    //     }
-
-    // $('#airlines_select').val('AR'); // Select the option with a value of 'US'
-    // $('#airlines_select').trigger('change'); // Notify any JS components that the value changed
-
-    // if ($('#airlines_select')[0].length) {
-
-    //     alert(1);
-
-    // } else {
-    //     alert(2);
-    //     $('#airlines_select').val('AR'); // Select the option with a value of 'US'
-    // $('#airlines_select').trigger('change'); // Notify any JS components that the value changed
-
-    // }
+    $("#search_flight").click(function() {
+        get_flight_reviews();
+    });
 
     var myObj, html = "";
-
-    timeout_timer = setTimeout(timeout, 15000);
-
-    // $.ajax({
-    //     url: URL,
-    //     async: false,
-    //     dataType: 'json',
-    //     success: function(data) {
-    //         console.log(URL);
-    //         $(".loader_container_comments").hide();
-    //         myObj = data;
-    //         clearTimeout(timeout_timer);
-    //     }
-    // });
-
-
-
-    $.getJSON(makeURL(), function(result, status) {
-
-        $(".loader_container_comments").hide();
-        clearTimeout(timeout_timer);
-
-        myObj = result;
-
-        // console.log(result);
-
-        // var container = document.getElementById("flight_number_container");
-        // var child = document.getElementById("warning_icon");
-        // if (child != undefined) container.removeChild(child);
-        // container.className = "form-group has-feedback";
-        // document.getElementById("flight_number").placeholder = "";
-        // warned = false;
-
-        var reviews = myObj.reviews;
-
-        if (reviews.length == 0) {
-            $(".commentList").html("No hay comentarios para este vuelo.");
-            return;
-        }
-
-        for (x in reviews) {
-            var li = $("<li></li>");
-            var comment = $("<div class='commentText'></div>");
-            comment.append("<p class='pText'>" + reviews[x].comments + "</p>");
-            // <span class='date sub-text'>" + getDate() + "</span>"
-            li.append(comment);
-            li.append("<hr>");
-            $(".commentList").append(li);
-        }
-
-    });
 
     $("#upload_review_button").click(function() {
 
@@ -101,26 +33,11 @@ $(document).ready(function() {
             "comments": "Horrible!"
         }
 
-        // console.log(review);
-        // console.log(JSON.stringify(review));
-
         var URLY = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=reviewairline";
 
         alert(URLY);
 
-        /*$.ajax({
-            type: "PUT",
-            url: URLY,
-            data: JSON.stringify(review),
-            contentType: "application/json",
-            dataType: "json",
-            success: function(data) {
-                console.log(data);
-            },
-            failure: function(errMsg) {
-                alert("error" + errMsg);
-            }
-        });*/
+
         debugger;
         console.log(window.getStars("friendliness"));
     });
@@ -129,20 +46,9 @@ $(document).ready(function() {
 
 function makeURL() {
 
-    var airline = { id: 'AR', name: '' };
-
-    var aux = setInterval(function() {
-        if ($('#airlines_select').val() != null) {
-            airline.id = $('#airlines_select').val();
-            // console.log($('#airlines_select').val());
-            // console.log("Exito")
-            clearInterval(aux);
-        }
-    }, 10);
-
-    var airlineName = $("#airlines_select").select2('data')[0];
-    var flight_number = "5260" //$("#flight_number").val();
-    var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" + airline.id;
+    var airline_id = $('#airlines_select').val();
+    var flight_number = $("#flight_number").val();
+    var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" + airline_id;
 
     if (flight_number != "") {
         URL += "&flight_number=" + flight_number;
@@ -151,23 +57,12 @@ function makeURL() {
     return URL;
 }
 
-// function getDate() {
-//     var today = new Date();
-//     var dd = today.getDate();
-//     var mm = today.getMonth() + 1; //January is 0!
-//     var yyyy = today.getFullYear();
+function get_flight_reviews() {
+    console.log($('#flight_number').val() + " " + $('#airlines_select').val());
+    $("#comment_container").removeClass("hidden");
+    get_comments();
+}
 
-//     if (dd < 10) {
-//         dd = '0' + dd
-//     }
-
-//     if (mm < 10) {
-//         mm = '0' + mm
-//     }
-
-//     today = mm + '/' + dd + '/' + yyyy;
-//     return today;
-// }
 
 function bindCmt() {
     var cmtListElement = $('.commentList'),
@@ -186,6 +81,42 @@ function getCmtList() {
     var cl = localStorage.getItem('cmtList');
     if (cl != null) cl = JSON.parse(cl);
     return cl;
+}
+
+function get_comments() {
+
+    $(".loader_container_comments").show();
+
+    timeout_timer = setTimeout(timeout, 15000);
+
+    $.getJSON(makeURL(), function(result) {
+
+        // setTimeout(function() {
+        //     $(".loader_container_comments").hide();
+        // }, 4000);
+
+        clearTimeout(timeout_timer);
+        $(".commentList").empty();
+
+        myObj = result;
+
+        var reviews = myObj.reviews;
+
+        if (reviews.length == 0) {
+            $(".commentList").html("No hay comentarios para este vuelo.");
+            return;
+        }
+
+        for (x in reviews) {
+            var li = $("<li></li>");
+            var comment = $("<div class='commentText'></div>");
+            comment.append("<p class='pText'>" + reviews[x].comments + "</p>");
+            li.append(comment);
+            li.append("<hr>");
+            $(".commentList").append(li);
+        }
+
+    });
 }
 
 //Get the comments on page ready
