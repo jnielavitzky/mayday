@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+function setRatingStars(callb) {
 
     var ratings = document.querySelector('#ratings');
 
@@ -26,11 +26,12 @@ jQuery(document).ready(function() {
     // ADD RATING WIDGET
     function addRatingWidget(category, data) {
         var ratingElement = category.querySelector('.c-rating');
-        var maxRating = 5;
+        var maxRating = 10;
         var callback = function(rating) {
             data.stars = rating;
+            callb(rating);
         };
-        var r = rating(ratingElement, null, maxRating, callback);
+        var r = rating(ratingElement, 1, maxRating, callback);
     }
 
-});
+}

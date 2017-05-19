@@ -14,11 +14,20 @@ var currencies;
 
 var selected_currency;
 
+var selected_rating = 1;
+
 var single_flight = false;
 
 
 $(document).ready(function() {
     $(".no_results").hide();
+
+    setRatingStars(function(r) {
+        selected_rating = r;
+        filter();
+    });
+
+
     $.getJSON("./ejemplo3.json", function(data) {
         out_flights = data["flights"];
         out_filters = data["filters"];
@@ -300,8 +309,12 @@ function fill_half_ticket(flight, parent) {
     var airline = seg["airline"];
     var airline_id = airline["id"];
     var airline_name = airline["name"];
+    var airline_rating = airline["rating"];
     var readable_flight_number = airline_id + "" + flight_number;
     flight_codes[readable_flight_number] = true;
+
+    // parent.find(".opinion_num").hide();
+    parent.attr("rating", airline_rating);
 
     var flight_number_div = parent.find(".flight_number");
     flight_number_div.text("Vuelo: " + readable_flight_number);
@@ -370,7 +383,7 @@ function filter() {
     var at_least_one = false;
     $('.ticket').each(function(i, obj) {
 
-        if (filter_by_price(obj) && filter_by_duration(obj) && filter_by_airline(obj)) {
+        if (filter_by_price(obj) && filter_by_duration(obj) && filter_by_airline(obj) && filter_by_rating(obj)) {
             $(obj).show(300);
             at_least_one = true;
         } else {
@@ -386,7 +399,22 @@ function filter() {
 
 }
 
+function filter_by_rating(obj) {
+    var ticket_from = $(obj).find(".ticket_from");
+    var rating1 = $(ticket_from).attr("rating");
+    if (!single_flight) {
+        var ticket_to = $(obj).find(".ticket_to");
+        var rating2 = $(ticket_from).attr("rating");
+        if (rating2 < selected_rating) {
+            return false;
+        }
+        if (rating1 < selected_rating) {
+            return false;
+        }
 
+        return true;
+    }
+}
 
 function filter_by_price(obj) {
     var max = price_slider_max;
@@ -547,7 +575,6 @@ function createPriceSlider(min, max) {
     });
     defaultCurrency();
     price_slider.noUiSlider.on('update', function(values, handle) {
-        console.log(selected_currency);
         $("#price-slider-values").html("Min: " + toMoneyString(Math.floor(values[0] / selected_currency.ratio)) + ", max: " + toMoneyString(Math.floor(values[1] / selected_currency.ratio)));
         price_slider_min = values[0];
         price_slider_max = values[1];
