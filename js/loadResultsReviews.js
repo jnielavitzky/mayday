@@ -11,7 +11,7 @@ function setSearchCommentsButton(argument) {
     var aSelected = $("#airlines_select").val();
     var fSelected = $("#flight_number").val();
 
-    if (aSelected != "" && aSelected != null && fSelected != "" && fSelected != null && fSelected != "Todos") {
+    if (aSelected != "" && aSelected != null && fSelected != "" && fSelected != null) {
 
         $('#search_comments_button_container').removeClass("hidden");
 

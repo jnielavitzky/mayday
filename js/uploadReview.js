@@ -1,53 +1,82 @@
 $(document).ready(function() {
 
-    $('#flight_number').on("change", function() {
-        console.log("flight_number: " + $('#flight_number').val());
+    $('#inputs').hide();
+
+    $("#search_flight_button").click(function() {
+        var aSelected = $("#airlines_select").val();
+        var fSelected = $("#flight_number_review").val();
+
+        if (aSelected != "" && aSelected != null && fSelected != "" && fSelected != null) {
+            get_flight_reviews();
+        }
     });
 
-    $('#airlines_select').on("change", function() { console.log("change"); });
+    // $("#friendliness").find(".c-rating").on("change", function() { 
+    //     console.log(getStars("friendliness")); 
+    // }); 
 
-    $("#search_flight").click(function() {
-        get_flight_reviews();
-    });
+    $("#upload_commment_button").click(function() {
 
-    var myObj, html = "";
+        var comment = $("#input_comment").val();
 
-    $("#upload_review_button").click(function() {
+        if (comment != "") {
 
-        var review = {
-            "flight": {
-                "airline": {
-                    "id": "AR"
-                },
-                "number": 5260
-            },
-            "rating": {
-                "friendliness": window.getStars("friendliness"),
-                "food": window.getStars("food"),
-                "punctuality": window.getStars("punctuality"),
-                "mileage_program": window.getStars("mileage_program"),
-                "comfort": window.getStars("comfort"),
-                "quality_price": window.getStars("quality_price")
-            },
-            "yes_recommend": true,
-            "comments": "Horrible!"
+            var review = {
+                "flight": {
+                    "airline": {
+                        "id": $("#airlines_select").val()
+                    },"number": getFlightNumber()},
+                    "rating": {
+                        "friendliness": getStars("friendliness"),
+                        "food": getStars("food"),
+                        "punctuality": getStars("punctuality"),
+                        "mileage_program": getStars("mileage_program"),
+                        "comfort": getStars("comfort"),
+                        "quality_price": getStars("quality_price")
+                    },
+                    "yes_recommend": true,
+                    "comments": comment
+                }
+
+                var URLY = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=reviewairline2";
+
+                URLY += JSON.stringify(review);
+
+                $.getJSON(URLY, function(result) {
+                    console.log(result);
+                });
+
+            // $.ajax({
+            //     type: "PUT",
+            //     url: URLY,
+            //     contentType: "application/json",
+            //     data: JSON.stringify(review),
+            //     success: function(data) {
+            //         console.log(data);
+            //     }
+            // });
+
+            get_comments();
+
         }
 
-        var URLY = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=reviewairline";
 
-        alert(URLY);
-
-
-        debugger;
-        console.log(window.getStars("friendliness"));
+        // // debugger;
+        // console.log(window.getStars("friendliness"));
     });
 
 });
 
+function getFlightNumber() {
+    var initial = $("#flight_number_review").val();
+    initial = initial.match(/\d{2,4}/)[0];
+    return initial;
+}
+
 function makeURL() {
 
     var airline_id = $('#airlines_select').val();
-    var flight_number = $("#flight_number").val();
+    var flight_number = $("#flight_number_review").val();
     var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" + airline_id;
 
     if (flight_number != "") {
@@ -58,7 +87,8 @@ function makeURL() {
 }
 
 function get_flight_reviews() {
-    console.log($('#flight_number').val() + " " + $('#airlines_select').val());
+    console.log($('#flight_number_review').val() + " " + $('#airlines_select').val());
+    $(".commentList").empty();
     $("#comment_container").removeClass("hidden");
     get_comments();
 }
@@ -66,7 +96,7 @@ function get_flight_reviews() {
 
 function bindCmt() {
     var cmtListElement = $('.commentList'),
-        cmtList = JSON.parse(localStorage.getItem('cmtList'));
+    cmtList = JSON.parse(localStorage.getItem('cmtList'));
 
     //Out with the old
     cmtListElement.empty();
@@ -85,34 +115,35 @@ function getCmtList() {
 
 function get_comments() {
 
+    $(".commentList").empty();
     $(".loader_container_comments").show();
 
-    timeout_timer = setTimeout(timeout, 15000);
+    timeout_timer = setTimeout(timeout, 5000);
 
     $.getJSON(makeURL(), function(result) {
 
-        // setTimeout(function() {
-        //     $(".loader_container_comments").hide();
-        // }, 4000);
-
         clearTimeout(timeout_timer);
-        $(".commentList").empty();
 
         myObj = result;
 
         var reviews = myObj.reviews;
 
         if (reviews.length == 0) {
-            $(".commentList").html("No hay comentarios para este vuelo.");
+            setTimeout(function() {
+                $(".loader_container_comments").hide();
+                $(".commentList").html("No hay comentarios para este vuelo.");
+            }, 1000);
             return;
         }
+
+        $(".loader_container_comments").hide();
 
         for (x in reviews) {
             var li = $("<li></li>");
             var comment = $("<div class='commentText'></div>");
             comment.append("<p class='pText'>" + reviews[x].comments + "</p>");
             li.append(comment);
-            li.append("<hr>");
+            li.append("<hr class='style-eight'>");
             $(".commentList").append(li);
         }
 
