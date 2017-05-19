@@ -10,6 +10,10 @@ var timeout_timer;
 
 var flight_codes = {};
 
+var currencies;
+
+var selected_currency;
+
 var single_flight = false;
 
 
@@ -25,10 +29,8 @@ $(document).ready(function() {
         $.getJSON("./ejemplo4.json", function(data) {
             in_flights = data["flights"];
             in_filters = data["filters"];
-
             done_flights();
             done_filters();
-
         });
 
     timeout_timer = setTimeout(timeout_error, 5000);
@@ -38,6 +40,13 @@ $(document).ready(function() {
         done_flights();
     }, function() {
         timeout_error();
+    });
+
+    var get_currancies = "http://hci.it.itba.edu.ar/v1/api/misc.groovy?method=getcurrencies";
+    $.getJSON(get_currancies, function(data) {
+        currencies = data["currencies"];
+        done_flights();
+        done_filters();
     });
 });
 
@@ -54,8 +63,10 @@ function timeout_error() {
 function done_flights() {
     var ticket_container = $("#results_tickets");
 
-    if (out_flights == null || (in_flights == null && !single_flight) || airline_logos == null)
+    if (out_flights == null || (in_flights == null && !single_flight) || airline_logos == null || currencies == null)
         return;
+
+    setCurrenciesSelect();
 
     clearTimeout(timeout_timer);
     $(".loader_container").hide();
@@ -149,6 +160,7 @@ function fill_price_list(out_flight, in_flight, ticket) {
 
         var per_adult_div = ticket.find(".per_adult");
         per_adult_div.text(toMoneyString(in_per_adult + out_per_adult));
+        per_adult_div.attr("data", in_per_adult + out_per_adult);
     }
 
 
@@ -165,6 +177,7 @@ function fill_price_list(out_flight, in_flight, ticket) {
         var quantity_adults_out = out_flight_price["adults"]["quantity"];
         var total_adults_div = ticket.find(".total_adults");
         total_adults_div.text(toMoneyString(in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out));
+        total_adults_div.attr("data", in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out);
     }
 
     // Total children
@@ -180,6 +193,11 @@ function fill_price_list(out_flight, in_flight, ticket) {
 
         var total_adults_div = ticket.find(".total_minors");
         total_adults_div.text(toMoneyString(in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out));
+        total_adults_div.attr("data", in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out);
+    } else {
+        var total_adults_div = ticket.find(".total_minors");
+        total_adults_div.text(toMoneyString(0));
+        total_adults_div.attr("data", 0);
     }
 
     // Total infant
@@ -194,6 +212,11 @@ function fill_price_list(out_flight, in_flight, ticket) {
         }
         var total_adults_div = ticket.find(".total_infants");
         total_adults_div.text(toMoneyString(in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out));
+        total_adults_div.attr("data", in_total_adults * quantity_adults_in + out_total_adults * quantity_adults_out);
+    } else {
+        var total_adults_div = ticket.find(".total_infants");
+        total_adults_div.text(toMoneyString(0));
+        total_adults_div.attr("data", 0);
     }
 
     // Charges and taxes
@@ -207,6 +230,7 @@ function fill_price_list(out_flight, in_flight, ticket) {
     var taxes_out = out_total_list["taxes"];
     var charges_out = out_total_list["charges"];
     taxes_div.text(toMoneyString(taxes_in + charges_in + taxes_out + charges_out));
+    taxes_div.attr("data", taxes_in + charges_in + taxes_out + charges_out);
 }
 
 var min_dur = Infinity;
@@ -294,10 +318,13 @@ function fill_half_ticket(flight, parent) {
 }
 
 function toMoneyString(number) {
+    if (selected_currency == null) {
+        defaultCurrency();
+    }
     var moneyFormat = wNumb({
         mark: ',',
         thousand: '.',
-        suffix: ' AR$',
+        suffix: ' ' + selected_currency["symbol"],
         decimals: 2
     });
     return moneyFormat.to(number);
@@ -316,29 +343,22 @@ function shorten_name(name, l) {
 
 
 function done_filters() {
-    if (single_flight) {
-        if (out_filters == null)
-            return;
 
-        var price_filters = out_filters[2];
-        var price_min = price_filters["min"];
-        var price_max = price_filters["max"];
 
-        createPriceSlider(price_min, price_max);
-    } else {
-        if (in_filters == null || out_filters == null)
-            return;
+    if (in_filters == null || out_filters == null || currencies == null)
+        return;
 
-        var price_filters = out_filters[2];
-        var price_min = price_filters["min"];
-        var price_max = price_filters["max"];
+    var price_filters = out_filters[2];
+    var price_min = price_filters["min"];
+    var price_max = price_filters["max"];
 
+    if (!single_flight) {
         price_filters = in_filters[2];
         price_min = price_min + price_filters["min"];
         price_max = price_max + price_filters["max"];
-
-        createPriceSlider(price_min, price_max);
     }
+    createPriceSlider(price_min, price_max);
+
 }
 var ignored = 0;
 
@@ -450,6 +470,60 @@ function filter_by_airline(obj) {
 
 }
 
+function changedCurrency() {
+    $('.ticket').each(function(i, obj) {
+        var to_change = [];
+        to_change.push($(obj).find(".per_adult"));
+        to_change.push($(obj).find(".total_adults"));
+        to_change.push($(obj).find(".total_infants"));
+        to_change.push($(obj).find(".total_minors"));
+        to_change.push($(obj).find(".taxes_charges"));
+        to_change.push($(obj).find(".total_price"));
+
+        for (div of to_change) {
+            var x = $(div).attr("data");
+            x = x / selected_currency.ratio;
+            $(div).text(toMoneyString(parseInt(x, 10)));
+        }
+    });
+
+    price_slider.noUiSlider.on("update", function() {});
+}
+
+var ignored3 = 0;
+$("#currency").on("change", function() {
+    ignored3++;
+    if (ignored3 < 2)
+        return;
+
+    for (currency of currencies) {
+        if (currency.id == $("#currency").val()) {
+            selected_currency = currency;
+        }
+    }
+    changedCurrency();
+})
+
+function defaultCurrency() {
+    for (currency of currencies) {
+        if (currency.id == "USD") {
+            selected_currency = currency;
+        }
+    }
+}
+
+function setCurrenciesSelect() {
+    if (currencies == null)
+        return;
+    for (currency of currencies) {
+        var option = "<option value = '" + currency.id + "' " + ((currency.id == "USD") ?
+            "selected" : "") + ">" + currency.description + " - " + currency.symbol + "</option>";
+        $("#currency").append(option);
+    }
+    $("#currency").trigger("change");
+
+}
+
 var price_slider;
 var price_slider_max;
 var price_slider_min;
@@ -471,9 +545,10 @@ function createPriceSlider(min, max) {
             'max': max
         }
     });
-
+    defaultCurrency();
     price_slider.noUiSlider.on('update', function(values, handle) {
-        $("#price-slider-values").html("Min: " + numberWithCommas(Math.floor(values[0])) + ", max: " + numberWithCommas(Math.floor(values[1])));
+        console.log(selected_currency);
+        $("#price-slider-values").html("Min: " + toMoneyString(Math.floor(values[0] / selected_currency.ratio)) + ", max: " + toMoneyString(Math.floor(values[1] / selected_currency.ratio)));
         price_slider_min = values[0];
         price_slider_max = values[1];
         filter();
@@ -535,13 +610,3 @@ function setFlightFilter() {
 // UI Element set up
 
 $(".js-example-basic-single").select2();
-
-
-
-
-
-
-
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "AR$";
-}
