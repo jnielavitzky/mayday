@@ -20,7 +20,7 @@ var single_flight = false;
 
 
 $(document).ready(function() {
-    $(".no_results").hide();
+    $(".no_results").hide(300);
 
     setRatingStars(function(r) {
         selected_rating = r;
@@ -130,9 +130,9 @@ function done_flights() {
         }
     }
     if (at_least_one) {
-        $(".no_results").hide();
+        $(".no_results").hide(300);
     } else {
-        $(".no_results").show();
+        $(".no_results").show(300);
     }
 
 
@@ -393,9 +393,9 @@ function filter() {
     });
 
     if (at_least_one) {
-        $(".no_results").hide();
+        $(".no_results").hide(300);
     } else {
-        $(".no_results").show();
+        $(".no_results").show(300);
     }
 
 }
@@ -406,9 +406,6 @@ function filter_by_flight_number(obj) {
     if (value == null || value == "") {
         return true;
     }
-
-
-
     var flight_number = $(obj).find(".flight_number");
 
     var flight1 = $(flight_number[0]).attr("data");
@@ -499,6 +496,9 @@ function filter_by_duration(obj) {
 
 $("#remove_airlines").on("click", function() {
     $("#airlines_select").val(null).trigger("change");
+});
+$("#remove_fligh").on("click", function() {
+    $("#flight_number").val(null).trigger("change");
 });
 
 function filter_by_airline(obj) {
@@ -659,8 +659,7 @@ $("#flight_number").on("change", function() {
 
 
 function setFlightFilter() {
-    var option = "<option value=''>Todos</option>";
-    $("#flight_number").append(option);
+    $("#flight_number").append("<option value=''></option>");
     for (var key in flight_codes) {
         var option = "<option value='" + key + "'>" + key + "</option>";
         $("#flight_number").append(option);

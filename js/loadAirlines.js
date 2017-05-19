@@ -24,8 +24,8 @@ $(document).ready(function() {
 
     });
 
-    $("#airlines_select").select2({
-        placeholder: "Seleccione aerolínea",
+    $(".js-example-basic-single").select2({
+        placeholder: "Seleccione una opcion",
         templateResult: formatAirline
     });
 

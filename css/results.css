@@ -3,6 +3,7 @@
     min-height: 1000px;
     /*Esto es para que las barras fijas entren*/
     vertical-align: top;
+    margin-bottom: 50px;
 }
 
 .comparison_results {
@@ -26,6 +27,8 @@
     width: 290px;
     height: auto;
     padding: 5px;
+
+
     /*Style*/
     /*background-color: red;*/
 }
@@ -39,6 +42,7 @@
     height: auto;
     top: 420px;
     padding: 5px;
+
     /*margin-top: 15px;*/
     /*Style*/
     /*background-color: green;*/
@@ -216,11 +220,20 @@
 #airlines_select {
     width: 75%;
 }
+#flight_number {
+    width: 75%;
+}
 
 .remove_airlines {
     display: inline-block;
     float: right;
     padding: 3px;
+}
+
+.no_results {
+    font-size: 20px;
+    margin-left: 40%;
+    margin-top: 25%;
 }
 
 .error_image {
