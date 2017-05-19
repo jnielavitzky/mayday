@@ -205,10 +205,24 @@
     height: 20%;
     top: 25%;
     left: 35%;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     font-size: 20px;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 2px;
+}
+
+#airlines_select {
+    width: 75%;
+}
+
+.remove_airlines {
+    display: inline-block;
+    float: right;
+    padding: 3px;
+}
+
+.error_image {
+    width: 100px;
 }

@@ -149,9 +149,10 @@
                             </div>
                             <div class="bar_subtitle">
                                 Aerolíneas:
-                            </div>
+                            </div><br>
                             <select id="airlines_select" class="js-example-basic-single filter-select">
                             </select>
+                            <button id="remove_airlines" class="remove_airlines btn btn-primary sml" type="button" name="button">Quitar</button><br>
                             <div class="bar_subtitle">
                                 Vuelo:
                             </div>
@@ -260,6 +261,9 @@
                           </table>
                     </div> -->
                     <div id="results_tickets" class="results_tickets">
+                        <div class="no_results">
+                            No hay resultados
+                        </div>
                         <div class="loader_container">
                             <div class="loader">
                                 <div id="loader_plane" class="plane">
@@ -512,7 +516,7 @@
         <!--  END FOOTER  -->
     </div>
     <div id="error" class="hidden">
-        <img src="" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicacion con el sistema. Por favor, intente de vuelta.
+        <img class="error_image" src="images/logo.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicacion con el sistema. Por favor, intente de vuelta.
     </div>
 </body>
 
