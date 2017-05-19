@@ -29,6 +29,7 @@
     <script type="text/javascript" src="./js/server_data.js"></script>
     <script type="text/javascript" src="./js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="./js/show.js"></script>
+    <script type="text/javascript" src="./js/find.js"></script>
 
 </head>
 <body>
@@ -41,7 +42,7 @@
 
         <!--  NAV BAR  -->
         <div class="container" id="n4v"></div>
-        <!--  END HEADER  -->
+        <!--  END NAV BAR  -->
 
         <!--  MAIN NAV  -->
         <div class="container main-nav">
@@ -50,12 +51,10 @@
                 <div class="col-sm-3 col-sm-offset-1 nav-comp">
                     <h3  class="nav-titles">Tipo de Vuelo</h3>
                     <div class="col-lg-12 col-lg-offset-2">
-                        <button type="button" class="btn btn-block btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ida y Vuelta <span class="caret"></span>
-                        </button>
-                            <ul class="dropdown-menu">
-                            <li><a href="#">Solo Ida</a></li>
-                        </ul>
+                        <select id="tipovuelo" class="form-control large">
+                            <option value="2" onclick="twoWay()">Ida y Vuelta</option>
+                            <option value="1" onclick="oneWay()">Ida</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-3 nav-comp">
@@ -67,7 +66,7 @@
                 <div class="col-md-3 nav-comp">
                     <h3  class="nav-titles">Destino</h3>
                     <div class="col-lg-12 col-lg-offset-2">
-                        <select id="cities-to" class="form-control js-example-basic-single"></select>
+                        <select id="cities-to" class="form-control js-example-basic-single large"></select>
                     </div>
                 </div>
             </div>
@@ -78,15 +77,15 @@
                         <div class="col-lg-10 col-lg-offset-2">
                             <h3 class="nav-titles-3">Partida</h3>
                             <div class="input-group date">
-                                <input class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
+                                <input id="salida" class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div id="soloIda" class="col-sm-3">
                         <div class="col-lg-10 col-lg-offset-2">
                             <h3 class="nav-titles-3">Vuelta</h3>
                             <div class="input-group date">
-                                <input  class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
+                                <input id="vuelta" class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
                             </div>
                         </div>
                     </div>
@@ -109,21 +108,21 @@
             <div class='row'>
                 <div class="col-md-2 alignment">
                     <button class="btn-circular" type="button" onclick="onClickUP(1)">+</button>
-                    <a class="counter" id="clicks1">2</a>
+                    <a class="counter" id="clickmayores">2</a>
                     <button class="btn-circular" type="button" onclick="onClickDOWN(1)">-</button>
                 </div>
                 <div class="col-md-2 alignment-2">
                     <button class="btn-circular" type="button" onclick="onClickUP(2)">+</button>
-                    <a class="counter" id="clicks2">0</a>
+                    <a class="counter" id="clickmenores">0</a>
                     <button class="btn-circular" type="button" onclick="onClickDOWN(2)">-</button>
                 </div>
                 <div class="col-md-2 alignment-2">
                     <button class="btn-circular" type="button" onclick="onClickUP(3)">+</button>
-                    <a class="counter" id="clicks3">0</a>
+                    <a class="counter" id="clickinfantes">0</a>
                     <button class="btn-circular" type="button" onclick="onClickDOWN(3)">-</button>
                 </div>
                 <div class="col-md-2 alignment-3">
-                    <a class="btn btn-default btn-lg btn-block" href="#" role="button">Buscar</a>
+                    <a onclick="find()" class="btn btn-default btn-lg btn-block" href="#" role="button">Buscar</a>
                 </div>
             </div>
         </div>
@@ -133,59 +132,27 @@
         <div class="container sale">
             <div class='row'>
                 <h1 class="title">Destacados de la Semana</h1>
-                <div class="loader"></div>
+                <div id="loader" class="loader"></div>
             </div>
-            <div class="container" id="card-container"></div>
+            <div class="container hide" id="card-container"></div>
         </div>
         <!--  END SALE SECTION  -->
 
-        <!-- <div class="container">
-            <div class='row newsletter' id='Newsletter'>
-                <div class="col-md-12 title">
-                    <h1>Suscribite a Nuestro Newsletter</h1>
-                </div>
-                <div class="input-group col-md-6 col-md-offset-3">
-                  <input type="email" class="form-control" placeholder="Ingrese su emal aquí">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Enviar</button>
-                  </span>
-                </div>
-            </div>
-        </div> -->
-
-
-        <!--  FOOTER  -->
+        <!--  COMMENT  -->
         <div class="container">
-            <div class='row footer' id='Footer'>
-                <div class="col-md-3">
-                    <h2 class='final-logo'>MAYDAY</h2>
-                </div>
-                <div class="col-md-3">
-                    <ul>
-                        <h2 class='final-titles'>Contacto</h2>
-                        <li class='final-text'>Av. Eduardo Madero 399</li>
-                        <li class='final-text'>Ciudad Autónoma Bs. As.</li>
-                        <li class='final-text'>+54 11 2150 4800</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul>
-                        <h2 class='final-titles'>Institucional</h2>
-                        <li class='final-text'>Sobre Nosotros</li>
-                        <li class='final-text'>Promociones</li>
-                        <li class='final-text'>Contacto</li>
-                    </ul>
-                </div>
-                <div class="col-md-3 nm">
-                    <ul class="nm">
-                        <h2 class='final-titles'>Legales</h2>
-                        <li class='final-text'>FAQ</li>
-                        <li class='final-text'>Términos y Condiciones</li>
-                    </ul>
+            <div class='row newsletter' id='Newsletter'>
+                <div class="title">
+                    <h1>¿Viajaste? Dejanos un Comentario</h1>
+                    <a class="col-md-offset-5 col-md-2 btn btn-default btn-lg " href="#" role="button">Comentar</a>
                 </div>
             </div>
         </div>
+        <!--  END COMMENT  -->
+
+        <!--  FOOTER  -->
+        <div id="f00" class="container"></div>
         <!--  END FOOTER  -->
+
     </div>
 </body>
 </html>
