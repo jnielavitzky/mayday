@@ -1,0 +1,59 @@
+#review {
+    margin-top: 10px;
+}
+
+.bar_subtitle {
+    font-size: large;
+}
+
+.loader_review {
+    border: 8px dashed #f3f3f3;
+    /* Light grey */
+    border-top: 8px dashed #f3f3f3;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 3s linear infinite;
+    margin-left: 43%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /*visibility: hidden;*/
+}
+
+.loader_reviews {
+    margin: -16px 0 0 -60px;
+}
+
+.loader_comments {
+    border: 8px dashed #f3f3f3;
+    /* Light grey */
+    border-top: 8px dashed #f3f3f3;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 3s linear infinite;
+    margin-left: 43%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /*visibility: hidden;*/
+}
+
+hr.style-eight {
+    padding: 0;
+    border: none;
+    border-top: thin dotted #333;
+    color: #333;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: " ";
+    position: relative;
+    top: -0.7em;
+    font-size: 5.5em;
+    padding: 0 0.25em;
+    background: white;
+    background: #fff url(../images/paper-plane.png) no-repeat scroll center;
+    background-size: 16px 16px;
+}

@@ -22,27 +22,42 @@ $(document).ready(function() {
 
         $('#airlines_select').html(html);
 
+        setTimeout(function() {
+            $('.loader_container_review').hide();
+            $('#inputs').show();
+        }, 1000);
+
     });
 
-    $(".js-example-basic-single").select2({
-        placeholder: "Seleccione una opcion",
+    $("#airlines_select").select2({
+        placeholder: "Seleccione aerolínea",
         templateResult: formatAirline
     });
 
-    function formatAirline(opt) {
-        if (!opt.id) {
-            return opt.text;
-        }
-
-        var optimage = $(opt.element).data('image');
-        if (!optimage) {
-            return opt.text;
-        } else {
-            var $opt = $(
-                '<span><img src="' + optimage + '" alt="logo" /> ' + $(opt.element).text() + '</span>'
-            );
-            return $opt;
-        }
-    };
-
 });
+
+function formatAirline(opt) {
+    if (!opt.id) {
+        return opt.text;
+    }
+
+    var optimage = $(opt.element).data('image');
+    if (!optimage) {
+        return opt.text;
+    } else {
+        var $opt = $(
+            '<span><img src="' + optimage + '" alt="logo" /> ' + $(opt.element).text() + '</span>'
+        );
+        return $opt;
+    }
+};
+
+function timeout() {
+    error("TIMEOUT!");
+}
+
+function error(s) {
+    clearTimeout(timeout_timer);
+    alert(s);
+
+}

@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="stylesheet" type='text/css' href=".\css\flightReview.css">
     <link rel="stylesheet" type='text/css' href=".\css\modal.css">
+    <link rel="stylesheet" type='text/css' href=".\css\review.css">
     <!-- STAR RATING -->
     <link rel="stylesheet" type='text/css' href=".\css\rating.css">
     <!-- END STAR RATING -->
@@ -129,7 +130,7 @@
                                 </div>
                                 <div class="my_sliders sliders" id="price_range"></div>
                                 <div id="price-slider-values" class="slider-values">
-                                    Min: , max:
+                                    Min: , Max:
                                 </div>
                             </div>
                             <div class="bar_subtitle">
@@ -143,27 +144,30 @@
                                 </div>
                                 <div class="my_sliders sliders" id="duration_range"></div>
                                 <div id="duration-slider-values" class="slider-values">
-                                    Min: , max:
+                                    Min: , Max:
                                 </div>
                             </div>
                             <div class="bar_subtitle">
-                                Aerolíneas:
-                            </div><br>
+                                Aerolínea:
+                            </div>
+                            <br>
                             <select id="airlines_select" class="js-example-basic-single filter-select">
                             </select>
-                            <button id="remove_airlines" class="remove_airlines btn btn-primary sml" type="button" name="button">Quitar</button><br>
+                            <button id="remove_airlines" class="remove_airlines btn btn-primary sml" type="button" name="button">Quitar</button>
+                            <br>
                             <div class="bar_subtitle">
                                 Vuelo:
-                            </div><br>
+                            </div>
+                            <br>
                             <select id="flight_number" class="js-example-basic-single filter-select">
-
                             </select>
-                            <button id="remove_fligh" class="remove_airlines btn btn-primary sml" type="button" name="button">Quitar</button><br>
+                            <button id="remove_fligh" class="remove_airlines btn btn-primary sml" type="button" name="button">Quitar</button>
+                            <br>
                             <div class="bar_subtitle">
                                 Rango de opinión:
                             </div>
                             <div id="ratings"></div>
-                            <div class="search_button">
+                            <div id="search_comments_button_container" class="search_button hidden">
                                 <button id="search_comments_button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                     <span class="glyphicon glyphicon-comment"></span> Buscar reseñas
                                 </button>
@@ -192,8 +196,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="review_errors">
-                                            </div>
+                                            <div id="reviews_errors"></div>
                                             <div id="reviews"></div>
                                         </div>
                                         <div class="modal-footer">
@@ -277,7 +280,6 @@
                                     <div class="ticket_airline_logo_container">
                                         <img class="ticket_airline_logo" src="american_logo.jpeg"></img>
                                         <div class="ticket_airline_name">
-
                                         </div>
                                     </div>
                                     <div class="ticket_from_details">
@@ -349,7 +351,6 @@
                                     <div class="ticket_airline_logo_container">
                                         <img class="ticket_airline_logo" src="american_logo.jpeg"></img>
                                         <div class="ticket_airline_name">
-
                                         </div>
                                     </div>
                                     <div class="ticket_from_details">
@@ -514,7 +515,7 @@
         <!--  END FOOTER  -->
     </div>
     <div id="error" class="hidden">
-        <img class="error_image" src="images/logo.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicacion con el sistema. Por favor, intente de vuelta.
+        <img class="error_image" src="images/logo.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicación con el sistema. Por favor, intente de vuelta.
     </div>
 </body>
 
@@ -525,6 +526,7 @@
 <script type="text/javascript" src="js/opinionRange.js"></script>
 <script type="text/javascript" src="./js/src/setRatings.js"></script>
 <script type="text/javascript" src="./js/loadAirlines.js"></script>
+<script type="text/javascript" src="./js/loadResultsReviews.js"></script>
 <script type="text/javascript" src="./js/loadReviews.js"></script>
 <script type="text/javascript" src="./js/getLogos.js"></script>
 <script type="text/javascript" src="./js/show.js"></script>

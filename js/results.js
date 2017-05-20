@@ -683,6 +683,11 @@ $("#flight_number").on("change", function() {
 
 function setFlightFilter() {
     $("#flight_number").append("<option value=''></option>");
+
+    $("#flight_number").select2({
+        placeholder: "Seleccione vuelo",
+    });
+
     for (var key in flight_codes) {
         var option = "<option value='" + key + "'>" + key + "</option>";
         $("#flight_number").append(option);

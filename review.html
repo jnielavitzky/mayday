@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="css/comments.css">
     <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="styles/plane_line.css">
+    <link rel="stylesheet" href="css/review.css">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="js/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js" defer></script>
     <link rel="shortcut icon" href="images/paper-plane.png">
@@ -43,57 +44,64 @@
             <div class="container" id="n4v"></div>
             <div class="o-container card-2">
                 <h1>¿Cómo estuvo su viaje?</h1>
-                <div class="bar_subtitle">
-                    Aerolínea:
-                </div>
-                <div class="select_container_review">
-                    <select id="airlines_select" class="js-example-basic-single filter-select" style="width: 30%">
-                    </select>
-                </div>
-                <div class="bar_subtitle">
-                    Vuelo:
-                </div>
-                <div class="select_container_review">
-                    <select id="flight_number" class="js-example-basic-single filter-select" style="width: 20%">
-                        <option value="5620">AA5620</option>
-                        <option value="2347">AA2347</option>
-                        <option value="2147">DA2147</option>
-                    </select>
-                </div>
-                <div id="review"></div>
-                <br>
-                <div id="recommend">
-                    <h2>¿Lo recomendaría a otros usuarios?</h2>
-                    <input id="recOther" type="checkbox" checked>
-                </div>
-                <!-- from https://codepen.io/magnus16/pen/buGiB -->
-                <div id="comments">
-                    <div class="detailBox">
-                        <div class="titleBox">
-                            <label>Comentarios</label>
-                        </div>
-                        <div class="actionBox">
-                            <div class="loader_container_comments">
-                                <div class="loader_comments">
-                                    <div id="loader_plane" class="plane">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comments_errors">
-                            </div>
-                            <ul class="commentList">
-                            </ul>
-                            <div class="form-group">
-                                <input class="form-control inputComment" type="text" placeholder="Ingrese aquí su comentario." />
-                            </div>
-                            <div class="form-group">
-                                <button id="upload_review_button" class="btn btn-default">Enviar</button>
-                            </div>
+                <div class="loader_container_review">
+                    <div class="loader_review">
+                        <div id="loader_plane" class="plane">
                         </div>
                     </div>
                 </div>
-                <div id="button">
-                    <button id="finishBtn" type="button" class="btn btn-primary btn-md">Terminar</button>
+                <div id="inputs">
+                    <div class="bar_subtitle">
+                        Aerolínea:
+                    </div>
+                    <div class="select_container_review">
+                        <select id="airlines_select" class="js-example-basic-single filter-select" style="width: 30%">
+                        </select>
+                    </div>
+                    <div class="bar_subtitle">
+                        Vuelo: (hasta 4 números enteros)
+                    </div>
+                    <div class="select_container_review">
+                        <input type="text" name="flight_number" id="flight_number_review"></input>
+                    </div>
+                    <button id="search_flight_button" class="btn btn-primary btn-md–" >Buscar vuelo</button>
+                </div>
+                <div id="comment_container" class="hidden">
+                    <div id="review"></div>
+                    <br>
+                    <div id="recommend">
+                        <h2>¿Lo recomendaría a otros usuarios?</h2>
+                        <input id="recOther" type="checkbox" checked>
+                    </div>
+                    <!-- from https://codepen.io/magnus16/pen/buGiB -->
+                    <div id="comments">
+                        <div class="detailBox">
+                            <div class="titleBox">
+                                <label>Comentarios</label>
+                            </div>
+                            <div class="actionBox">
+                                <div class="loader_container_comments">
+                                    <div class="loader_comments">
+                                        <div id="loader_plane" class="plane">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments_errors">
+                                </div>
+                                <ul class="commentList">
+                                </ul>
+                                <div class="form-group">
+                                    <input id="input_comment" class="form-control inputComment" type="text" placeholder="Ingrese aquí su comentario." />
+                                </div>
+                                <div class="form-group">
+                                    <button id="upload_commment_button" class="btn btn-default">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="button">
+                        <button id="finishBtn" class="btn btn-primary btn-md">Terminar</button>
+                    </div>
                 </div>
             </div>
         </div>
