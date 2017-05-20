@@ -33,8 +33,8 @@ $(document).ready(function() {
     if (vuelta_url == null) {
         single_flight = true;
     }
-    console.log(ida_url);
-    console.log(vuelta_url);
+    // console.log(ida_url);
+    // console.log(vuelta_url);
 
 
     $.getJSON(ida_url, function(data) {
@@ -42,6 +42,8 @@ $(document).ready(function() {
         out_filters = data["filters"];
         done_flights();
         done_filters();
+    }).fail(function() {
+        console.error("IDA FAIL");
     });
     if (!single_flight)
         $.getJSON(vuelta_url, function(data) {
@@ -466,7 +468,7 @@ function filter_by_price(obj) {
 
     var total = $(obj).find(".total_price").attr("data");
     total = parseInt(total, 10);
-    console.log(max + " > " + total + " >" + min);
+    // console.log(max + " > " + total + " >" + min);
     if (total + 1 >= min && total - 1 <= max) {
         //console.log("show" + i);
         return true;
@@ -646,6 +648,12 @@ function setDurationSlider() {
 
     min_dur = parseInt(min_dur, 10);
     max_dur = parseInt(max_dur, 10);
+
+    // console.log(max_dur + " : " + min_dur);
+    if (!Number.isInteger(min_dur) || !Number.isInteger(max_dur)) {
+        console.log("returned");
+        return;
+    }
 
     if (max_dur == min_dur) {
         $(".duration_range_container").hide();

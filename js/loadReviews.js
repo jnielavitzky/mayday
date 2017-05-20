@@ -24,6 +24,7 @@ $(document).ready(function() {
         var flight_number = getFlightNumber();
         var filter = $("#orderby").val();
 
+
         var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
             airlineID + "&sort_key=" + filter;
 
