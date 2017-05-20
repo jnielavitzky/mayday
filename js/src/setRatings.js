@@ -6,31 +6,21 @@ $(document).ready(function() {
     categories = [{
         title: "Amabilidad",
         id: "friendliness",
-        stars: 0
     }, {
         title: "Comida",
         id: "food",
-        stars: 0
     }, {
         title: "Puntualidad",
         id: "punctuality",
-        stars: 0
     }, {
         title: "Programa de viajeros frecuentes",
         id: "mileage_program",
-        stars: 0
     }, {
         title: "Confort",
         id: "comfort",
-        stars: 0
     }, {
         title: "Relación precio/calidad",
         id: "quality_price",
-        stars: 0
-    }, {
-        title: "General",
-        id: "overall",
-        stars: 0
     }];
 
     // INITIALIZE
@@ -51,16 +41,11 @@ $(document).ready(function() {
 
 // BUILD CATEGORY
 function buildCategory(data) {
-    var category = $('<div></div>');
-    var id = data.id;
-    category.attr("id", id);
-
     var html = $("<div class='category_title'></div>");
-    html.append(String(data.title) + '<ul class="c-rating"></ul>');
-    category.append(html);
-    ratings.append(category);
+    html.append(String(data.title) + '<ul class="c-rating" id="' + data.id + '"></ul>');
+    ratings.append(html);
 
-    return category;
+    return html;
 }
 
 function buildReviewFromCategories(categories) {
@@ -77,10 +62,10 @@ function buildReviewFromCategories(categories) {
 }
 
 function getStars(categoryId) {
-    var result;
+    var result = 0;
     $.each(categories, function(index) {
         if (categories[index].id == categoryId) {
-            result = categories[index].stars;
+            result = categories[index].stars.getRating();
             return true;
         }
     });
@@ -92,9 +77,8 @@ function addRatingWidget(category, data) {
     var ratingElement = category.find('.c-rating')[0];
     var maxRating = 10;
     var callback = function(rating) {
-        data.stars = rating;
     };
-    var r = rating(ratingElement, null, maxRating, callback);
+    data.stars = rating(ratingElement, 1, maxRating, callback);
 }
 
 function getCategories() {

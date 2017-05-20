@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="stylesheet" href="css/review.css">
+    <link rel="stylesheet" type='text/css' href=".\css\modal.css">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="js/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js" defer></script>
     <link rel="shortcut icon" href="images/paper-plane.png">
@@ -39,6 +40,7 @@
     <noscript>
         <img class="row col-md-offset-2" img src=".\images\javascript-error-09.png">
     </noscript>
+    
     <div id="every" class="container scriptavailable">
         <div class="container">
             <div class="container" id="n4v"></div>
@@ -59,14 +61,15 @@
                         </select>
                     </div>
                     <div class="bar_subtitle">
-                        Vuelo: (hasta 4 números enteros)
+                        Número de vuelo: (hasta 4 números enteros)
                     </div>
-                    <div class="select_container_review">
-                        <input type="text" name="flight_number" id="flight_number_review"></input>
+                    <div id="flight_group">
+                        <div id="flight_group_container" class="form-group">
+                            <input type="text" class="form-control" name="flight_number" id="flight_number_review"  maxlength="4">
+                        </div>
                     </div>
-                    <button id="search_flight_button" class="btn btn-primary btn-md–" >Buscar vuelo</button>
                 </div>
-                <div id="comment_container" class="hidden">
+                <div id="review_container" class="hidden">
                     <div id="review"></div>
                     <br>
                     <div id="recommend">
@@ -93,14 +96,24 @@
                                 <div class="form-group">
                                     <input id="input_comment" class="form-control inputComment" type="text" placeholder="Ingrese aquí su comentario." />
                                 </div>
-                                <div class="form-group">
-                                    <button id="upload_commment_button" class="btn btn-default">Enviar</button>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div id="button">
-                        <button id="finishBtn" class="btn btn-primary btn-md">Terminar</button>
+                    <div class="form-group">
+                        <button id="upload_comment_button" class="btn btn-default" data-toggle="modal" data-target="#thankyou">Enviar</button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="thankyou" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" focus="false" data-backdrop="static">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div id="thanks_msg_header" class="bar_subtitle">Gracias por dejar su opinión para el vuelo</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" onclick="location.href='index.html'">Volver a inicio</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -43,6 +43,7 @@ $(document).ready(function() {
             myObj = result;
 
             var reviews = myObj.reviews;
+            console.log(reviews)
 
             if (reviews.length == 0) {
                 setTimeout(function() {
@@ -60,6 +61,7 @@ $(document).ready(function() {
                 var ratings = reviews[x].rating;
 
                 var friendliness = ratings.friendliness;
+                var food = ratings.food;
                 var punctuality = ratings.punctuality;
                 var mileage_program = ratings.mileage_program;
                 var comfort = ratings.comfort;
@@ -68,11 +70,11 @@ $(document).ready(function() {
 
                 for (c in categories) {
                     if (categories[c].id.match("friendliness")) categories[c].stars = friendliness;
+                    if (categories[c].id == "food") categories[c].stars = food;
                     if (categories[c].id == "punctuality") categories[c].stars = punctuality;
                     if (categories[c].id == "mileage_program") categories[c].stars = mileage_program;
                     if (categories[c].id == "comfort") categories[c].stars = comfort;
                     if (categories[c].id == "quality_price") categories[c].stars = quality_price;
-                    if (categories[c].id == "overall") categories[c].stars = overall;
                 }
 
                 html.append("<div class='category_title'>" + "Nombre de aerolínea: " + "<p>" + airlineName + "</p>" + "</div>");
@@ -80,6 +82,8 @@ $(document).ready(function() {
                 if (flight_number != "") html.append("<div class='category_title'>" + "Número de vuelo: " + "<p>" + flight_number + "</p>" + "</div>");
 
                 html.append(buildReviewFromCategories(categories));
+
+                html.append("<div class='category_title'>" + "General: " + "<p>" + overall + "</p>" + "</div>");
 
                 var recommendOther = reviews[x].yes_recommend;
                 var yesRecommend = "";

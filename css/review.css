@@ -21,6 +21,14 @@
     /*visibility: hidden;*/
 }
 
+.flight_error_message {
+    display: inline-block;
+}
+
+#flight_group {
+    width: 274px;
+}
+
 .loader_reviews {
     margin: -16px 0 0 -60px;
 }
@@ -56,4 +64,8 @@ hr.style-eight:after {
     background: white;
     background: #fff url(../images/paper-plane.png) no-repeat scroll center;
     background-size: 16px 16px;
+}
+
+#confirm_ratings_button {
+    text-align: center;
 }
