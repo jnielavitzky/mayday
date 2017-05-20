@@ -3,7 +3,9 @@ var clicks_2 = 0;
 var clicks_3 = 0;
 
     $(document).ready(function() {
-        $('.datepicker').datepicker();
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy'
+        });
     });
 
     $(".js-example-basic-single").select2();

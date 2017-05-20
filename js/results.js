@@ -18,12 +18,15 @@ var selected_rating = 1;
 
 var single_flight = false;
 
-var selected_from;
-var selected_to;
+
 
 
 $(document).ready(function() {
+
     $(".no_results").hide();
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+    });
 
     setRatingStars(function(r) {
         selected_rating = r;
@@ -33,11 +36,15 @@ $(document).ready(function() {
     var ida_url = sessionStorage.getItem("map");
     var vuelta_url = sessionStorage.getItem("map2");
 
+    var selected_from;
+    var selected_to, selected_adults, selected_children, selected_infants, selected_date_from, selected_date_to;
     selected_from = getUrlParameter(ida_url, "from");
     selected_to = getUrlParameter(ida_url, "to");
     selected_adults = getUrlParameter(ida_url, "adults");
     selected_children = getUrlParameter(ida_url, "children");
     selected_infants = getUrlParameter(ida_url, "infants");
+    selected_date_from = getUrlParameter(ida_url, "dep_date"); //"YYYY-M-D"
+
 
 
     $("#select-adults").val(selected_adults);
@@ -50,21 +57,38 @@ $(document).ready(function() {
     fillCitySelects(function() {
         $("#cities-from").val(selected_from);
         $("#cities-to").val(selected_to);
-    }, function () {
+    }, function() {
         timeout_error();
     });
 
+    $("#salida").val(moment(selected_date_from, "YYYY-M-D").format("DD/MM/YYYY"));
 
     if (vuelta_url == null) {
         single_flight = true;
+        $("#flight_type").val(2);
+        $("#return_div").hide();
+    } else {
+        $("#flight_type").val(1);
+        selected_date_to = getUrlParameter(vuelta_url, "dep_date"); //"YYYY-M-D"
+        $("#vuelta").val(moment(selected_date_to, "YYYY-M-D").format("DD/MM/YYYY"));
     }
+    $("#flight_type").trigger("change");
     console.log(ida_url);
-    // console.log(vuelta_url);
+    console.log(vuelta_url);
+
+
 
 
     $.getJSON(ida_url, function(data) {
         out_flights = data["flights"];
         out_filters = data["filters"];
+        if (out_flights == null) {
+            if (get_error_code(data) == -1)
+                no_results();
+            else
+                error_modal(get_error_code(data));
+            return;
+        }
         done_flights();
         done_filters();
     }).fail(function() {
@@ -74,6 +98,13 @@ $(document).ready(function() {
         $.getJSON(vuelta_url, function(data) {
             in_flights = data["flights"];
             in_filters = data["filters"];
+            if (in_flights == null) {
+                if (get_error_code(data) == -1)
+                    no_results();
+                else
+                    error_modal(get_error_code(data));
+                return;
+            }
             done_flights();
             done_filters();
         }).fail(function() {
@@ -99,14 +130,25 @@ $(document).ready(function() {
     });
 });
 
-function timeout_error() {
+function get_error_code(data) {
+
+    var error = data["error"];
+    if (error == null)
+        return -1;
+    return error["code"];
+
+}
+
+function no_results() {
+    $(".no_results").show(300);
     clearTimeout(timeout_timer);
-    $("#results_tickets").hide();
+    $(".loader_container").hide();
+}
 
-    $('#every').fadeTo(500, 0.2);
-    $('#every').css("pointer-events", "none");
-
-    $("#error").removeClass("hidden");
+function timeout_error() {
+    display_modal("Error de Servidor", "Error de comunicación con el sistema. Por favor, intente de vuelta.");
+    clearTimeout(timeout_timer);
+    $(".loader_container").hide();
 }
 
 function done_flights() {
@@ -114,6 +156,8 @@ function done_flights() {
 
     if (out_flights == null || (in_flights == null && !single_flight) || airline_logos == null || currencies == null)
         return;
+
+
 
     setCurrenciesSelect();
 
@@ -337,7 +381,7 @@ function fill_half_ticket(flight, parent) {
     var total_time_div = parent.find(".total_time");
     var total_time = (routes[0])["duration"];
     var total_time_split = parseInt(total_time.split(':')[0], 10);
-    total_time_div.text("Total: " + ((total_time_split == 0) ? "1" : total_time_split) + "hs");
+    total_time_div.text("Total " + ((total_time_split == 0) ? "1" : total_time_split) + "hs");
     total_time_div.attr("data", total_time_split);
     if (total_time_split < min_dur)
         min_dur = total_time_split;
@@ -718,6 +762,67 @@ $("#flight_number").on("change", function() {
 })
 
 
+$("#flight_type").on("change", function() {
+    if ($("#flight_type").val() == "1") {
+        $("#return_div").show();
+    } else {
+        $("#return_div").hide();
+    }
+});
+
+$("#search").on("click", function() {
+    var sel_adu = $("#select-adults").val();
+    var sel_chi = $("#select-children").val();
+    var sel_inf = $("#select-infants").val();
+
+    var from_city = $("#cities-from").val();
+    var to_city = $("#cities-to").val();
+
+    var date_salida = moment($("#salida").val(), "DD/MM/YYYY");
+
+
+    if (sel_adu == 0 && sel_chi == 0 && sel_inf == 0) {
+        display_modal("Error", "Debe seleccionar mas de un pasajero.");
+        return;
+    }
+
+    if (from_city == to_city) {
+        display_modal("Error", "El aeropuerto de origen tiene que ser distinto al de destino.");
+        return;
+    }
+
+    if (!date_salida.isValid()) {
+        display_modal("Error", "Debe completar la fecha de partida correctamente.");
+        return;
+    }
+
+    var correct_date_salida = date_salida.format("YYYY-M-D");
+
+    var url1 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&from=" + from_city + "&to=" + to_city + "&dep_date=" + correct_date_salida + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
+    sessionStorage.setItem("map", url1);
+    if ($("#flight_type").val() == "1") {
+
+        var date_vuelta = moment($("#vuelta").val(), "DD/MM/YYYY");;
+        var correct_date_vuelta = date_vuelta.format("YYYY-M-D");
+
+        if (!date_vuelta.isValid()) {
+            display_modal("Error", "Debe completar la fecha de vuelta correctamente.");
+            return;
+        }
+
+        if (date_salida.isAfter(date_vuelta)) {
+            display_modal("Error", "La fecha de vuelta tiene que ser anterior a la fecha de vuelta.");
+            return;
+        }
+        var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
+        sessionStorage.setItem("map2", url2);
+    } else {
+        sessionStorage.removeItem("map2");
+    }
+
+    location.reload();
+});
+
 function setFlightFilter() {
     $("#flight_number").append("<option value=''></option>");
 
@@ -745,6 +850,63 @@ function getUrlParameter(url, sParam) {
         }
     }
 };
+
+function display_modal(title, subtitle) {
+    var title_div = $("#error_modal").find(".modal-title");
+    var subtitle_div = $("#error_modal").find(".bar_subtitle");
+    title_div.text(title);
+    subtitle_div.text(subtitle);
+    $("#error_modal").modal();
+}
+
+function error_modal(code) {
+    no_results();
+    var title_div = $("#error_modal").find(".modal-title");
+    var subtitle_div = $("#error_modal").find(".bar_subtitle");
+    title_div.text("Error");
+    subtitle_div.text(get_message_for_code(code) + " (" + code + ")");
+    $("#error_modal").modal();
+}
+
+function get_message_for_code(code) {
+    switch (code) {
+        case 11:
+            return "Debe completar el campo de origen.";
+        case 12:
+            return "Debe completar el campo de destino.";
+        case 13:
+            return "Debe completar el campo de fecha de salida y/o vuelta.";
+        case 14:
+        case 15:
+        case 16:
+        case 100:
+        case 104:
+        case 115:
+        case 116:
+        case 117:
+        case 119:
+        case 120:
+        case 121:
+        case 127:
+        case 128:
+        case 129:
+        case 130:
+        case 131:
+        case 132:
+            return "Error de servidor. Por favor, intente de vuelta mas tarde.";
+        case 118:
+            return "Fecha destino o origen de incorecta. Por favor, intente de nuevo.";
+        case 125:
+            return "El aeropuerto de origen no es valido.";
+        case 126:
+            return "El aeropuerto de destino no es valido.";
+        case 999:
+            return "Error de servidor. Por favor, intente de nuevo mas tarde.";
+        default:
+            return "Error de comunicacion con el servidor. Por favor, intente de vuelta mas tarde.";
+    }
+}
+
 
 
 // UI Element set up

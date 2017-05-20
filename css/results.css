@@ -1,6 +1,6 @@
 .min_container {
     /*Dims*/
-    min-height: 1000px;
+    min-height: 1100px;
     /*Esto es para que las barras fijas entren*/
     vertical-align: top;
     margin-bottom: 50px;
@@ -40,7 +40,7 @@
     /*Dims*/
     width: 290px;
     height: auto;
-    top: 570px;
+    top: 640px;
     padding: 5px;
 
     /*margin-top: 15px;*/
