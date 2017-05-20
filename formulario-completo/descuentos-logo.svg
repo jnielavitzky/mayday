@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#375A8D;}
+	.st1{fill:#678BB6;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:1.8787;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'Raleway-Bold';}
+	.st5{font-size:27.3737px;}
+	.st6{font-family:'KohinoorDevanagari-Bold';}
+	.st7{font-size:20.0039px;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;}
+	.st9{fill:#233C55;}
+	.st10{font-size:10.4441px;}
+	.st11{letter-spacing:2;}
+	.st12{opacity:0.2;clip-path:url(#SVGID_2_);fill:#FFFFFF;enable-background:new    ;}
+</style>
+<g>
+	<g>
+		<polygon class="st0" points="88.3,193.8 114.2,141.5 79.3,124.3 53.5,176.6 76.5,175.8 		"/>
+		<polygon class="st0" points="123.6,193.8 97.8,141.5 132.6,124.3 158.4,176.6 135.3,175.8 		"/>
+	</g>
+	<path class="st1" d="M177.3,134.6c0,5.9-4.7,10.7-10.7,10.7H45.3c-5.9,0-10.7-4.7-10.7-10.7V13.2c0-5.9,4.7-10.7,10.7-10.7h121.3
+		c5.9,0,10.7,4.7,10.7,10.7C177.3,13.2,177.3,134.6,177.3,134.6z"/>
+	<path class="st2" d="M171.1,129.2c0,5.3-4.3,9.8-9.8,9.8H50.6c-5.3,0-9.8-4.3-9.8-9.8V18.6c0-5.3,4.3-9.8,9.8-9.8h110.7
+		c5.3,0,9.8,4.3,9.8,9.8V129.2z"/>
+	<g>
+		<g>
+			<text transform="matrix(1 0 0 1 79.4417 56.6532)" class="st3 st4 st5">VER</text>
+			<g>
+				<text transform="matrix(1 0 0 1 44.305 80.9608)" class="st3 st6 st7">DESCUENTOS</text>
+				<text transform="matrix(1 0 0 1 44.305 80.9608)" class="st8 st6 st7">DESCUENTOS</text>
+			</g>
+		</g>
+		<g>
+			<polygon class="st3" points="156,97.9 106.6,97.9 57,97.9 61.5,105.9 57,113.9 106.6,113.9 156,113.9 151.5,105.9 			"/>
+			<text transform="matrix(1 0 0 1 67.5075 109.5271)" class="st9 st4 st10 st11">SEMANALES</text>
+		</g>
+		<line class="st8" x1="55.6" y1="31.1" x2="155.4" y2="31.1"/>
+		<line class="st8" x1="55.6" y1="90.1" x2="155.4" y2="90.1"/>
+	</g>
+	<g>
+		<g>
+			<defs>
+				<path id="SVGID_1_" d="M177.3,134.6c0,5.9-4.7,10.7-10.7,10.7H45.3c-5.9,0-10.7-4.7-10.7-10.7V13.2c0-5.9,4.7-10.7,10.7-10.7
+					h121.3c5.9,0,10.7,4.7,10.7,10.7C177.3,13.2,177.3,134.6,177.3,134.6z"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+			</clipPath>
+			<polygon class="st12" points="19.1,162.6 195.5,-15.5 202.7,177.2 			"/>
+		</g>
+	</g>
+</g>
+</svg>

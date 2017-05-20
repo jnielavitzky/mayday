@@ -1,31 +1,23 @@
-// $(document).ready(function () {
-//     //Initialize tooltips
-//     $('.nav-tabs > li a[title]').tooltip();
+$(document).ready(function () {
+    //Initialize tooltips
+     $('.nav-tabs > li a[title]').tooltip();
     
-//     //Wizard
-//     $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
-//         var $target = $(e.target);
+        var $target = $(e.target);
     
-//         if ($target.parent().hasClass('disabled')) {
-//             return false;
-//         }
-//     });
-// //    //aca avanza
-//     $(".next-step").click(function (e) {
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
+    });
 
-//         var $active = $('.wizard .nav-tabs li.active');
-//         $active.next().removeClass('disabled');
-//         nextTab($active);
-//     });
+    $(".prev-step").click(function (e) {
 
-//     $(".prev-step").click(function (e) {
-
-//         var $active = $('.wizard .nav-tabs li.active');
-//         prevTab($active);
-
-//     });
-// });
+        var $active = $('.wizard .nav-tabs li.active');
+        prevTab($active);
+    });
+});
 
 function nextTab(elem) {
     $(elem).next().find('a[data-toggle="tab"]').click();
@@ -33,6 +25,26 @@ function nextTab(elem) {
 function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
 }
+
+$(document).ready(function() {
+    var max_fields      = 5; //maximum input boxes allowed
+    var wrapper         = $(".input-fields-wrap"); //Fields wrapper
+    var add_button      = $(".add-field-button"); //Add button ID
+    
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div><input type="text" name="mytext[]" class="fill-in phone"/><a href="#" class="remove-field">&nbsp;Quitar telefono</a></div>'); //add input box
+        }
+    });
+    
+    $(wrapper).on("click",".remove-field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    });
+});
+
 
 $(document).ready(function(){
     var form = $("#my-form");
@@ -57,7 +69,7 @@ $(document).ready(function(){
             seleccion_doc:{
                 required:true
             },
-            documento:{ //solo DNI 
+            documento:{ //solo DNI para pasaporte ^[A-Z0-9<]{9}[0-9]{1}[A-Z]{3}[0-9]{7}[A-Z]{1}[0-9]{7}[A-Z0-9<]{14}[0-9]{2}$
                 required:true,
                 only_numbers:true,
                 min:11500001,
@@ -113,7 +125,8 @@ $(document).ready(function(){
                 required:true
             },
             estado:{
-                required:true 
+                required:true, 
+                letters_space:true
             },
             ciudad:{
                 required:true,
@@ -132,9 +145,17 @@ $(document).ready(function(){
             correo_electronico:{
                 required:true
             },
-            tel:{
-                required:true
+            codigo_de_seguridad:{
+                required:true,
+                //amex_master_visa:true, 
+                minlength:3, 
+                maxlength:4, 
+                only_numbers:true,
+                letters_space:false 
             }
+            // tel:{
+            //     required:true
+            // }
         },
         messages:{
             nombre:{
@@ -225,16 +246,21 @@ $(document).ready(function(){
             correo_electronico:{
                 required: "Por favor, ingrese un mail"
             },
-            tel:{
-                required:"Por favor, ingrese un numero de telefono"
+            codigo_de_seguridad:{
+                required:"Por favor, ingrese el codigo de seguridad de su tarjeta de credito",
+                minlength:"El codigo de seguridad de su tarjeta de credito no puede tener menos de 3 digitos. Por favor, reingrese el codigo de seguridad",
+                only_numbers:"El codigo de seguridad de su tarjeta de credito solo puede contener numeros. Por favor, reingrese el codigo de seguridad",
+                letters_space:"El codigo de seguridad de su tarjeta de credito solo puede contener numeros. Por favor, reingrese el codigo de seguridad"
             }
+            // tel:{
+            //     required:"Por favor, ingrese un numero de telefono"
+            // }
         }
     });
 
     $(".next-step").click(function(){
-        alert('next');
+
         if(form.valid()==true){
-            console.log('adentro del valid');
             var current_fs; 
             var next_fs; 
             if($("#formulario-pasajero").is(":visible")){
@@ -242,15 +268,45 @@ $(document).ready(function(){
                 next_fs=$("#formulario-pago");
             }else if($("#formulario-pago").is(":visible")){
                 current_fs=$("#formulario-pago");
-                next_fs=$("#formulario-contacto");
+                next_fs=$("#formulario-contacto");                 
             }else if($("#formulario-contacto").is(":visible")){
                 current_fs=$("#formulario-contacto");
-                next_fs=$("#formulario-completo");
+                next_fs=$("#formulario-completo");                  
             }
+            var $active = $('.wizard .nav-tabs li.active');
+            $active.next().removeClass('disabled');
+            nextTab($active);
+
             current_fs.hide(); 
             next_fs.show(); 
-        }else{
-            alert('invalid');
+        }
+
+        if($("#formulario-completo").is(":visible")){
+            $("#pasajero-resumen").text($("#apellido").val() + " " + $("#nombre").val());
+            $("#nacimiento-resumen").text($("#dia").val()+"/"+$("#mes").val()+"/"+$("#año").val());
+            $("#identificacion-resumen").text($("#nro-documento-pasajero").val());
+            $("#tarjeta-nro-resumen").text($("#fill-in-tarjeta").val());
+            $("#tarjeta-vencimiento-resumen").text($("#vencimiento-mes").val()+"/"+$("#vencimiento-año").val());
+            $("#tarjeta-nombre-resumen").text($("#apellido-p").val()+ " " + $("#nombre-p").val());
+            $("#tarjeta-dni-resumen").text($("#documento-p").val());
+            $("#pais-resumen").text($("#pais").val());
+            $("#provincia-resumen").text($("#provincia").val());
+            $("#ciudad-resumen").text($("#ciudad").val());
+            $("#codigo-postal-resumen").text($("#cp").val());
+            $("#calle-resumen").text($("#calle").val());
+            $("#numero-casa-resumen").text($("#numero-casa").val());
+            if($("#piso-casa").val()==""){
+                $("#numero-piso-resumen").text("-");
+            }else{
+                 $("#numero-piso-resumen").text($("#piso-casa").val());
+            }
+            if($("#dpto-casa").val()==""){
+                $("#numero-dpto-resumen").text("-");
+            }else{
+                 $("#numero-dpto-resumen").text($("#piso-casa").val());
+            }
+            console.log("./ticket_test.html")
+            $("#ticket-resumen").load("./ticket_test.html");
         }
     });
 
@@ -267,20 +323,20 @@ $(document).ready(function(){
             alert('Su compra a finalizado');
         });
 
-    // $(".prev-step").click(function(){
-    //     if($("#formulario-pago").is(":visible")){
-    //         current_fs=$("#formulario-pago");
-    //         next_fs=$("$formulario-pasajero");
-    //     }else if($("#formulario-contacto").is(:visible)){
-    //         current_fs=$("#formulario-contacto");
-    //         next_fs=$("#formulario-pago");
-    //     }else if($("#formulario-completo").is(":visible")){
-    //         current_fs=$("#formulario-completo");
-    //         next_fs=$("#formulario-contacto");
-    //     }
-    //     current_fs.hide(); 
-    //     next_fs.show(); 
-    // });
+    $(".prev-step").click(function(){
+        if($("#formulario-pago").is(":visible")){
+            current_fs=$("#formulario-pago");
+            next_fs=$("#formulario-pasajero");
+        }else if($("#formulario-contacto").is(":visible")){
+            current_fs=$("#formulario-contacto");
+            next_fs=$("#formulario-pago");
+        }else if($("#formulario-completo").is(":visible")){
+            current_fs=$("#formulario-completo");
+            next_fs=$("#formulario-contacto");
+        }
+        current_fs.hide(); 
+        next_fs.show(); 
+    });
 
     jQuery.validator.addMethod("letters_space",function(value, element){
         if(/^[a-zA-Z\s]*$/.test(value)){
@@ -366,11 +422,26 @@ $(document).ready(function(){
                 return false; 
             }
         }return true; 
-    }, "se te vencio la tarjeta champ");
+    }, "Fecha de vencimiento invalida, la tarjeta se encuentra vencida. Por favor, chquee los datos o utilice otra tarjeta");
+
+    jQuery.validator.addMethod("amex_master_visa", function(value, element){
+
+        var firstChar = $("#fill-in-tarjeta").val().substr(0, 1);
+        var codigo = $("#codigo_de_seguridad").value().length;
+        if(firstChar=="3" && codigo!=4){ //es amex
+            return false; 
+        }else if((firstChar=="4" || firstChar=="5") && codigo!=3){ //es master o vista
+            return false; 
+        }
+        return true; 
+    }, "Codigo de seguridad incorrecto. Por favor, reingrese el codigo de seguridad de su tarjeta de credito");
+
+
 }); 
 
 
-// according menu
+
+ //according menu
 // $(document).ready(function(){
 //     //Add Inactive Class To All Accordion Headers
 //     $('.accordion-header').toggleClass('inactive-header');
@@ -395,7 +466,8 @@ $(document).ready(function(){
 //             $(this).toggleClass('active-header').toggleClass('inactive-header');
 //             $(this).next().slideToggle().toggleClass('open-content');
 //         }
-//     });    
+//     });
+//     return false;     
 // });
 
 //$("#phone").intlTelInput(); 
