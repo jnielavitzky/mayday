@@ -3,16 +3,16 @@
     background: #fff;
 }
 
-    .wizard .nav-tabs {
-        position: relative;
-        margin: 40px auto;
-        margin-bottom: 0;
-        border-bottom-color: #e0e0e0;
-    }
+.wizard .nav-tabs {
+    position: relative;
+    margin: 40px auto;
+    margin-bottom: 0;
+    border-bottom-color: #e0e0e0;
+}
 
-    .wizard > div.wizard-inner {
-        position: relative;
-    }
+.wizard > div.wizard-inner {
+    position: relative;
+}
 
 .connecting-line {
     height: 2px;
@@ -26,7 +26,9 @@
     z-index: 1;
 }
 
-.wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+.wizard .nav-tabs > li.active > a,
+.wizard .nav-tabs > li.active > a:hover,
+.wizard .nav-tabs > li.active > a:focus {
     color: #555555;
     cursor: default;
     border: 0;
@@ -47,15 +49,17 @@ span.round-tab {
     text-align: center;
     font-size: 25px;
 }
-span.round-tab i{
-    color:#555555;
+
+span.round-tab i {
+    color: #555555;
 }
+
 .wizard li.active span.round-tab {
     background: #fff;
     border: 2px solid #4ca3ff;
-    
 }
-.wizard li.active span.round-tab i{
+
+.wizard li.active span.round-tab i {
     color: #4ca3ff;
 }
 
@@ -112,26 +116,22 @@ span.round-tab:hover {
     margin-top: 0;
 }
 
-@media( max-width : 585px ) {
-
+@media( max-width: 585px) {
     .wizard {
         width: 90%;
         height: auto !important;
     }
-
     span.round-tab {
         font-size: 16px;
         width: 50px;
         height: 50px;
         line-height: 50px;
     }
-
     .wizard .nav-tabs > li a {
         width: 50px;
         height: 50px;
         line-height: 50px;
     }
-
     .wizard li.active:after {
         content: " ";
         position: absolute;
@@ -139,202 +139,204 @@ span.round-tab:hover {
     }
 }
 
-.anterior{ 
+.anterior {
     color: black;
-    margin-top: 100px; 
-    margin-right: 100px; 
+    margin-top: 100px;
+    margin-right: 100px;
     width: 200px;
-    font-size: 30px; 
+    font-size: 30px;
 }
 
-.siguiente{
+.siguiente {
     color: black;
-    margin-top: 100px; 
-    margin-left: 100px; 
+    margin-top: 100px;
+    margin-left: 100px;
     width: 200px;
-    font-size: 30px;    
+    font-size: 30px;
 }
 
-.siguiente:hover{ 
-    color:#5bc0de;
+.siguiente:hover {
+    color: #5bc0de;
     border-style: solid;
     border-color: #5bc0de;
 }
 
-.siguiente:active{
-    color:#5bc0de;
-    background-color: white; 
+.siguiente:active {
+    color: #5bc0de;
+    background-color: white;
 }
 
-a{
-    color:#5bc0de;
+a {
+    color: #5bc0de;
     text-decoration: none;
-    background-color: transparent; 
-}
-
-a:hover,
-a:focus{
-    color:#5bc0de;
-    text-decoration: none; 
     background-color: transparent;
 }
 
-.datos{
+a:hover,
+a:focus {
+    color: #5bc0de;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.datos {
     text-align: left;
-    margin-top: 30px; 
+    margin-top: 30px;
     font-size: 30px;
     margin-left: 100px;
 }
 
-
-.datos-titulo{
+.datos-titulo {
     text-align: left;
-    margin-top: 30px; 
+    margin-top: 30px;
     font-size: 30px;
-    margin-left: -180px; 
-    margin-top: 80px; 
-    font-weight: 600; 
+    margin-left: -180px;
+    margin-top: 80px;
+    font-weight: 600;
 }
 
-label{
-    font-weight: 200; 
+label {
+    font-weight: 200;
 }
 
-.fill-in{
+.fill-in {
     height: 30px;
-    margin-left: 100px; 
-    border-radius: 7px; 
-    border-width: 2px; 
+    margin-left: 100px;
+    border-radius: 7px;
+    border-width: 2px;
     border-color: #e0e0e0;
-    border-style: solid; 
+    border-style: solid;
     width: 400px;
 }
 
-#numero-telefono{
-    margin-left: 0px; 
-    width: 255px; 
+#numero-telefono {
+    margin-left: 0px;
+    width: 255px;
 }
 
-.fill-in-short{
+.fill-in-short {
     height: 30px;
-    margin-left:0px; 
-    border-radius: 7px; 
-    border-width: 2px; 
+    margin-left: 0px;
+    border-radius: 7px;
+    border-width: 2px;
     border-color: #e0e0e0;
-    border-style: solid; 
+    border-style: solid;
     width: 296px;
 }
 
-.fill-in-xs{
+.fill-in-xs {
     height: 30px;
-    margin-left:0px; 
-    border-radius: 7px; 
-    border-width: 2px; 
+    margin-left: 0px;
+    border-radius: 7px;
+    border-width: 2px;
     border-color: #e0e0e0;
-    border-style: solid; 
+    border-style: solid;
     width: 100px;
 }
 
-#codigo-de-seguridad{
-    margin-left: 100px; 
+#codigo-de-seguridad {
+    margin-left: 100px;
 }
 
-.fill-in-contacto{
+.fill-in-contacto {
     height: 30px;
-    margin-left:100px; 
-    border-radius: 7px; 
-    border-width: 2px; 
+    margin-left: 100px;
+    border-radius: 7px;
+    border-width: 2px;
     border-color: #e0e0e0;
-    border-style: solid; 
+    border-style: solid;
     width: 70px;
 }
 
-#fill-in-tarjeta{
-    margin-left: 100px; 
+#fill-in-tarjeta {
+    margin-left: 100px;
 }
 
-#area{
-    margin-left: 0px; 
-}
-
-.fill-in-s{
-    height: 30px;
-    margin-left:100px; 
-    border-radius: 7px; 
-    border-width: 2px; 
-    border-color: #e0e0e0;
-    border-style: solid; 
-    width: 190px;
-}
-
-#apellido-p{
-    margin-left: 30px 
-}
-#apellido{
-    margin-left: 100px; 
-}
-#first-4-numbers{
-    margin-left: 100px; 
-}
-
-#num{
-    margin-left: 100px; 
-}
-
-.seleccion{
-    background: transparent;
-    width: 100px; 
-    font-size: 16px; 
-    border: 2px solid #e0e0e0;
-    height: 30px; 
-    border-radius: 7px; 
-    margin-left: 98.4px; 
-    font-weight: 300; 
-}
-
-#pais{
-    width: 400px; 
-}
-
-#provincia{
-    width: 400px; 
-}
-#mes{
+#area {
     margin-left: 0px;
 }
 
-#año{
-    margin-left: 0px; 
+.fill-in-s {
+    height: 30px;
+    margin-left: 100px;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: #e0e0e0;
+    border-style: solid;
+    width: 190px;
 }
 
-#vencimiento-año{
-   margin-left: 0px;  
+#apellido-p {
+    margin-left: 30px
 }
 
-.numero{
-    width: 100px; 
-    height: 100px; 
-    margin-left: 0px; 
-    margin-top: 50px; 
-    align-items: center; 
+#apellido {
+    margin-left: 100px;
 }
 
-.btn-primary{
-    color:white; 
-    background-color:#4ca3ff ;
-    background-image: none; 
+#first-4-numbers {
+    margin-left: 100px;
+}
+
+#num {
+    margin-left: 100px;
+}
+
+.seleccion {
+    background: transparent;
+    width: 100px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    height: 30px;
+    border-radius: 7px;
+    margin-left: 98.4px;
+    font-weight: 300;
+}
+
+#pais {
+    width: 400px;
+}
+
+#provincia {
+    width: 400px;
+}
+
+#mes {
+    margin-left: 0px;
+}
+
+#año {
+    margin-left: 0px;
+}
+
+#vencimiento-año {
+    margin-left: 0px;
+}
+
+.numero {
+    width: 100px;
+    height: 100px;
+    margin-left: 0px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #4ca3ff;
+    background-image: none;
 }
 
 .btn-primary:hover,
-.btn-primary:focus{
-    color:#4ca3ff;
+.btn-primary:focus {
+    color: #4ca3ff;
     background-color: transparent;
     background-image: none;
     border-color: #4ca3ff;
 }
 
-.btn{
-    font-size: 30px; 
+.btn {
+    font-size: 30px;
     border-radius: 7px;
     margin-top: 60px;
     border-color: #4ca3ff;
@@ -343,136 +345,132 @@ label{
     text-shadow: none;
 }
 
-.add-field-button{
-    font-size: 20px;  
-    background-image: none; 
+.add-field-button {
+    font-size: 20px;
+    background-image: none;
     font-weight: 200;
     border-style: none;
     text-decoration: underline;
-    text-decoration-color:#4ca3ff;
+    text-decoration-color: #4ca3ff;
     color: #4ca3ff;
     background-color: #ffffff;
-
 }
 
-.glyphicon-remove{
-    color: red; 
-}
-
-.remove-field{
-    font-weight: 200; 
+.glyphicon-remove {
     color: red;
-    margin-left: 2px; 
 }
 
-.remove-field:hover{
+.remove-field {
+    font-weight: 200;
+    color: red;
+    margin-left: 2px;
+}
+
+.remove-field:hover {
     color: red;
     text-decoration: underline;
-    text-decoration-color:red;
+    text-decoration-color: red;
 }
 
-.btn-default{
-    color:#4ca3ff;
+.btn-default {
+    color: #4ca3ff;
 }
 
-.duda{
-    height: 25px;
-    width: 25px; 
-    margin-bottom: 8px;
+.duda {
+    font-size: large;
 }
 
-.duda-btn{
+.duda-btn {
     background-color: white;
     background-image: none;
     border-style: none;
-    border-color: white; 
+    border-color: white;
 }
 
 .btn-default:hover,
-.btn-default:focus{
-    background-color:#337ab7;
-    color:white; 
-
+.btn-default:focus {
+    background-color: #337ab7;
+    color: white;
 }
 
-.obligatorio{
-    color:red;
-    font-weight: 200; 
+.obligatorio {
+    color: red;
+    font-weight: 200;
 }
 
-.error{
+.error {
     color: red;
 }
 
-.error-gral{
-    margin-left: 100px;  
-}
-.error-dia-mes-año{
-    margin-left: 117px; 
+.error-gral {
+    margin-left: 100px;
 }
 
-#confirmar{
+.error-dia-mes-año {
+    margin-left: 117px;
+}
+
+#confirmar {
     background-color: #7aca7a;
-    color: white; 
-    border-color: #7aca7a; 
+    color: white;
+    border-color: #7aca7a;
 }
 
-.phone{
-    margin-top: 5px; 
+.phone {
+    margin-top: 5px;
 }
 
-#fill-in-tarjeta-error{
-    margin-left: 100px; 
+#fill-in-tarjeta-error {
+    margin-left: 100px;
 }
 
-#descuentos{
-    width: 200px; 
+#descuentos {
+    width: 200px;
     height: 200px;
     position: absolute;
-    left: 900px; 
-    top:40px;
+    z-index: 1;
+    left: 900px;
+    top: 40px;
 }
 
-
-.titulos-resumen{
+.titulos-resumen {
     font-weight: 200;
-    font-size: 35px; 
+    font-size: 35px;
     border-style: solid;
-    border-width: 1px; 
-    border-radius: 7px; 
+    border-width: 1px;
+    border-radius: 7px;
     background-color: #4ca3ff;
     border-color: #ffffff;
-    width: 1600px; 
+    width: 1600px;
     color: #ffffff;
-    padding-left: 20px; 
-    margin-bottom: 20px; 
+    padding-left: 20px;
+    margin-bottom: 20px;
 }
 
-.subtitulos-resumen{
+.subtitulos-resumen {
     font-weight: 350;
-    font-size: 23px; 
+    font-size: 23px;
     border-style: none;
     color: black;
     margin-left: 10px;
 }
 
-.datos-resumen{
+.datos-resumen {
     font-weight: 200;
-    font-size: 20px; 
+    font-size: 20px;
     border-style: none;
     color: black;
-    margin-left: 20px; 
+    margin-left: 20px;
 }
 
-#pasajero-resumen{
-    margin-left: 10px; 
+#pasajero-resumen {
+    margin-left: 10px;
 }
 
-
-#departamento{
-    margin-left: -50px; 
+#departamento {
+    margin-left: -50px;
 }
 
-.no-left-margin{
-    margin-left: 0px; 
+.no-left-margin {
+    margin-left: 0px;
 }
