@@ -37,11 +37,11 @@
     <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="stylesheet" type='text/css' href=".\css\flightReview.css">
     <link rel="stylesheet" type='text/css' href=".\css\modal.css">
+    <link rel="stylesheet" type='text/css' href=".\css\review.css">
     <!-- STAR RATING -->
     <link rel="stylesheet" type='text/css' href=".\css\rating.css">
     <!-- END STAR RATING -->
-    <!-- DONT ASK FOR FAVICON -->
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="shortcut icon" href="images/paper-plane.png">
     <!-- Fin lo nuestro -->
 </head>
 <noscript>
@@ -123,20 +123,19 @@
                             <div class="bar_title">
                                 Filtros
                             </div>
-                            <div class="bar_subtitle">
-                                Rango de precios:
-                            </div>
-                            <div class="my_sliders sliders" id="price_range"></div>
-                            <div id="price-slider-values" class="slider-values">
-                                Min: , max:
+                            <div class="price_range_container">
+                                <div class="bar_subtitle">
+                                    Rango de precios:
+                                </div>
+                                <div class="my_sliders sliders" id="price_range"></div>
+                                <div id="price-slider-values" class="slider-values">
+                                    Min: , Max:
+                                </div>
                             </div>
                             <div class="bar_subtitle">
                                 Moneda:
                             </div>
                             <select id="currency" class="js-example-basic-single filter-select">
-                                <option value="ARS">Peso Argentino</option>
-                                <option value="MX">Peso Mexicano</option>
-                                <option value="USD">Dólar Estadounidense</option>
                             </select>
                             <div class="duration_range_container">
                                 <div class="bar_subtitle">
@@ -144,25 +143,30 @@
                                 </div>
                                 <div class="my_sliders sliders" id="duration_range"></div>
                                 <div id="duration-slider-values" class="slider-values">
-                                    Min: , max:
+                                    Min: , Max:
                                 </div>
                             </div>
                             <div class="bar_subtitle">
-                                Aerolíneas:
+                                Aerolínea:
                             </div>
+                            <br>
                             <select id="airlines_select" class="js-example-basic-single filter-select">
                             </select>
+                            <button id="remove_airlines" class="remove_airlines btn btn-primary sml" type="button" name="button">Quitar</button>
+                            <br>
                             <div class="bar_subtitle">
                                 Vuelo:
                             </div>
+                            <br>
                             <select id="flight_number" class="js-example-basic-single filter-select">
-
                             </select>
+                            <button id="remove_fligh" class="remove_airlines btn btn-primary sml" type="button" name="button">Quitar</button>
+                            <br>
                             <div class="bar_subtitle">
                                 Rango de opinión:
                             </div>
                             <div id="ratings"></div>
-                            <div class="search_button">
+                            <div id="search_comments_button_container" class="search_button hidden">
                                 <button id="search_comments_button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                     <span class="glyphicon glyphicon-comment"></span> Buscar reseñas
                                 </button>
@@ -186,13 +190,12 @@
                                                 Buscar
                                             </button>
                                             <div class="loader_container_reviews">
-                                                <div class="loader">
+                                                <div class="loader_review">
                                                     <div id="loader_plane" class="plane">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="review_errors">
-                                            </div>
+                                            <div id="reviews_errors"></div>
                                             <div id="reviews"></div>
                                         </div>
                                         <div class="modal-footer">
@@ -258,8 +261,11 @@
                                 </tr>
                             </tbody>
                           </table>
-                    </div> -->
-                    <div id="results_tickets" class="results_tickets">
+                      </div> -->
+                      <div id="results_tickets" class="results_tickets">
+                        <div class="no_results">
+                            No hay resultados...
+                        </div>
                         <div class="loader_container">
                             <div class="loader">
                                 <div id="loader_plane" class="plane">
@@ -273,7 +279,6 @@
                                     <div class="ticket_airline_logo_container">
                                         <img class="ticket_airline_logo" src="american_logo.jpeg"></img>
                                         <div class="ticket_airline_name">
-
                                         </div>
                                     </div>
                                     <div class="ticket_from_details">
@@ -345,7 +350,6 @@
                                     <div class="ticket_airline_logo_container">
                                         <img class="ticket_airline_logo" src="american_logo.jpeg"></img>
                                         <div class="ticket_airline_name">
-
                                         </div>
                                     </div>
                                     <div class="ticket_from_details">
@@ -415,8 +419,6 @@
                             <div class="ticket_separator1"></div>
                             <div class="ticket_price">
                                 <div class="favorite">
-                                    <i class="favorite_selected material-icons">favorite</i>
-                                    <i class="favorite_unselected material-icons">favorite_border</i>
                                 </div>
                                 <div class="prices_list">
                                     <ul class="prices">
@@ -512,7 +514,7 @@
         <!--  END FOOTER  -->
     </div>
     <div id="error" class="hidden">
-        <img src="" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicacion con el sistema. Por favor, intente de vuelta.
+        <img class="error_image" src="images/logo.png" alt="Error de comunicacion con el sistema. Por favor, intente de vuelta."> Error de comunicación con el sistema. Por favor, intente de vuelta.
     </div>
 </body>
 
@@ -523,6 +525,7 @@
 <script type="text/javascript" src="js/opinionRange.js"></script>
 <script type="text/javascript" src="./js/src/setRatings.js"></script>
 <script type="text/javascript" src="./js/loadAirlines.js"></script>
+<script type="text/javascript" src="./js/loadResultsReviews.js"></script>
 <script type="text/javascript" src="./js/loadReviews.js"></script>
 <script type="text/javascript" src="./js/getLogos.js"></script>
 <script type="text/javascript" src="./js/show.js"></script>

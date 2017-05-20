@@ -16,10 +16,7 @@
           "base_fare": 278.00,
           "quantity": 1
         },
-        "children": {
-          "base_fare": 15.00,
-          "quantity": 1
-        },
+        "children": null,
         "infants": null,
         "total": {
           "charges": 11.12,

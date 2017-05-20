@@ -1,206 +1,183 @@
 $(document).ready(function() {
 
-    // $("#airlines_select")[0].selectedIndex = 0;
+  $('#inputs').hide();
 
-    // if ($("#airlines_select").select2('data').length == 0) {
-    //     error("No internet");
-    //     console.log($("#airlines_select"));
-    //     return;
-    // }
+  $("#airlines_select").change(function() {
+    setSearchFlightButton();
+  });
 
-    // if ($("#airlines_select").select2('data')[0] === undefined) {
-    //         error("smth");
-    //         return;
-    //     }
+  $("#flight_number_review").change(function() {
+    var n = $("#flight_number_review").val();
 
-    // $('#airlines_select').val('AR'); // Select the option with a value of 'US'
-    // $('#airlines_select').trigger('change'); // Notify any JS components that the value changed
+    if(jQuery.isNumeric(n)){
+      $(".glyphicon-warning-sign").remove();
+      $("#flight_group_container").removeClass("has-warning has-feedback");
+      $("#flight_group_container").addClass("has-success has-feedback");
+      $("#flight_group_container").append("<span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>");
+    } else {
+      $(".glyphicon-ok").remove();
+      $("#flight_group_container").removeClass("has-success has-feedback");
+      $("#flight_group_container").addClass("has-warning has-feedback");
+      $("#flight_group_container").append("<span class='glyphicon glyphicon-warning-sign form-control-feedback' aria-hidden='true'></span>");
+      $("#flight_number_review").val('');
+      $("#flight_number_review").attr("placeholder","Sólo numeros");
+    }
+    setSearchFlightButton();
+  });
 
-    // if ($('#airlines_select')[0].length) {
+  $("#upload_comment_button").click(function() {
 
-    //     alert(1);
+    var rev = 
+    {
+      "flight": {
+        "airline": {
+          "id": $("#airlines_select").val()
+        },
+        "number": parseInt($("#flight_number_review").val())
+      },
+      "rating": {
+        "friendliness": getStars("friendliness"),
+        "food": getStars("food"),
+        "punctuality": getStars("punctuality"),
+        "mileage_program": getStars("mileage_program"),
+        "comfort": getStars("comfort"),
+        "quality_price": getStars("quality_price")
+      },
+      "yes_recommend": $("#recOther").is(':checked')
+    }
 
-    // } else {
-    //     alert(2);
-    //     $('#airlines_select').val('AR'); // Select the option with a value of 'US'
-    // $('#airlines_select').trigger('change'); // Notify any JS components that the value changed
+    var comment_exists = post(rev);
 
-    // }
+    $("#thanks_msg_header").append(" " + $("#flight_number_review").val() + " de " + getAirlineName() + "." );
+    
+    if (comment_exists) {
+      $(".modal-header").after("<div class='modal-body'><div id='thanks_msg_body' class='bar_subtitle'></div></div>");
+      $("#thanks_msg_body").append("Su comentario: " + $("#input_comment").val());
+    }
 
-    var myObj, html = "";
-
-    timeout_timer = setTimeout(timeout, 15000);
-
-    // $.ajax({
-    //     url: URL,
-    //     async: false,
-    //     dataType: 'json',
-    //     success: function(data) {
-    //         console.log(URL);
-    //         $(".loader_container_comments").hide();
-    //         myObj = data;
-    //         clearTimeout(timeout_timer);
-    //     }
-    // });
-
-
-
-    $.getJSON(makeURL(), function(result, status) {
-
-        $(".loader_container_comments").hide();
-        clearTimeout(timeout_timer);
-
-        myObj = result;
-
-        // console.log(result);
-
-        // var container = document.getElementById("flight_number_container");
-        // var child = document.getElementById("warning_icon");
-        // if (child != undefined) container.removeChild(child);
-        // container.className = "form-group has-feedback";
-        // document.getElementById("flight_number").placeholder = "";
-        // warned = false;
-
-        var reviews = myObj.reviews;
-
-        if (reviews.length == 0) {
-            $(".commentList").html("No hay comentarios para este vuelo.");
-            return;
-        }
-
-        for (x in reviews) {
-            var li = $("<li></li>");
-            var comment = $("<div class='commentText'></div>");
-            comment.append("<p class='pText'>" + reviews[x].comments + "</p>");
-            // <span class='date sub-text'>" + getDate() + "</span>"
-            li.append(comment);
-            li.append("<hr>");
-            $(".commentList").append(li);
-        }
-
-    });
-
-    $("#upload_review_button").click(function() {
-
-        var review = {
-            "flight": {
-                "airline": {
-                    "id": "AR"
-                },
-                "number": 5260
-            },
-            "rating": {
-                "friendliness": window.getStars("friendliness"),
-                "food": window.getStars("food"),
-                "punctuality": window.getStars("punctuality"),
-                "mileage_program": window.getStars("mileage_program"),
-                "comfort": window.getStars("comfort"),
-                "quality_price": window.getStars("quality_price")
-            },
-            "yes_recommend": true,
-            "comments": "Horrible!"
-        }
-
-        // console.log(review);
-        // console.log(JSON.stringify(review));
-
-        var URLY = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=reviewairline";
-
-        alert(URLY);
-
-        /*$.ajax({
-            type: "PUT",
-            url: URLY,
-            data: JSON.stringify(review),
-            contentType: "application/json",
-            dataType: "json",
-            success: function(data) {
-                console.log(data);
-            },
-            failure: function(errMsg) {
-                alert("error" + errMsg);
-            }
-        });*/
-        debugger;
-        console.log(window.getStars("friendliness"));
-    });
+  });
 
 });
+
+function getAirlineName(){
+  var name;
+  $('option').each(function(){
+   if ($(this).val() == $("#airlines_select").val()) {
+    name = $(this)["0"].text;
+    return true;
+  } 
+});
+  return name;
+};
+
+function post(rev) {
+
+  var comment = $("#input_comment").val();
+  var cExists = false;
+
+  if(comment != "" && comment != null) {
+    rev.comments = comment;
+    console.log(rev);
+    cExists = true;
+  }
+
+  var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=reviewairline";
+
+  timeout_timer = setTimeout(timeout, 5000);
+
+  $.ajax({type: "POST",url: URL,contentType: "application/json; charset=utf-8",data: JSON.stringify(rev),
+    success: function(data) {
+      clearTimeout(timeout_timer);
+      $("#input_comment").val('');
+      if(cExists) {
+        get_flight_reviews();
+      }
+    }
+  });
+  return cExists;
+}
+
+function setSearchFlightButton() {
+  var aSelected = $("#airlines_select").val();
+  var fSelected = $("#flight_number_review").val();
+
+  if (aSelected != "" && aSelected != null && fSelected != "" && fSelected != null) {
+    $("#review_container").removeClass("hidden");
+    get_flight_reviews();
+  } else {
+    $("#review_container").addClass("hidden");
+  }
+}
+
+function getFlightNumber() {
+  var initial = $("#flight_number_review").val();
+  initial = initial.match(/\d{2,4}/)[0];
+  return initial;
+}
 
 function makeURL() {
 
-    var airline = { id: 'AR', name: '' };
+  var airline_id = $('#airlines_select').val();
+  var flight_number = $("#flight_number_review").val();
+  var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" + airline_id;
 
-    var aux = setInterval(function() {
-        if ($('#airlines_select').val() != null) {
-            airline.id = $('#airlines_select').val();
-            // console.log($('#airlines_select').val());
-            // console.log("Exito")
-            clearInterval(aux);
-        }
-    }, 10);
+  if (flight_number != "") {
+    URL += "&flight_number=" + flight_number;
+  }
 
-    var airlineName = $("#airlines_select").select2('data')[0];
-    var flight_number = "5260" //$("#flight_number").val();
-    var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" + airline.id;
+  return URL;
+}
 
-    if (flight_number != "") {
-        URL += "&flight_number=" + flight_number;
+function get_flight_reviews() {
+  $(".commentList").empty();
+  get_comments();
+}
+
+function get_comments() {
+
+  $(".loader_container_comments").show();
+
+  timeout_timer = setTimeout(timeout, 5000);
+
+  $.getJSON(makeURL(), function(result) {
+
+    clearTimeout(timeout_timer);
+
+    myObj = result;
+
+    var reviews = myObj.reviews;
+    console.log(reviews);
+
+    if (reviews.length == 0) {
+      setTimeout(function() {
+        $(".loader_container_comments").hide();
+        $(".commentList").html("No hay comentarios para este vuelo.");
+      }, 1000);
+      return;
     }
 
-    return URL;
+    $(".loader_container_comments").hide();
+
+    for (x in reviews) {
+      if(reviews[x].comments != null){
+        var li = $("<li></li>");
+        var comment = $("<div class='commentText'></div>");
+        comment.append("<p class='pText'>" + reviews[x].comments + "</p>");
+        li.append(comment);
+        li.append("<hr class='style-eight'>");
+        $(".commentList").append(li);
+      }
+    }
+  });
 }
-
-// function getDate() {
-//     var today = new Date();
-//     var dd = today.getDate();
-//     var mm = today.getMonth() + 1; //January is 0!
-//     var yyyy = today.getFullYear();
-
-//     if (dd < 10) {
-//         dd = '0' + dd
-//     }
-
-//     if (mm < 10) {
-//         mm = '0' + mm
-//     }
-
-//     today = mm + '/' + dd + '/' + yyyy;
-//     return today;
-// }
-
-function bindCmt() {
-    var cmtListElement = $('.commentList'),
-        cmtList = JSON.parse(localStorage.getItem('cmtList'));
-
-    //Out with the old
-    cmtListElement.empty();
-
-    //And in with the new
-    $.each(cmtList, function(i, k) {
-        cmtListElement.append($('<li><div class="commentText"><p class="pText">' + k.text + '</p><span class="date sub-text">' + k.date + '</span></div></li><hr>'));
-    });
-}
-
-function getCmtList() {
-    var cl = localStorage.getItem('cmtList');
-    if (cl != null) cl = JSON.parse(cl);
-    return cl;
-}
-
-//Get the comments on page ready
-$(function() {
-    bindCmt();
-});
-
 
 function timeout() {
-    error("TIMEOUT!");
+  error("TIMEOUT!");
 }
 
 function error(s) {
-    clearTimeout(timeout_timer);
-    $(".loader_container_comments").hide();
-    $(".comments_errors").text(s);
+  clearTimeout(timeout_timer);
+  $(".loader_container_comments").hide();
+  $(".comments_errors").text(s);
 
 }

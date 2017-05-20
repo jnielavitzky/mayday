@@ -3,6 +3,7 @@
     min-height: 1000px;
     /*Esto es para que las barras fijas entren*/
     vertical-align: top;
+    margin-bottom: 50px;
 }
 
 .comparison_results {
@@ -26,6 +27,8 @@
     width: 290px;
     height: auto;
     padding: 5px;
+
+
     /*Style*/
     /*background-color: red;*/
 }
@@ -39,6 +42,7 @@
     height: auto;
     top: 420px;
     padding: 5px;
+
     /*margin-top: 15px;*/
     /*Style*/
     /*background-color: green;*/
@@ -147,11 +151,6 @@
     /*text-align: center;*/
 }
 
-.loader_container_reviews {
-    height: 35vh;
-    /*visibility: hidden;*/
-}
-
 .loader {
     border: 8px dashed #f3f3f3;
     /* Light grey */
@@ -161,25 +160,6 @@
     width: 120px;
     height: 120px;
     animation: spin 3s linear infinite;
-}
-
-.loader_comments {
-    border: 8px dashed #f3f3f3;
-    /* Light grey */
-    border-top: 8px dashed #f3f3f3;
-    /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 3s linear infinite;
-    margin-left: 43%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    /*visibility: hidden;*/
-}
-
-.loader_reviews {
-    margin: -16px 0 0 -60px;
 }
 
 @keyframes spin {
@@ -205,10 +185,33 @@
     height: 20%;
     top: 25%;
     left: 35%;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     font-size: 20px;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 2px;
+}
+
+#airlines_select {
+    width: 75%;
+}
+#flight_number {
+    width: 75%;
+}
+
+.remove_airlines {
+    display: inline-block;
+    float: right;
+    padding: 3px;
+}
+
+.no_results {
+    font-size: 20px;
+    margin-left: 40%;
+    margin-top: 25%;
+}
+
+.error_image {
+    width: 100px;
 }

@@ -16,10 +16,7 @@
           "base_fare": 227.00,
           "quantity": 1
         },
-        "children": {
-          "base_fare": 10.00,
-          "quantity": 1
-        },
+        "children": null,
         "infants": null,
         "total": {
           "charges": 9.08,
@@ -147,7 +144,7 @@
               ]
             }
           ],
-          "duration": "01:21"
+          "duration": "02:21"
         }
       ]
     }
