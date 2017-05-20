@@ -400,7 +400,7 @@ $(document).ready(function(){
                                             '<option value="30">30</option>'+
                                             '<option value="31">31</option>'+
                                         '</select>'+
-                                        '<select class="seleccion" id="mes'+i+'" name="fecha_mes">'+
+                                        '<select class="seleccion no-margin-left" id="mes'+i+'" name="fecha_mes">'+
                                             '<option value="">Mes</option>'+
                                             '<option value="Enero">Enero</option>'+
                                             '<option value="Febrero">Febrero</option>'+
@@ -415,7 +415,7 @@ $(document).ready(function(){
                                             '<option value="Noviembre">Noviembre</option>'+
                                             '<option value="Diciembre">Diciembre</option>'+
                                         '</select>'+
-                                        '<select class="seleccion" id="año'+i+'" name="fecha_año">'+
+                                        '<select class="seleccion no-margin-left" id="año'+i+'" name="fecha_año">'+
                                             '<option value="">Año</option>'+
                                             '<option value="1954">1954</option>'+
                                             '<option value="1955">1955</option>'+

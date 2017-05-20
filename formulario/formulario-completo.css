@@ -539,3 +539,7 @@ label{
 #departamento{
     margin-left: -50px; 
 }
+
+.no-margin-left{
+    margin-left: 0px; 
+}
