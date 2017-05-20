@@ -39,6 +39,8 @@ function find() {
     }else{
         sessionStorage.removeItem("map2");
     }
+
+    window.location.href = "results.html";
 }
 
 function oneWay() {
