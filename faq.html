@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mayday</title>
+
+    <!-- JQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- End JQuery -->
+
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- End bootsrap -->
+
+
+    <link rel='stylesheet' type='text/css' href='./css/mayday.css'>
+    <link rel='stylesheet' type='text/css' href='./css/map.css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Raleway:500" rel="stylesheet">
+    <link rel="shortcut icon" href="images/paper-plane.png">
+
+    <script type="text/javascript" src="./js/show.js"></script>
+    <script type="text/javascript" src="./js/find.js"></script>
+
+</head>
+<body>
+
+    <noscript>
+        <img class="row col-md-offset-2" img src=".\images\javascript-error-09.png">
+    </noscript>
+
+    <div id="every" class="container scriptavailable">
+
+        <!--  NAV BAR  -->
+        <div class="container" id="n4v"></div>
+        <!--  END NAV BAR  -->
+
+
+        <!--  SALE SECTION  -->
+        <div class="container sale">
+            <div class='row'>
+                <h1 class="title">FAQ</h1>
+            </div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ¿Cuál es el tiempo recomendado para llegar al aeropuerto?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            Para los vuelos internacionales te recomendamos presentarte 3 h antes y para los nacionales 2 h. Tené en cuenta que los horarios de salida y llegada se expresan en el horario local de cada ciudad
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿A qué países puedo viajar sin pasaporte?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            Los argentinos pueden viajar con DNI a los Estados Partes del MERCOSUR y Estados asociados: Brasil, Paraguay, Uruguay, Bolivia, Chile, Colombia, Ecuador, Perú, Venezuela. Tené en cuenta que el DNI tiene que estar en buen estado, legible y con foto reconocible
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Qué puedo hacer si mi tarjeta de crédito rechaza el pago?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            1- Antes que nada asegurate de tener el límite disponible para realizar la compra. Luego autorizala con tu tarjeta de crédito llamando al número que figura en el dorso. Te recomendamos tener el resumen a mano, es posible que lo necesites para verificar tu identidad.
+
+                            2- Una vez autorizado, comunicate con nosotros al 0810 777 2728 o volvé a comprar en Mayday.com
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Cuál es la documentación obligatoria para viajar?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            Te recomendamos revisar la documentación necesaria para tu viaje, como así también la tramitación y presentación en término según los requisitos de cada país. La documentación tiene que estar en buen estado y con las fotografías actualizadas al momento de embarcar. Podés consultarlo en www.migraciones.gov.ar y el consulado de tu país de destino. La empresa no se responsabiliza por la tramitación y vigencia de la documentación necesaria y los problemas que eso pueda causar. Por tal motivo, los gastos que correspondan por demoras o abandono del tour por la falta de la documentación, serán a cargo del pasajero. Para algunos países es necesario la aplicación de vacunas. Te recomendamos consultarlo en el consulado correspondiente, ya que es necesario para poder embarcar.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Qué tengo que saber sobre los vuelos destacados?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                             Los vuelos destacados son limitadas hasta agotar stock de cupos. - Sirven solo para fechas específicas. - La tarifa y la disponibilidad no se pueden garantizar hasta el momento de la emisión del ticket. </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  END SALE SECTION  -->
+
+
+        <!--  FOOTER  -->
+        <div id="f00" class="container"></div>
+        <!--  END FOOTER  -->
+
+    </div>
+</body>
+</html>

@@ -7,7 +7,11 @@ $(document).ready(function() {
 
     var myObj, html = "";
 
+    // timeout_timer = setTimeout(timeout, 5000);
+
     $.getJSON(URL, function(result) {
+
+        // clearTimeout(timeout_timer);
 
         myObj = result;
 
@@ -52,12 +56,10 @@ function formatAirline(opt) {
     }
 };
 
-function timeout() {
-    error("TIMEOUT!");
-}
+// function timeout() {
+//     clearTimeout(timeout_timer);
 
-function error(s) {
-    clearTimeout(timeout_timer);
-    alert(s);
-
-}
+//     $('#every').fadeTo(500, 0.2);
+//     $('#every').css("pointer-events", "none");
+//     $("#error").removeClass("hidden");
+// }
