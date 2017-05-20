@@ -20,22 +20,31 @@ var single_flight = false;
 
 
 $(document).ready(function() {
-    $(".no_results").hide(300);
+    $(".no_results").hide();
 
     setRatingStars(function(r) {
         selected_rating = r;
         filter();
     });
 
+    var ida_url = sessionStorage.getItem("map");
+    var vuelta_url = sessionStorage.getItem("map2");
 
-    $.getJSON("./ejemplo3.json", function(data) {
+    if (vuelta_url == null) {
+        single_flight = true;
+    }
+    console.log(ida_url);
+    console.log(vuelta_url);
+
+
+    $.getJSON(ida_url, function(data) {
         out_flights = data["flights"];
         out_filters = data["filters"];
         done_flights();
         done_filters();
     });
     if (!single_flight)
-        $.getJSON("./ejemplo4.json", function(data) {
+        $.getJSON(vuelta_url, function(data) {
             in_flights = data["flights"];
             in_filters = data["filters"];
             done_flights();
@@ -254,8 +263,8 @@ function fill_half_ticket(flight, parent) {
     var arrival = seg["arrival"];
     var departure = seg["departure"];
 
-    var departure_datetime = moment(departure["date"]);
-    var arrival_datetime = moment(arrival["date"]);
+    var departure_datetime = moment(departure["date"], "YYYY-M-D H:mm:ss");
+    var arrival_datetime = moment(arrival["date"], "YYYY-M-D H:mm:ss");
 
     // Ticket 1
 
@@ -297,7 +306,7 @@ function fill_half_ticket(flight, parent) {
     var total_time_div = parent.find(".total_time");
     var total_time = (routes[0])["duration"];
     var total_time_split = parseInt(total_time.split(':')[0], 10);
-    total_time_div.text("Total: " + total_time_split + "hs");
+    total_time_div.text("Total: " + ((total_time_split == 0) ? "1" : total_time_split) + "hs");
     total_time_div.attr("data", total_time_split);
     if (total_time_split < min_dur)
         min_dur = total_time_split;
@@ -378,12 +387,9 @@ var ignored = 0;
 
 function filter() {
 
-    ignored++;
-    if (ignored < 3)
-        return;
+
     var at_least_one = false;
     $('.ticket').each(function(i, obj) {
-
         if (filter_by_price(obj) && filter_by_duration(obj) && filter_by_airline(obj) && filter_by_rating(obj) && filter_by_flight_number(obj)) {
             $(obj).show(300);
             at_least_one = true;
@@ -437,7 +443,7 @@ function filter_by_rating(obj) {
         }
 
 
-    }else{
+    } else {
         if (rating1 < selected_rating) {
             return false;
         }
@@ -446,6 +452,11 @@ function filter_by_rating(obj) {
 }
 
 function filter_by_price(obj) {
+
+    if (price_slider == null) {
+        return true;
+    }
+
     var max = price_slider_max;
     var min = price_slider_min;
 
@@ -455,8 +466,8 @@ function filter_by_price(obj) {
 
     var total = $(obj).find(".total_price").attr("data");
     total = parseInt(total, 10);
-    // console.log(max + " > " + total + " >" + min);
-    if (total >= min && total <= max) {
+    console.log(max + " > " + total + " >" + min);
+    if (total + 1 >= min && total - 1 <= max) {
         //console.log("show" + i);
         return true;
     } else {
@@ -500,6 +511,7 @@ function filter_by_duration(obj) {
 }
 
 $("#remove_airlines").on("click", function() {
+    console.log("remove");
     $("#airlines_select").val(null).trigger("change");
 });
 $("#remove_fligh").on("click", function() {
@@ -547,7 +559,9 @@ function changedCurrency() {
         }
     });
 
-    price_slider.noUiSlider.on("update", function() {});
+    if (price_slider.noUiSlider != null) {
+        price_slider.noUiSlider.on("update", function() {});
+    }
 }
 
 var ignored3 = 0;
@@ -589,6 +603,12 @@ var price_slider_max;
 var price_slider_min;
 
 function createPriceSlider(min, max) {
+
+    if (min == max) {
+        $(".price_range_container").hide();
+        return;
+    }
+
     if (price_slider != undefined)
         return;
 
@@ -653,7 +673,6 @@ function setDurationSlider() {
 }
 
 $("#airlines_select").on("change", function() {
-    // console.log($("#airlines_select").val());
     filter();
 })
 
