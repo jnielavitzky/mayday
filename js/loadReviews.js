@@ -2,8 +2,6 @@ $(document).ready(function() {
 
     $(".loader_container_reviews").hide();
 
-    // $('#airlines_select').on("change", function(e) { console.log("change"); });
-
     $.fn.modal.Constructor.prototype.enforceFocus = function() {};
 
     $("#search_comments_button").click(function() {
@@ -24,7 +22,6 @@ $(document).ready(function() {
         var flight_number = getFlightNumber();
         var filter = $("#orderby").val();
 
-
         var URL = "http://hci.it.itba.edu.ar/v1/api/review.groovy?method=getairlinereviews&airline_id=" +
             airlineID + "&sort_key=" + filter;
 
@@ -43,7 +40,6 @@ $(document).ready(function() {
             myObj = result;
 
             var reviews = myObj.reviews;
-            console.log(reviews)
 
             if (reviews.length == 0) {
                 setTimeout(function() {
@@ -99,7 +95,7 @@ $(document).ready(function() {
 
                 html.append(yesRecommend);
 
-                if (reviews[x].comments != "") {
+                if (reviews[x].comments != "" && reviews[x].comments != null) {
                     var commentsDiv = "<div class='category_title'>Comentarios: " + "<p>" +
                         reviews[x].comments + "</p>" + "</div>";
                     $("#overall .category_title").css("font-size", "large");
@@ -126,12 +122,9 @@ function getFlightNumber() {
 }
 
 function timeout() {
-    error("TIMEOUT!");
-}
-
-function error(s) {
     clearTimeout(timeout_timer);
-    $(".loader_container_reviews").hide();
-    $(".comments_errors").text(s);
 
+    $('#every').fadeTo(500, 0.2);
+    $('#every').css("pointer-events", "none");
+    $("#error").removeClass("hidden");
 }

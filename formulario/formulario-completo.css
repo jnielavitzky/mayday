@@ -52,11 +52,11 @@ span.round-tab i{
 }
 .wizard li.active span.round-tab {
     background: #fff;
-    border: 2px solid #5bc0de;
+    border: 2px solid #4ca3ff;
     
 }
 .wizard li.active span.round-tab i{
-    color: #5bc0de;
+    color: #4ca3ff;
 }
 
 span.round-tab:hover {
@@ -76,7 +76,7 @@ span.round-tab:hover {
     margin: 0 auto;
     bottom: 0px;
     border: 5px solid transparent;
-    border-bottom-color: #5bc0de;
+    border-bottom-color: #4ca3ff;
     transition: 0.1s ease-in-out;
 }
 
@@ -88,7 +88,7 @@ span.round-tab:hover {
     margin: 0 auto;
     bottom: 0px;
     border: 10px solid transparent;
-    border-bottom-color: #5bc0de;
+    border-bottom-color: #4ca3ff;
 }
 
 .wizard .nav-tabs > li a {
@@ -191,7 +191,7 @@ a:focus{
     text-align: left;
     margin-top: 30px; 
     font-size: 30px;
-    margin-left: -197px; 
+    margin-left: -180px; 
     margin-top: 80px; 
     font-weight: 600; 
 }
@@ -235,6 +235,10 @@ label{
     width: 100px;
 }
 
+#codigo-de-seguridad{
+    margin-left: 100px; 
+}
+
 .fill-in-contacto{
     height: 30px;
     margin-left:100px; 
@@ -243,6 +247,10 @@ label{
     border-color: #e0e0e0;
     border-style: solid; 
     width: 70px;
+}
+
+#fill-in-tarjeta{
+    margin-left: 100px; 
 }
 
 #area{
@@ -263,7 +271,7 @@ label{
     margin-left: 30px 
 }
 #apellido{
-    margin-left: 120px; 
+    margin-left: 100px; 
 }
 #first-4-numbers{
     margin-left: 100px; 
@@ -299,42 +307,85 @@ label{
     margin-left: 0px; 
 }
 
+#vencimiento-año{
+   margin-left: 0px;  
+}
+
 .numero{
     width: 100px; 
     height: 100px; 
-    margin-left: -40px; 
+    margin-left: 0px; 
     margin-top: 50px; 
     align-items: center; 
 }
 
 .btn-primary{
     color:white; 
-    background-color:#5bc0de ;
+    background-color:#4ca3ff ;
     background-image: none; 
 }
 
 .btn-primary:hover,
 .btn-primary:focus{
-    color:#5bc0de;
+    color:#4ca3ff;
     background-color: transparent;
     background-image: none;
-    border-color: #5bc0de;
+    border-color: #4ca3ff;
 }
 
 .btn{
     font-size: 30px; 
     border-radius: 7px;
     margin-top: 60px;
-    border-color: #5bc0de;
+    border-color: #4ca3ff;
     font-weight: 200;
     background-image: none;
     text-shadow: none;
 }
 
+.add-field-button{
+    font-size: 20px;  
+    background-image: none; 
+    font-weight: 200;
+    border-style: none;
+    text-decoration: underline;
+    text-decoration-color:#4ca3ff;
+    color: #4ca3ff;
+    background-color: #ffffff;
+
+}
+
+.glyphicon-remove{
+    color: red; 
+}
+
+.remove-field{
+    font-weight: 200; 
+    color: red;
+    margin-left: 2px; 
+}
+
+.remove-field:hover{
+    color: red;
+    text-decoration: underline;
+    text-decoration-color:red;
+}
 
 .btn-default{
-    color:#5bc0de;
+    color:#4ca3ff;
+}
 
+.duda{
+    height: 25px;
+    width: 25px; 
+    margin-bottom: 8px;
+}
+
+.duda-btn{
+    background-color: white;
+    background-image: none;
+    border-style: none;
+    border-color: white; 
 }
 
 .btn-default:hover,
@@ -342,4 +393,149 @@ label{
     background-color:#337ab7;
     color:white; 
 
+}
+
+.obligatorio{
+    color:red;
+    font-weight: 200; 
+}
+
+.error{
+    color: red;
+}
+
+.error-nombre{
+    margin-left: 100px;  
+}
+
+#dia-error{
+    margin-left: 117px;
+}
+
+#mes-error{
+    margin-left: 117px;
+}
+
+#año-error{
+    margin-left: 117px;
+}
+
+#vencimiento-mes-error{
+    margin-left: 100px; 
+}
+
+#vencimiento-año-error{
+    margin-left: 100px; 
+}
+
+#nombre-p-error{
+    margin-left: 100px;
+}
+
+#apellido-p-error{
+    margin-left: 100px;
+}
+
+#provincia-error{
+    margin-left: 100px;
+}
+
+#apellido-error{
+    margin-left: 100px; 
+}
+
+#número_casa-error{
+    margin-left: 117px;
+}
+
+#correo-electronico-error{
+    margin-left: 100px;
+}
+
+#phone-error{
+    margin-left: 100px;
+}
+
+#nro-documento-pasajero-error{
+    margin-left:100px;  
+}
+
+#appellido-error{
+    margin-left: 100px; 
+}
+
+#confirmar{
+    background-color: #7aca7a;
+    color: white; 
+    border-color: #7aca7a; 
+}
+
+.phone{
+    margin-top: 5px; 
+}
+
+#fill-in-tarjeta-error{
+    margin-left: 100px; 
+}
+
+#descuentos{
+    width: 200px; 
+    height: 200px;
+    position: absolute;
+    left: 900px; 
+    top:40px;
+}
+
+#codigo-de-seguridad-error{
+    margin-left: 100px; 
+}
+
+.margin-error{
+    margin-left: 100px; 
+}
+
+.titulos-resumen{
+    font-weight: 200;
+    font-size: 35px; 
+    border-style: solid;
+    border-width: 1px; 
+    border-radius: 7px; 
+    background-color: #4ca3ff;
+    border-color: #ffffff;
+    width: 1600px; 
+    color: #ffffff;
+    padding-left: 20px; 
+    margin-bottom: 20px; 
+}
+
+.subtitulos-resumen{
+    font-weight: 350;
+    font-size: 23px; 
+    border-style: none;
+    color: black;
+    margin-left: 10px;
+}
+
+.datos-resumen{
+    font-weight: 200;
+    font-size: 20px; 
+    border-style: none;
+    color: black;
+    margin-left: 20px; 
+}
+
+#pasajero-resumen{
+    margin-left: 10px; 
+}
+
+#documento-p-error{
+    margin-left: 100px; 
+}
+
+#numero-casa-error{
+    margin-left: 100px;
+}
+
+#departamento{
+    margin-left: -50px; 
 }
