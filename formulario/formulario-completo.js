@@ -334,7 +334,7 @@ $(document).ready(function(){
 
     });
 
-    for(i=0; i<pasajeros; i++){
+     for(i=0; i<pasajeros; i++){
             $(".informacion-pasajero").append('<div class="row">'+
                                     '<h3>Información del pasajero</h3>'+
                                         '<div class="col-md-6" class="form-group">'+
@@ -342,14 +342,14 @@ $(document).ready(function(){
                                             '<br>'+
                                             '<input type="text" name="nombre" class="fill-in" autofocus id="nombre'+i+'" autocomplete>'+
                                             '<div id="id-error" class="error-nombre">'+
-                                                '<label for="nombre" class="error"  generated="true"></label>'+
+                                                '<label for="nombre'+i+'" class="error error-gral" generated="true"></label>'+
                                             '</div>'+
                                         '</div>'+
                                         '<div class="col-md-6">'+
                                             '<label class="datos">Apellido<span class="obligatorio">*</span></label>'+
                                             '<br>'+
                                             '<input type="text" name="apellido" class="fill-in" autocomplete id="apellido'+i+'">'+ 
-                                            '<label id="appellido-error" class="error" for="apellido"></label>'+
+                                            '<label id="appellido'+i+'-error" class="error error-gral" for="apellido'+i+'"></label>'+
                                         '</div>'+
                                 '</div>'+
                                 '<div class="row">'+
@@ -361,7 +361,7 @@ $(document).ready(function(){
                                             '<option value="Pasaprote">Pasaprote</option>'+
                                         '</select>'+      
                                         '<input type="text" name="documento" class="fill-in-short" id="nro-documento-pasajero'+i+'">'+
-                                        '<label id="nro-documento-pasajero-error" class="error" for="nro-documento-pasajero"></label>'+
+                                        '<label id="nro-documento-pasajero'+i+'-error" class="error error-gral" for="nro-documento-pasajero'+i+'"></label>'+
                                     '</div>'+
                                     '<div class="col-md-6">'+
                                         '<label class="datos">Fecha de Nacimiento<span class="obligatorio">*</span></label>'+
@@ -400,7 +400,7 @@ $(document).ready(function(){
                                             '<option value="30">30</option>'+
                                             '<option value="31">31</option>'+
                                         '</select>'+
-                                        '<select class="seleccion" id="mes'+i+'" name="fecha_mes">'+
+                                        '<select class="seleccion no-left-margin" id="mes'+i+'" name="fecha_mes">'+
                                             '<option value="">Mes</option>'+
                                             '<option value="Enero">Enero</option>'+
                                             '<option value="Febrero">Febrero</option>'+
@@ -415,7 +415,7 @@ $(document).ready(function(){
                                             '<option value="Noviembre">Noviembre</option>'+
                                             '<option value="Diciembre">Diciembre</option>'+
                                         '</select>'+
-                                        '<select class="seleccion" id="año'+i+'" name="fecha_año">'+
+                                        '<select class="seleccion no-left-margin" id="año'+i+'" name="fecha_año">'+
                                             '<option value="">Año</option>'+
                                             '<option value="1954">1954</option>'+
                                             '<option value="1955">1955</option>'+
@@ -484,11 +484,11 @@ $(document).ready(function(){
                                         '</select>'+
                                         '<br>'+
                                         '<div class="row">'+
-                                            '<label id="dia'+i+'-error" class="error" for="dia" ></label>'+
+                                            '<label id="dia'+i+'-error" class="error error-dia-mes-año" for="dia'+i+'" ></label>'+
                                             '<br>'+
-                                            '<label id="mes'+i+'-error" class="error" for="mes" ></label>'+
+                                            '<label id="mes'+i+'-error" class="error error-dia-mes-año" for="mes'+i+'" ></label>'+
                                             '<br>'+
-                                            '<label id="año'+i+'-error" class="error" for="año" ></label>'+
+                                            '<label id="año'+i+'-error" class="error error-dia-mes-año" for="año'+i+'" ></label>'+
                                         '</div>' +                                         
                                     '</div>'+
                                 '</div>'+

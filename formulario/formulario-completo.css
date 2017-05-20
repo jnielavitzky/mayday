@@ -404,64 +404,11 @@ label{
     color: red;
 }
 
-.error-nombre{
+.error-gral{
     margin-left: 100px;  
 }
-
-#dia-error{
-    margin-left: 117px;
-}
-
-#mes-error{
-    margin-left: 117px;
-}
-
-#año-error{
-    margin-left: 117px;
-}
-
-#vencimiento-mes-error{
-    margin-left: 100px; 
-}
-
-#vencimiento-año-error{
-    margin-left: 100px; 
-}
-
-#nombre-p-error{
-    margin-left: 100px;
-}
-
-#apellido-p-error{
-    margin-left: 100px;
-}
-
-#provincia-error{
-    margin-left: 100px;
-}
-
-#apellido-error{
-    margin-left: 100px; 
-}
-
-#número_casa-error{
-    margin-left: 117px;
-}
-
-#correo-electronico-error{
-    margin-left: 100px;
-}
-
-#phone-error{
-    margin-left: 100px;
-}
-
-#nro-documento-pasajero-error{
-    margin-left:100px;  
-}
-
-#appellido-error{
-    margin-left: 100px; 
+.error-dia-mes-año{
+    margin-left: 117px; 
 }
 
 #confirmar{
@@ -486,13 +433,6 @@ label{
     top:40px;
 }
 
-#codigo-de-seguridad-error{
-    margin-left: 100px; 
-}
-
-.margin-error{
-    margin-left: 100px; 
-}
 
 .titulos-resumen{
     font-weight: 200;
@@ -528,14 +468,11 @@ label{
     margin-left: 10px; 
 }
 
-#documento-p-error{
-    margin-left: 100px; 
-}
-
-#numero-casa-error{
-    margin-left: 100px;
-}
 
 #departamento{
     margin-left: -50px; 
+}
+
+.no-left-margin{
+    margin-left: 0px; 
 }
