@@ -18,6 +18,9 @@ var selected_rating = 1;
 
 var single_flight = false;
 
+var selected_from;
+var selected_to;
+
 
 $(document).ready(function() {
     $(".no_results").hide();
@@ -30,10 +33,32 @@ $(document).ready(function() {
     var ida_url = sessionStorage.getItem("map");
     var vuelta_url = sessionStorage.getItem("map2");
 
+    selected_from = getUrlParameter(ida_url, "from");
+    selected_to = getUrlParameter(ida_url, "to");
+    selected_adults = getUrlParameter(ida_url, "adults");
+    selected_children = getUrlParameter(ida_url, "children");
+    selected_infants = getUrlParameter(ida_url, "infants");
+
+
+    $("#select-adults").val(selected_adults);
+    $("#select-adults").trigger("change");
+    $("#select-children").val(selected_children);
+    $("#select-children").trigger("change");
+    $("#select-infants").val(selected_infants);
+    $("#select-infants").trigger("change");
+
+    fillCitySelects(function() {
+        $("#cities-from").val(selected_from);
+        $("#cities-to").val(selected_to);
+    }, function () {
+        timeout_error();
+    });
+
+
     if (vuelta_url == null) {
         single_flight = true;
     }
-    // console.log(ida_url);
+    console.log(ida_url);
     // console.log(vuelta_url);
 
 
@@ -43,7 +68,7 @@ $(document).ready(function() {
         done_flights();
         done_filters();
     }).fail(function() {
-        console.error("IDA FAIL");
+        timeout_error();
     });
     if (!single_flight)
         $.getJSON(vuelta_url, function(data) {
@@ -51,6 +76,8 @@ $(document).ready(function() {
             in_filters = data["filters"];
             done_flights();
             done_filters();
+        }).fail(function() {
+            timeout_error();
         });
 
     timeout_timer = setTimeout(timeout_error, 5000);
@@ -61,6 +88,8 @@ $(document).ready(function() {
     }, function() {
         timeout_error();
     });
+
+
 
     var get_currancies = "http://hci.it.itba.edu.ar/v1/api/misc.groovy?method=getcurrencies";
     $.getJSON(get_currancies, function(data) {
@@ -701,6 +730,21 @@ function setFlightFilter() {
         $("#flight_number").append(option);
     }
 }
+
+function getUrlParameter(url, sParam) {
+    var sPageURL = url,
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
 
 
 // UI Element set up

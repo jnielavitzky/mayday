@@ -165,4 +165,9 @@
 </html>
 <script type="text/javascript">
     $(".js-example-basic-single").select2();
+    fillCitySelects(function() {
+        //console.log("Fill selects done.");
+    }, function () {
+        //console.log("Fill selects error."); <<<<<ACA ES ERROR DE SERVIDORRRR
+    });
 </script>
