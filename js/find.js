@@ -1,3 +1,13 @@
+$(document).ready(function () {
+    $("#tipovuelo").on("change", function () {
+        if ($("#tipovuelo").val() == "2") {
+            twoWay();
+        }else{
+            oneWay();
+        }
+    });
+});
+
 function find() {
     var mayores = clicks_1;
     var menores = clicks_2;
@@ -6,7 +16,7 @@ function find() {
 
     var tipovuelo = $("#tipovuelo").val(); // 1-> IDA
 
-    
+
 
     sessionStorage.removeItem("map");
     sessionStorage.removeItem("map2");
@@ -74,7 +84,6 @@ function display_modal(title, subtitle) {
 }
 
 function oneWay() {
-    console.log("test");
     $("#soloIda").hide();
 }
 

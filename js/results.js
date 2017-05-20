@@ -36,6 +36,12 @@ $(document).ready(function() {
     var ida_url = sessionStorage.getItem("map");
     var vuelta_url = sessionStorage.getItem("map2");
 
+    if (ida_url == null) {
+        display_modal("Error", "Por favor empieze su busqueda desde la pagina principal de Mayday.");
+        window.location.href = "index.html";
+        return;
+    }
+
     var selected_from;
     var selected_to, selected_adults, selected_children, selected_infants, selected_date_from, selected_date_to;
     selected_from = getUrlParameter(ida_url, "from");
@@ -111,7 +117,7 @@ $(document).ready(function() {
             timeout_error();
         });
 
-    timeout_timer = setTimeout(timeout_error, 5000);
+    timeout_timer = setTimeout(timeout_error, 10000);
 
     getLogos(function(logos) {
         airline_logos = logos;
