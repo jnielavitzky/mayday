@@ -4,19 +4,25 @@ var cities;
 
 var airport_city_map = {};
 
-$( document ).ready(function() {
-	$.getJSON( "./ejemplo.json", function( data ) {
+function fillCitySelects(callback, error_callback) {
+
+
+	$.getJSON( "http://hci.it.itba.edu.ar/v1/api/geo.groovy?method=getairports", function( data ) {
 		airports = data["airports"];
-		done_data();
+		done_data(callback, error_callback);
+	}).fail(function () {
+		error_callback()
 	});
-	$.getJSON( "./ejemplo2.json", function( data ) {
+	$.getJSON( "http://hci.it.itba.edu.ar/v1/api/geo.groovy?method=getcities", function( data ) {
 		cities = data["cities"];
-		done_data();
+		done_data(callback, error_callback);
+	}).fail(function () {
+		error_callback()
 	});
-});
 
 
-function done_data() {
+}
+function done_data(callback, error_callback) {
 	if (airports == null || cities == null)
 		return;
 
@@ -34,4 +40,6 @@ function done_data() {
 		$('#cities-from').append("<option value='" + key + "'>" + airport_city_map[key] + "</option>");
 		$('#cities-to').append("<option value='" + key + "'>" + airport_city_map[key] + "</option>");
 	}
+
+	callback();
 }

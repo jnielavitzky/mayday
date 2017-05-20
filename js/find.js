@@ -44,6 +44,7 @@ function find() {
 }
 
 function oneWay() {
+    console.log("test");
     $("#soloIda").hide();
 }
 
