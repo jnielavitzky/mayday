@@ -357,7 +357,7 @@ $(".prev-step").click(function() {
 
 for (i = 0; i < pasajeros; i++) {
     $(".informacion-pasajero").append('<div class="row">' +
-        '<h3>Información del pasajero</h3>' +
+        '<h3>Información del pasajero ' + (i+1) + '</h3>' +
         '<div class="col-md-6" class="form-group">' +
         '<label for="nombre" class="datos">Nombre<span class="obligatorio">*</span></label>' +
         '<br>' +
