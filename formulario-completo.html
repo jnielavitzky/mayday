@@ -16,16 +16,18 @@
     <!--End JavaScript Bootrsap-->
     <!--  CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel='stylesheet' type='text/css' href='./formulario-completo.css'>
+    <link rel='stylesheet' type='text/css' href='css/formulario-completo.css'>
     <!--Telephone styleSheet-->
-    <link rel="stylesheet" type="text/css" href="./telephone/build/css/intlTelInput.css">
+    <link rel="stylesheet" type="text/css" href="formulario/telephone/build/css/intlTelInput.css">
+    <link rel='stylesheet' href="css/mayday.css">
     <!-- End CSS-->
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../images/paper-plane.png">
+    <link rel="shortcut icon" href="images/paper-plane.png">
     <!-- End Favicon -->
 </head>
 
 <body>
+    <div class="container" id="n4v"></div>
     <div class="container">
         <div class="row">
             <section>
@@ -36,29 +38,29 @@
                             <li role="presentation" class="active">
                                 <a href="#informacion-pasajero" data-toggle="tab" aria-controls="informacion-pasajero" role="tab" title="Informacion pasajero">
                                     <span class="round-tab">
-                                	<i class="glyphicon glyphicon-user"></i>
-                            	</span>
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span>
                                 </a>
                             </li>
                             <li role="presentation" class="disabled">
                                 <a href="#pago" data-toggle="tab" aria-controls="pago" role="tab" title="Pago">
                                     <span class="round-tab">
-                                	<i class="glyphicon glyphicon-usd"></i>
-                            	</span>
+                                    <i class="glyphicon glyphicon-usd"></i>
+                                </span>
                                 </a>
                             </li>
                             <li role="presentation" class="disabled">
                                 <a href="#contacto" data-toggle="tab" aria-controls="contacto" role="tab" title="Contacto">
                                     <span class="round-tab">
-                                	<i class="glyphicon glyphicon-earphone"></i>
-                            	</span>
+                                    <i class="glyphicon glyphicon-earphone"></i>
+                                </span>
                                 </a>
                             </li>
                             <li role="presentation" class="disabled">
                                 <a href="#resumen" data-toggle="tab" aria-controls="resumen" role="tab" title="Resumen">
                                     <span class="round-tab">
-                                	<i class="glyphicon glyphicon-ok"></i>
-                            	</span>
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
                                 </a>
                             </li>
                         </ul>
@@ -82,11 +84,11 @@
                                     <div class="pago">
                                         <div class="row">
                                             <h3>Pago</h3>
-                                            <img src="./descuentos-logo.svg" alt="Logo de descuentos." id="descuentos">
+                                            <img src="images/descuentos-logo.svg" alt="Logo de descuentos." id="descuentos">
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="./1.svg" alt="1" class="numero">
+                                                <img src="images/1.svg" alt="1" class="numero">
                                             </div>
                                             <div class="col-md-9">
                                                 <label class="datos-titulo">Datos de la Tarjeta</label>
@@ -179,7 +181,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="./2.svg" class="numero">
+                                                <img src="./images/2.svg" class="numero">
                                             </div>
                                             <div class="col-md-9">
                                                 <label class="datos-titulo">Datos de Facturación</label>
@@ -658,12 +660,16 @@
             </section>
         </div>
     </div>
+    <!--  FOOTER  -->
+    <div id="f00" class="container"></div>
+    <!--  END FOOTER  -->
 </body>
 <!--Mi JavaScript-->
-<script type="text/javascript" src="./formulario-completo.js"></script>
+<script type="text/javascript" src="js/formulario-completo.js"></script>
 <!--End mi JavaScript-->
 <!--Telephone JavaScript-->
-<script type="text/javascript" src="./telephone/build/js/intlTelInput.js"></script>
+<script type="text/javascript" src="formulario/telephone/build/js/intlTelInput.js"></script>
 <!--End Telephone JavaScript-->
+<script type="text/javascript" src="js/show.js"></script>
 
 </html>

@@ -12,17 +12,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Fin bootsrap -->
-    <!-- Google Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Fin Google Icons -->
     <!-- Select2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <!-- Ejemplo: https://select2.github.io -->
     <!-- Fin de Select2 -->
     <!-- Nuestro -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel='stylesheet' href='css/mayday.css'>
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+    <link rel='stylesheet' href="css/mayday.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/rating.css">
     <link rel="stylesheet" href="css/Cards.css">
@@ -31,7 +28,6 @@
     <link rel="stylesheet" href="styles/plane_line.css">
     <link rel="stylesheet" href="css/review.css">
     <link rel="stylesheet" type='text/css' href=".\css\modal.css">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="js/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js" defer></script>
     <link rel="shortcut icon" href="images/paper-plane.png">
 </head>
@@ -40,10 +36,9 @@
     <noscript>
         <img class="row col-md-offset-2" img src=".\images\javascript-error-09.png">
     </noscript>
-    
     <div id="every" class="container scriptavailable">
+        <div class="container" id="n4v"></div>
         <div class="container">
-            <div class="container" id="n4v"></div>
             <div class="o-container card-2">
                 <h1>¿Cómo estuvo su viaje?</h1>
                 <div class="loader_container_review">
@@ -65,7 +60,7 @@
                     </div>
                     <div id="flight_group">
                         <div id="flight_group_container" class="form-group">
-                            <input type="text" class="form-control" name="flight_number" id="flight_number_review"  maxlength="4">
+                            <input type="text" class="form-control" name="flight_number" id="flight_number_review" maxlength="4">
                         </div>
                     </div>
                 </div>
@@ -117,6 +112,9 @@
                     </div>
                 </div>
             </div>
+            <!--  FOOTER  -->
+            <div id="f00" class="container"></div>
+            <!--  END FOOTER  -->
         </div>
     </div>
     <div id="error" class="hidden">

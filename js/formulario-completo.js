@@ -333,9 +333,9 @@ $(document).ready(function() {
                 //    }   
                 // });
 
-                $("#pasajero-resumen"+i).text($("#apellido"+i).val() + " " + $("#nombre"+i).val());
-                $("#nacimiento-resumen"+i).text($("#dia"+i).val() + "/" + $("#mes"+i).val() + "/" + $("#año"+i).val());
-                $("#identificacion-resumen"+i).text($("#nro-documento-pasajero"+i).val());
+                $("#pasajero-resumen" + i).text($("#apellido" + i).val() + " " + $("#nombre" + i).val());
+                $("#nacimiento-resumen" + i).text($("#dia" + i).val() + "/" + $("#mes" + i).val() + "/" + $("#año" + i).val());
+                $("#identificacion-resumen" + i).text($("#nro-documento-pasajero" + i).val());
                 $("#tarjeta-nro-resumen").text($("#fill-in-tarjeta").val());
                 $("#tarjeta-vencimiento-resumen").text($("#vencimiento-mes").val() + "/" + $("#vencimiento-año").val());
                 $("#tarjeta-nombre-resumen").text($("#apellido-p").val() + " " + $("#nombre-p").val());
