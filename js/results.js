@@ -912,7 +912,19 @@ function get_message_for_code(code) {
     }
 }
 
+$(document).on('click', ".buy_button", function () {
 
+    var this_button = $(this);
+    var ticket = $(this).closest(".ticket");
+    var ticket_clone = ticket.clone();
+    ticket_clone.find(".buy_button").remove();
+    ticket_clone.find(".total_title").css("margin-top", "80px");
+    sessionStorage.setItem("ticket", ticket_clone.html());
+    window.location.href='formulario-completo.html';
+    // console.log(sessionStorage.getItem("ticket"));
+});
+
+//window.location.href='formulario-completo.html';
 
 // UI Element set up
 
