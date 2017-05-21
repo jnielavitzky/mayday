@@ -1,4 +1,4 @@
-var pasajeros = getPassengers();
+var pasajeros = 1//getPassengers();
 var mifecha; 
 
 $(document).ready(function() {
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     $('#descuentos').popover({
         title: "<h4>Descuentos semanales</h4>",
-        content: "<img src='./images/descuentos.svg' alt='Descuentos.'' id='descuentos_detalle'>",
+        content: "<img src='./images/descuentos.svg' alt='Descuentos'' id='descuentos_detalle'>",
         html: true,
         placement: "left",
         trigger: 'hover'
@@ -291,7 +291,7 @@ $(".prev-step").click(function() {
 
 for (i = 0; i < pasajeros; i++) {
     $(".informacion-pasajero").append('<div class="row">' +
-        '<h3>Información del pasajero ' + (i+1) + '</h3>' +
+        '<h3 class="subtitulo-representacion">Información del Pasajero ' + (i+1) + '</h3>' +
         '<div class="col-md-6" class="form-group">' +
         '<label for="nombre' + i + '" class="datos">Nombre<span class="obligatorio">*</span></label>' +
         '<br>' +

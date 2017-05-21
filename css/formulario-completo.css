@@ -255,6 +255,16 @@ label {
     width: 100px;
 }
 
+.fill-in-xxs {
+    height: 30px;
+    margin-left: 100px;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: #e0e0e0;
+    border-style: solid;
+    width: 70px;
+}
+
 #codigo-de-seguridad {
     margin-left: 100px;
 }
@@ -450,8 +460,8 @@ label {
     height: 200px;
     position: absolute;
     z-index: 1;
-    left: 900px;
-    top: 40px;
+    left: 1010px;
+    top: 120px;
 }
 
 .titulos-resumen {
@@ -516,3 +526,22 @@ label {
 #formulario-pago{
     display: none;
 }
+
+.titulo-representativo{
+    border-style: solid;
+    border-color: #4ca3ff;
+    margin-bottom: 30px; 
+    background-color: #ffffff;
+    border-radius: 7px; 
+    font-weight: 200; 
+    font-size: 30px; 
+    color: #4ca3ff; 
+    height: 60px; 
+    padding-top: 7px; 
+    border-width: 2px; 
+}
+
+.subtitulo-representacion{
+    margin-left: 15px; 
+}
+

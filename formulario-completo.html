@@ -7,10 +7,12 @@
     <!-- JQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- End JQuery -->
+
     <!--Jquery validation-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
     <!--End Jquery validation-->
+
     <!--JavaScript Bootstrap-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--End JavaScript Bootrsap-->
@@ -18,6 +20,7 @@
     <!--Moment JavaScript-->
     <script src="./js/moment.js"></script>
     <!--End moment JavaScript -->
+
     <!--  CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' href='css/formulario-completo.css'>
@@ -26,9 +29,11 @@
     <link rel='stylesheet' href="css/mayday.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300|Raleway:500" rel="stylesheet">
     <!-- End CSS-->
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/paper-plane.png">
     <!-- End Favicon -->
+
 </head>
 
 <body>
@@ -79,6 +84,9 @@
                             <form id="my-form">
                                 <fieldset id="formulario-pasajero">
                                     <div class="tab-pane active" role="tabpanel" id="informacion-pasajero">
+                                        <div class="row">
+                                            <div class="col-md-12 titulo-representativo">Información de los Pasajeros</div>
+                                        </div>
                                         <div class="informacion-pasajero"></div>
                                         <ul class="list-inline pull-right">
                                             <li>
@@ -92,7 +100,7 @@
                                     <div class="tab-pane" role="tabpanel" id="pago">
                                         <div class="pago">
                                             <div class="row">
-                                                <h3>Pago</h3>
+                                                <div class="col-md-12 titulo-representativo">Información de Pago</div>
                                                 <img src="images/descuentos-logo.svg" alt="Logo de descuentos." id="descuentos">
                                             </div>
                                             <div class="row">
@@ -508,9 +516,9 @@
                                                                 <input type="text" name="piso_dto" class="fill-in-s" id="piso-casa">
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <label class="datos">Departamento</label>
+                                                                <label class="datos">Dpto</label>
                                                                 <br>
-                                                                <input type="text" name="daperamento" class="fill-in-s" id="dpto-casa">
+                                                                <input type="text" name="daperamento" class="fill-in-xxs" id="dpto-casa">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -530,7 +538,9 @@
                                     <fieldset id="formulario-contacto">
                                         <div class="tab-pane" role="tabpanel" id="contacto">
                                             <div class="contacto">
-                                                <h3>Contacto</h3>
+                                                <div class="row">
+                                                    <div class="col-md-12 titulo-representativo">Información de Contacto</div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <label class="datos">Correo Electrónico<span class="obligatorio">*</span></label>
@@ -567,7 +577,9 @@
                                     <!--RESUMEN-->
                                     <fieldset id="formulario-completo">
                                         <div class="tab-pane" role="tabpanel" id="resumen">
-                                            <h2>Resumen</h2>
+                                            <div class="row">
+                                                    <div class="col-md-12 titulo-representativo">Resúmen</div>
+                                                </div>
                                             <p>Usted ha completado con éxito todo los pasos</p>
                                             <p>Acepte los términos y condiciones para poder confimar su compra</p>
                                             <label class="titulos-resumen">Información de Vuelo</label>
