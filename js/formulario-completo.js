@@ -290,6 +290,7 @@ $(".prev-step").click(function() {
 });
 
 for (i = 0; i < pasajeros; i++) {
+    console.log(pasajeros);
     var appendable = '<div class="row">' +
         '<h3 class="subtitulo-representacion">Información del Pasajero ' + (i+1) + '</h3>' +
         '<div class="col-md-6" class="form-group">' +
@@ -374,8 +375,8 @@ for (i = 0; i < pasajeros; i++) {
         '<option value="">Año</option>';
 
         // '<option value="2017">2017</option>' +
-        for (var i = 2017; i > 1900; i--) {
-            appendable += '<option value="' + i + '">' + i + '</option>';
+        for (var j = 2017; j > 1900; j--) {
+            appendable += '<option value="' + j + '">' + j + '</option>';
         }
 
         appendable += '</select>' +
@@ -391,6 +392,7 @@ for (i = 0; i < pasajeros; i++) {
         '</div>' +
         '</div>' +
         '<br>';
+
         $(".informacion-pasajero").append(appendable);
         $('input[name="nombre' + i + '"]').rules("add",{
             required: true,
