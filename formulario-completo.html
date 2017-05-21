@@ -14,7 +14,7 @@
     <!--End Jquery validation-->
 
     <script type="text/javascript" src="js/show.js"></script>
-        
+    
     <!--JavaScript Bootstrap-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--End JavaScript Bootrsap-->
@@ -61,28 +61,28 @@
                             <div class="connecting-line"></div>
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active">
-                                    <a href="#informacion-pasajero" data-toggle="tab" aria-controls="informacion-pasajero" role="tab" title="Información pasajero">
+                                    <a class="unclickable" href="#informacion-pasajero" data-toggle="tab" aria-controls="informacion-pasajero" role="tab" title="Información pasajero">
                                         <span class="round-tab">
                                             <i class="glyphicon glyphicon-user"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li role="presentation" class="disabled">
-                                    <a href="#pago" data-toggle="tab" aria-controls="pago" role="tab" title="Pago">
+                                    <a class="unclickable" href="#pago" data-toggle="tab" aria-controls="pago" role="tab" title="Pago">
                                         <span class="round-tab">
                                             <i class="glyphicon glyphicon-usd"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li role="presentation" class="disabled">
-                                    <a href="#contacto" data-toggle="tab" aria-controls="contacto" role="tab" title="Contacto">
+                                    <a  class="unclickable" href="#contacto" data-toggle="tab" aria-controls="contacto" role="tab" title="Contacto">
                                         <span class="round-tab">
                                             <i class="glyphicon glyphicon-earphone"></i>
                                         </span>
                                     </a>
                                 </li>
                                 <li role="presentation" class="disabled">
-                                    <a href="#resumen" data-toggle="tab" aria-controls="resumen" role="tab" title="Resumen">
+                                    <a class="unclickable" href="#resumen" data-toggle="tab" aria-controls="resumen" role="tab" title="Resumen">
                                         <span class="round-tab">
                                             <i class="glyphicon glyphicon-ok"></i>
                                         </span>
@@ -589,7 +589,7 @@
                                     <fieldset id="formulario-completo">
                                         <div class="tab-pane" role="tabpanel" id="resumen">
                                             <div class="row">
-                                                    <div class="col-md-12 titulo-representativo">Resúmen</div>
+                                                <div class="col-md-12 titulo-representativo">Resumen</div>
                                             </div>
                                             <p>Usted ha completado con éxito todo los pasos</p>
 
@@ -682,35 +682,35 @@
                                                         </div>
                                                     </div>
 
+                                                </div>
                                             </div>
+                                            <ul class="list-inline pull-right">
+                                                <li>
+                                                    <button type="button" class="btn btn-default prev-step">&laquo; Anterior</button>
+                                                </li>
+                                                <li>
+                                                    <input type="submit" name="confirmar" id="confirmar" value="Confirmar" class="btn">
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <ul class="list-inline pull-right">
-                                            <li>
-                                                <button type="button" class="btn btn-default prev-step">&laquo; Anterior</button>
-                                            </li>
-                                            <li>
-                                                <input type="submit" name="confirmar" id="confirmar" value="Confirmar" class="btn">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </fieldset>
-                            </form>
+                                        <div class="clearfix"></div>
+                                    </fieldset>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </div>
+            <!--  FOOTER  -->
+            <div id="f00" class="container"></div>
+            <!--  END FOOTER  -->
         </div>
-        <!--  FOOTER  -->
-        <div id="f00" class="container"></div>
-        <!--  END FOOTER  -->
-    </div>
-</body>
-<!--Mi JavaScript-->
-<script type="text/javascript" src="js/formulario-completo.js"></script>
-<!--End mi JavaScript-->
-<!--Telephone JavaScript-->
-<script type="text/javascript" src="formulario/telephone/build/js/intlTelInput.js"></script>
-<!--End Telephone JavaScript-->
+    </body>
+    <!--Mi JavaScript-->
+    <script type="text/javascript" src="js/formulario-completo.js"></script>
+    <!--End mi JavaScript-->
+    <!--Telephone JavaScript-->
+    <script type="text/javascript" src="formulario/telephone/build/js/intlTelInput.js"></script>
+    <!--End Telephone JavaScript-->
 
-</html>
+    </html>

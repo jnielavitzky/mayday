@@ -28,10 +28,10 @@ $(document).ready(function() {
 
     $('.duda').popover({
         title: "<h4>Encuentra el código de seguridad de tu tarjeta de crédito</h4>",
-        content: "<div><h5>Visa, MasterCard, Discover, China UnionPay, JCB y Diners Club</h5>" +
-        "<p>Encontrarás el código de tres dígitos en el reverso de la tarjeta, después del número.</p>" +
+        content: "<div><h4>Visa, MasterCard, Discover, China UnionPay, JCB y Diners Club</h4>" +
+        "<h5>Encontrarás el código de tres dígitos en el reverso de la tarjeta, después del número.</h5>" +
         "<p><img alt='3 números' src='./images/credit-card-3-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>" +
-        "<div><h4>American Express</h4><p>Encontrarás el código de cuatro dígitos en el anverso de la tarjeta, encima del número.</p>" +
+        "<div><h4>American Express</h4><h5>Encontrarás el código de cuatro dígitos en el anverso de la tarjeta, encima del número.</h5>" +
         "<p><img alt='4 números' src='./images/credit-card-4-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>",
         html: true,
         placement: "left",
@@ -555,7 +555,7 @@ jQuery.validator.addMethod("mes_valido", function(value, element){
             var fecha = ($('select[name="fecha_dia' + i + '"]').val()) + '-' + ($('select[name="fecha_mes' + i + '"]').val()) + '-' + ($('select[name="fecha_año' + i + '"]').val());
             var mifecha=moment(fecha, "DD-MM-YYYY");
         }
-         if(!mifecha.isValid()){
+         if(mifecha !== undefined && !mifecha.isValid()){
             return false;
         }
     } return true;
