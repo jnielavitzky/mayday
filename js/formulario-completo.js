@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     $('#descuentos').popover({
         title: "<h4>Descuentos semanales</h4>",
-        content: "<img src='./descuentos.svg' alt='Descuentos.'' id='descuentos_detalle'>",
+        content: "<img src='./images/descuentos.svg' alt='Descuentos.'' id='descuentos_detalle'>",
         html: true,
         placement: "left",
         trigger: 'hover'
@@ -33,9 +33,9 @@ $(document).ready(function() {
         title: "<h4>Encuentra el código de seguridad de tu tarjeta de crédito</h4>",
         content: "<div><h5>Visa, MasterCard, Discover, China UnionPay, JCB y Diners Club</h5>" +
             "<p>Encontrarás el código de tres dígitos en el reverso de la tarjeta, después del número.</p>" +
-            "<p><img alt='3 números' src='../images/credit-card-3-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>" +
+            "<p><img alt='3 números' src='./images/credit-card-3-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>" +
             "<div><h4>American Express</h4><p>Encontrarás el código de cuatro dígitos en el anverso de la tarjeta, encima del número.</p>" +
-            "<p><img alt='4 números' src='../images/credit-card-4-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>",
+            "<p><img alt='4 números' src='./images/credit-card-4-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>",
         html: true,
         placement: "left",
         trigger: 'hover'
@@ -326,12 +326,6 @@ $(document).ready(function() {
                     '<span class="datos-resumen" id="identificacion-resumen' + i + '"></span>' +
                     '</div>' +
                     '</div>' + '<br>');
-
-                // $(".informacion-pasajero").each(function(){
-                //    for(i=0; i<3; i++){
-
-                //    }   
-                // });
 
                 $("#pasajero-resumen" + i).text($("#apellido" + i).val() + " " + $("#nombre" + i).val());
                 $("#nacimiento-resumen" + i).text($("#dia" + i).val() + "/" + $("#mes" + i).val() + "/" + $("#año" + i).val());
@@ -647,7 +641,7 @@ $(document).ready(function() {
         var codigo = $("#codigo_de_seguridad").value().length;
         if (firstChar == "3" && codigo != 4) { //es amex
             return false;
-        } else if ((firstChar == "4" || firstChar == "5") && codigo != 3) { //es master o vista
+        } else if ((firstChar == "4" || firstChar == "5") && codigo != 3) { //es master o visa
             return false;
         }
         return true;
