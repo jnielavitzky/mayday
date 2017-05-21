@@ -1,3 +1,24 @@
+a {
+    pointer-events: none;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+p {
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.terminos {
+    font-size: 20px;
+    margin-left: 30px;
+}
+
 .wizard {
     margin: 20px auto;
     background: #fff;
@@ -448,7 +469,7 @@ label {
 }
 
 .subtitulos-resumen {
-    font-weight: 350;
+    font-weight: bold;
     font-size: 23px;
     border-style: none;
     color: black;
@@ -476,5 +497,10 @@ label {
 }
 
 .checkbox{
+    position: absolute;
     font-size: large;
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    padding: 10px;
 }
