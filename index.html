@@ -183,6 +183,9 @@
 </html>
 <script type="text/javascript">
     $(".js-example-basic-single").select2();
+    $('.datepicker').on('changeDate', function(ev){
+        $(this).datepicker('hide');
+    });
     fillCitySelects(function() {
         //console.log("Fill selects done.");
     }, function () {

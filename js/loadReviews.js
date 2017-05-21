@@ -28,12 +28,20 @@ $(document).ready(function() {
         if (flight_number != "") {
             URL += "&flight_number=" + flight_number;
         }
+        console.log(URL);
 
         var myObj, html = "";
 
         timeout_timer = setTimeout(timeout, 5000);
 
         $.getJSON(URL, function(result) {
+
+            if (result["error"] != null) {
+                clearTimeout(timeout_timer);
+                $(".loader_container_reviews").hide();
+                display_modal("Error", get_review_error_code((result["error"])["code"]));
+                return;
+            }
 
             clearTimeout(timeout_timer);
 
@@ -111,10 +119,26 @@ $(document).ready(function() {
                 }, 1000);
 
             }
+        }).fail(function() {
+            timeout();
         });
     });
 });
-
+function get_review_error_code(code) {
+    switch (code) {
+        case 1:
+        case 100:
+        case 114:
+        case 115:
+        case 116:
+        case 117:
+            return "Error de servidor. Por favor, intente de vuelta mas tarde.";
+        case 999:
+            return "Error de servidor. Por favor, intente de nuevo mas tarde.";
+        default:
+            return "Error de comunicacion con el servidor. Por favor, intente de vuelta mas tarde.";
+    }
+}
 function getFlightNumber() {
     var initial = $("#flight_number").val();
     initial = initial.match(/\d{2,4}/)[0];
@@ -123,8 +147,6 @@ function getFlightNumber() {
 
 function timeout() {
     clearTimeout(timeout_timer);
-
-    $('#every').fadeTo(500, 0.2);
-    $('#every').css("pointer-events", "none");
-    $("#error").removeClass("hidden");
+    $(".loader_container_reviews").hide();
+    display_modal("Error", "Error de servidor. Por favor intente de nuevo mas tarde.");
 }

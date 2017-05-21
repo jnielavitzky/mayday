@@ -912,6 +912,10 @@ function get_message_for_code(code) {
     }
 }
 
+$('.datepicker').on('changeDate', function(ev){
+    $(this).datepicker('hide');
+});
+
 $(document).on('click', ".buy_button", function () {
 
     var this_button = $(this);
