@@ -32,10 +32,10 @@ $(document).ready(function() {
     $('.duda').popover({
         title: "<h4>Encuentra el código de seguridad de tu tarjeta de crédito</h4>",
         content: "<div><h5>Visa, MasterCard, Discover, China UnionPay, JCB y Diners Club</h5>" +
-        "<p>Encontrarás el código de tres dígitos en el reverso de la tarjeta, después del número.</p>" +
-        "<p><img alt='3 números' src='../images/credit-card-3-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>" +
-        "<div><h4>American Express</h4><p>Encontrarás el código de cuatro dígitos en el anverso de la tarjeta, encima del número.</p>" +
-        "<p><img alt='4 números' src='../images/credit-card-4-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>",
+            "<p>Encontrarás el código de tres dígitos en el reverso de la tarjeta, después del número.</p>" +
+            "<p><img alt='3 números' src='../images/credit-card-3-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>" +
+            "<div><h4>American Express</h4><p>Encontrarás el código de cuatro dígitos en el anverso de la tarjeta, encima del número.</p>" +
+            "<p><img alt='4 números' src='../images/credit-card-4-number-security-code.png' width='240' data-hires='true' data-hires-status='replaced'></p></div>",
         html: true,
         placement: "left",
         trigger: 'hover'
@@ -71,7 +71,7 @@ $(document).ready(function() {
     });
 });
 
-var pasajeros = 0;
+var pasajeros = 2;
 
 $(document).ready(function() {
     var form = $("#my-form");
@@ -187,30 +187,30 @@ $(document).ready(function() {
         messages: {
             nombre: {
                 required: "Por favor, ingrese nombre del pasajero",
-                minlength: "El nombre del pasajero debe tener como minimo 2 caracteres. Por favor, reingrese el nombre del pasajero",
-                maxlength: "El nombre del pasajero debe tener como maximo 41 caracteres. Por faovr, reingrese el nombre del pasajero",
-                digits: "El nombre del pasajero no puede tener numeros. Por favor, reingrese el nombre del pasajero",
+                minlength: "El nombre del pasajero debe tener como mínimo 2 caracteres. Por favor, reingrese el nombre del pasajero",
+                maxlength: "El nombre del pasajero debe tener como máximo 41 caracteres. Por faovr, reingrese el nombre del pasajero",
+                digits: "El nombre del pasajero no puede tener números. Por favor, reingrese el nombre del pasajero",
                 letters_space: "El nombre del pasajero solo puede contener letras y espacios. Por favor, reingrese el nombre del pasajero"
             },
             apellido: {
                 required: "Por favor, ingrese apellido del pasajero",
-                minlength: "El apellido del pasajero debe tener como minimo 2 caracteres. Por favor, reingrese el apellido del pasajero",
-                maxlength: "El apellido del pasajero debe tener como maximo 41 caracteres. Por faovr, reingrese el apellido del pasajero",
-                digits: "El apellido del pasajero no puede tener numeros. Por favor, reingrese el apellido del pasajero",
+                minlength: "El apellido del pasajero debe tener como mínimo 2 caracteres. Por favor, reingrese el apellido del pasajero",
+                maxlength: "El apellido del pasajero debe tener como máximo 41 caracteres. Por favor, reingrese el apellido del pasajero",
+                digits: "El apellido del pasajero no puede tener números. Por favor, reingrese el apellido del pasajero",
                 letters_space: "El apellido del pasajero solo puede contener letras y espacios. Por favor, reingrese el apellido del pasajero",
                 notEqualTo: "El nombre y apellido del pasajero no pueden ser iguales. Por favor, chequee los datos del pasajero"
             },
             seleccion_doc: {
-                required: "Por favor, seleccione una opcion"
+                required: "Por favor, seleccione una opción"
             },
             documento: {
-                required: "Por favor, ingrese numero de identificacion del pasajero",
-                only_numbers: "El numero de identifiacion solo puede contener digits. Por favor, reingrese el numero de identificacion del pasajero",
-                min: "El numero de identificacion del pasajero no puede ser menor a 11500001. Por favor, reingrese el numero de identificacion del pasajero",
-                max: "El numero de identiifacion del pasajero no puede ser mayor a 56000000. Por favor, reingrese el numero de identifiacion del pasajero"
+                required: "Por favor, ingrese número de identificación del pasajero",
+                only_numbers: "El número de identifiación solo puede contener digits. Por favor, reingrese el número de identificación del pasajero",
+                min: "El número de identificación del pasajero no puede ser menor a 11500001. Por favor, reingrese el número de identificación del pasajero",
+                max: "El número de identiifación del pasajero no puede ser mayor a 56000000. Por favor, reingrese el número de identificación del pasajero"
             },
             fecha_dia: {
-                required: "Por favor, ingrese dia del nacimiento del pasajero",
+                required: "Por favor, ingrese día del nacimiento del pasajero",
             },
             fecha_mes: {
                 required: "Por favor, ingrese mes del nacimiento del pasajero"
@@ -219,7 +219,7 @@ $(document).ready(function() {
                 required: "Por favor, ingrese año de nacimiento del pasajero",
             },
             tarjeta: {
-                required: "Por favor, ingrese el numero de tarjeta de credito con el que desea efectuar la compra"
+                required: "Por favor, ingrese el número de tarjeta de crédito con el que desea efectuar la compra"
             },
             vencimiento_mes: {
                 required: "Por favor, ingrese mes de vencimiento de la tarjeta"
@@ -229,25 +229,25 @@ $(document).ready(function() {
             },
             nombre_pago: {
                 required: "Por favor, ingrese nombre del titular de la tarjeta",
-                minlength: "El nombre del titular de la tarjeta debe tener como minimo 2 caracteres. Por favor, reingrese el nombre del titular de la tarjeta",
-                maxlength: "El nombre del titular de la tarjeta debe tener como maximo 41 caracteres. Por faovr, reingrese el nombre del titular de la tarjeta",
-                digits: "El nombre del titular de la tarjeta no puede tener numeros. Por favor, reingrese el nombre del titular de la tarjeta",
-                letters_space: "El nombre del titular de la tarjeta solo puede contener letras y espacios. Por favor, reingrese el nombre del titular de la tarjeta",
+                minlength: "El nombre del titular de la tarjeta debe tener como mínimo 2 caracteres. Por favor, reingrese el nombre del titular de la tarjeta",
+                maxlength: "El nombre del titular de la tarjeta debe tener como máximo 41 caracteres. Por favor, reingrese el nombre del titular de la tarjeta",
+                digits: "El nombre del titular de la tarjeta no puede tener números. Por favor, reingrese el nombre del titular de la tarjeta",
+                letters_space: "El nombre del titular de la tarjeta sólo puede contener letras y espacios. Por favor, reingrese el nombre del titular de la tarjeta",
                 notEqualTo: "El nombre y apellido del titular de la tarjeta no pueden ser iguales. Por favor, chequee los datos del titular de la tarjeta"
             },
             apellido_pago: {
                 required: "Por favor, ingrese apellido del titular de la tarjeta",
-                minlength: "El apellido del titular de la tarjeta debe tener como minimo 2 caracteres. Por favor, reingrese el apellido del titular de la tarjeta",
-                maxlength: "El apellido del titular de la tarejta debe tener como maximo 41 caracteres. Por faovr, reingrese el apellido del titular de la tarejta",
-                digits: "El apellido del titular de la tarejta no puede tener numeros. Por favor, reingrese el apellido del titular de la tarejta",
-                letters_space: "El apellido del titular de la tarejta solo puede contener letras y espacios. Por favor, reingrese el apellido del titular de la tarejta"
+                minlength: "El apellido del titular de la tarjeta debe tener como mínimo 2 caracteres. Por favor, reingrese el apellido del titular de la tarjeta",
+                maxlength: "El apellido del titular de la tarjeta debe tener como máximo 41 caracteres. Por favor, reingrese el apellido del titular de la tarejta",
+                digits: "El apellido del titular de la tarjeta no puede tener números. Por favor, reingrese el apellido del titular de la tarejta",
+                letters_space: "El apellido del titular de la tarjeta solo puede contener letras y espacios. Por favor, reingrese el apellido del titular de la tarejta"
             },
             cuotas: {
                 required: "Por favor, ingrese la cantidad de cuotas"
             },
             nro_documento: {
                 required: "Por favor, ingrese su DNI",
-                only_numbers: "El DNI solo puede contener numeros. Por favor, reingrese el DNI del titular de la tarjeta",
+                only_numbers: "El DNI sólo puede contener números. Por favor, reingrese el DNI del titular de la tarjeta",
                 min: "El DNI del titular de la tarjeta no puede ser menor a 11500001. Por favor, reingrese el DNI del titular de la tarjeta",
                 max: "El DNI del titular de la tarjeta no puede ser mayor a 56000000. Por favor, reingrese el DNI del titular de la tarjeta"
             },
@@ -267,17 +267,17 @@ $(document).ready(function() {
                 required: "Por favor, ingrese el numero del domicilio en donde recibe la factura de la tarjeta"
             },
             cp: {
-                required: "Por favor, ingrese codigo posta de la ciudad en donde recibe la factura de la tarjeta",
-                only_numbers: "El codigo posta solo contiene numeros. Por favor, reingrese el codigo postal"
+                required: "Por favor, ingrese el código postal de la ciudad en donde recibe la factura de la tarjeta",
+                only_numbers: "El código postal solo contiene números. Por favor, reingrese el código postal"
             },
             correo_electronico: {
                 required: "Por favor, ingrese un mail"
             },
             codigo_de_seguridad: {
-                required: "Por favor, ingrese el codigo de seguridad de su tarjeta de credito",
-                minlength: "El codigo de seguridad de su tarjeta de credito no puede tener menos de 3 digitos. Por favor, reingrese el codigo de seguridad",
-                only_numbers: "El codigo de seguridad de su tarjeta de credito solo puede contener numeros. Por favor, reingrese el codigo de seguridad",
-                letters_space: "El codigo de seguridad de su tarjeta de credito solo puede contener numeros. Por favor, reingrese el codigo de seguridad"
+                required: "Por favor, ingrese el código de seguridad de su tarjeta de crédito",
+                minlength: "El código de seguridad de su tarjeta de crédito no puede tener menos de 3 digitos. Por favor, reingrese el código de seguridad",
+                only_numbers: "El código de seguridad de su tarjeta de crédito sólo puede contener números. Por favor, reingrese el código de seguridad",
+                letters_space: "El código de seguridad de su tarjeta de crédito sólo puede contener números. Por favor, reingrese el código de seguridad"
             }
             // tel:{
             //     required:"Por favor, ingrese un numero de telefono"
@@ -326,36 +326,38 @@ $(document).ready(function() {
                     '<span class="datos-resumen" id="identificacion-resumen' + i + '"></span>' +
                     '</div>' +
                     '</div>' + '<br>');
-            }
-            // $(".informacion-pasajero").each(function(){
-            //    for(i=0; i<3; i++){
 
-            //    }   
-            // });
-            $("#pasajero-resumen").text($("#apellido").val() + " " + $("#nombre").val());
-            $("#nacimiento-resumen").text($("#dia").val() + "/" + $("#mes").val() + "/" + $("#año").val());
-            $("#identificacion-resumen").text($("#nro-documento-pasajero").val());
-            $("#tarjeta-nro-resumen").text($("#fill-in-tarjeta").val());
-            $("#tarjeta-vencimiento-resumen").text($("#vencimiento-mes").val() + "/" + $("#vencimiento-año").val());
-            $("#tarjeta-nombre-resumen").text($("#apellido-p").val() + " " + $("#nombre-p").val());
-            $("#tarjeta-dni-resumen").text($("#documento-p").val());
-            $("#pais-resumen").text($("#pais").val());
-            $("#provincia-resumen").text($("#provincia").val());
-            $("#ciudad-resumen").text($("#ciudad").val());
-            $("#codigo-postal-resumen").text($("#cp").val());
-            $("#calle-resumen").text($("#calle").val());
-            $("#numero-casa-resumen").text($("#numero-casa").val());
-            if ($("#piso-casa").val() == "") {
-                $("#numero-piso-resumen").text("-");
-            } else {
-                $("#numero-piso-resumen").text($("#piso-casa").val());
+                // $(".informacion-pasajero").each(function(){
+                //    for(i=0; i<3; i++){
+
+                //    }   
+                // });
+
+                $("#pasajero-resumen"+i).text($("#apellido"+i).val() + " " + $("#nombre"+i).val());
+                $("#nacimiento-resumen"+i).text($("#dia"+i).val() + "/" + $("#mes"+i).val() + "/" + $("#año"+i).val());
+                $("#identificacion-resumen"+i).text($("#nro-documento-pasajero"+i).val());
+                $("#tarjeta-nro-resumen").text($("#fill-in-tarjeta").val());
+                $("#tarjeta-vencimiento-resumen").text($("#vencimiento-mes").val() + "/" + $("#vencimiento-año").val());
+                $("#tarjeta-nombre-resumen").text($("#apellido-p").val() + " " + $("#nombre-p").val());
+                $("#tarjeta-dni-resumen").text($("#documento-p").val());
+                $("#pais-resumen").text($("#pais").val());
+                $("#provincia-resumen").text($("#provincia").val());
+                $("#ciudad-resumen").text($("#ciudad").val());
+                $("#codigo-postal-resumen").text($("#cp").val());
+                $("#calle-resumen").text($("#calle").val());
+                $("#numero-casa-resumen").text($("#numero-casa").val());
+                if ($("#piso-casa").val() == "") {
+                    $("#numero-piso-resumen").text("-");
+                } else {
+                    $("#numero-piso-resumen").text($("#piso-casa").val());
+                }
+                if ($("#dpto-casa").val() == "") {
+                    $("#numero-dpto-resumen").text("-");
+                } else {
+                    $("#numero-dpto-resumen").text($("#piso-casa").val());
+                }
+                $("#ticket-resumen").load("./ticket_test.html");
             }
-            if ($("#dpto-casa").val() == "") {
-                $("#numero-dpto-resumen").text("-");
-            } else {
-                $("#numero-dpto-resumen").text($("#piso-casa").val());
-            }
-            $("#ticket-resumen").load("./ticket_test.html");
         }
 
     });
@@ -557,7 +559,7 @@ $(document).ready(function() {
         } else {
             return false;
         }
-    }, "Su nombre solo puede contener letras y espacios. Por favor, ingrese su nombre");
+    }, "Su nombre sólo puede contener letras y espacios. Por favor, ingrese su nombre");
 
     jQuery.validator.addMethod("notEqualTo", function(value, element, param) {
         return this.optional(element) || !$.validator.methods.equalTo.call(this, value, element, param);
@@ -608,7 +610,7 @@ $(document).ready(function() {
         }
 
         return (nCheck % 10) === 0;
-    }, "El número de tarjeta es inválido. Por favor, reingrese el número de tarjeta de credito");
+    }, "El número de tarjeta es inválido. Por favor, reingrese el número de tarjeta de crédito");
 
     jQuery.validator.addMethod("febrero_biciesto", function(value, element) {
         if ($("#mes").val() == "Febrero") {
