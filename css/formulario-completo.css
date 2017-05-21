@@ -504,3 +504,15 @@ label {
     -webkit-transform: scale(2);
     padding: 10px;
 }
+
+#formulario-contacto{
+    display: none;
+}
+
+#formulario-completo{
+    display: none; 
+}
+
+#formulario-pago{
+    display: none;
+}

@@ -1,4 +1,5 @@
-var pasajeros = 3; //getPassengers();
+var pasajeros = 1; //getPassengers();
+var mifecha; 
 
 $(document).ready(function() {
     //Initialize tooltips
@@ -247,6 +248,7 @@ $(".next-step").click(function() {
         if ($("#formulario-pasajero").is(":visible")) {
             current_fs = $("#formulario-pasajero");
             next_fs = $("#formulario-pago");
+
         } else if ($("#formulario-pago").is(":visible")) {
             current_fs = $("#formulario-pago");
             next_fs = $("#formulario-contacto");
@@ -355,21 +357,24 @@ for (i = 0; i < pasajeros; i++) {
         '</select>' +
         '<select class="seleccion no-left-margin" id="mes' + i + '" name="fecha_mes' + i + '">' +
         '<option value="">Mes</option>' +
-        '<option value="Enero">Enero</option>' +
-        '<option value="Febrero">Febrero</option>' +
-        '<option value="Marzo">Marzo</option>' +
-        '<option value="Abril">Abril</option>' +
-        '<option value="Mayo">Mayo</option>' +
-        '<option value="Junio">Junio</option>' +
-        '<option value="Julio">Julio</option>' +
-        '<option value="Agosto">Agosto</option>' +
-        '<option value="Septiembre">Septiembre</option>' +
-        '<option value="Octubre">Octubre</option>' +
-        '<option value="Noviembre">Noviembre</option>' +
-        '<option value="Diciembre">Diciembre</option>' +
+        '<option value="01">Enero</option>' +
+        '<option value="02">Febrero</option>' +
+        '<option value="03">Marzo</option>' +
+        '<option value="04">Abril</option>' +
+        '<option value="05">Mayo</option>' +
+        '<option value="06">Junio</option>' +
+        '<option value="07">Julio</option>' +
+        '<option value="08">Agosto</option>' +
+        '<option value="09">Septiembre</option>' +
+        '<option value="10">Octubre</option>' +
+        '<option value="11">Noviembre</option>' +
+        '<option value="12">Diciembre</option>' +
         '</select>' +
         '<select class="seleccion no-left-margin" id="año' + i + '" name="fecha_año' + i + '">' +
         '<option value="">Año</option>' +
+        '<option value="1951">1951</option>' +
+        '<option value="1952">1952</option>' +
+        '<option value="1953">1953</option>' +
         '<option value="1954">1954</option>' +
         '<option value="1955">1955</option>' +
         '<option value="1956">1956</option>' +
@@ -503,18 +508,19 @@ for (i = 0; i < pasajeros; i++) {
         });
         $('select[name="fecha_mes' + i + '"]').rules("add",{
             required:true,
-            febrero:true,
+            mes_valido:true, 
             messages:{
                 required: "Por favor, ingrese mes del nacimiento del pasajero"
             }
         });
         $('select[name="fecha_año' + i + '"]').rules("add",{
             required:true, 
-            febrero_biciesto:true,
+            //febrero_biciesto:true,
             messages:{
                 required: "Por favor, ingrese año de nacimiento del pasajero"
             }  
         });
+        
 }
 
 
@@ -601,14 +607,17 @@ jQuery.validator.addMethod("creditcard", function(value, element) {
         return true;
     }, "El año no es biciesto, dia de nacimiento inválido. Por favor, reingrese mes o dia de nacimiento del pasajero");
 
-jQuery.validator.addMethod("febrero", function(value, element) {
-    if ($("#mes").val() == "Febrero") {
-        if ($("#dia").val() > 29) {
-            return false;
+jQuery.validator.addMethod("mes_valido", function(value, element){
+    for(i=0; i<pasajeros; i++){
+        if(($('select[name="fecha_dia' + i + '"]').val()!="") && ($('select[name="fecha_mes' + i + '"]').val()!="") && ($('select[name="fecha_año' + i + '"]').val()!="")){
+            var fecha = ($('select[name="fecha_dia' + i + '"]').val()) + '-' + ($('select[name="fecha_mes' + i + '"]').val()) + '-' + ($('select[name="fecha_año' + i + '"]').val());
+            var mifecha=moment(fecha, "DD-MM-YYYY");
         }
-    }
-    return true;
-}, "Fecha de nacimiento invalida. Por favor, reigrese fecha de nacimiento del pasajero");
+         if(!mifecha.isValid()){
+            return false; 
+        }
+    } return true; 
+}, "Los datos ingresados son inconsistentes. Recuerde que Febrero solo tiene 28 dias excepto en años biciestos. Por favor, chequee y cambie los datos necesarios");
 
 jQuery.validator.addMethod("vencimiento", function(value, element) {
     if ($("#vencimiento-mes").val() == "01" || $("#vencimiento-mes").val() == "02" || $("#vencimiento-mes").val() == "03" || $("#vencimiento-mes").val() == "04" || $("#vencimiento-mes").val() == "05") {
