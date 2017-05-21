@@ -1,5 +1,5 @@
-var pasajeros = 1//getPassengers();
-var mifecha; 
+var pasajeros = getPassengers();
+var mifecha;
 
 $(document).ready(function() {
     //Initialize tooltips
@@ -133,8 +133,8 @@ $(document).ready(function() {
             nro_documento: {
                 required: true,
                 only_numbers: true,
-                min: 11500001,
-                max: 56000000
+                minlength: 8,
+                maxlength: 8
             },
             pais: {
                 required: true
@@ -162,7 +162,7 @@ $(document).ready(function() {
             },
             codigo_de_seguridad: {
                 required: true,
-                    //amex_master_visa:true, 
+                    //amex_master_visa:true,
                     minlength: 3,
                     maxlength: 4,
                     only_numbers: true,
@@ -203,8 +203,8 @@ $(document).ready(function() {
                 nro_documento: {
                     required: "Por favor, ingrese su DNI",
                     only_numbers: "El DNI sólo puede contener números. Por favor, reingrese el DNI del titular de la tarjeta",
-                    min: "El DNI del titular de la tarjeta no puede ser menor a 11500001. Por favor, reingrese el DNI del titular de la tarjeta",
-                    max: "El DNI del titular de la tarjeta no puede ser mayor a 56000000. Por favor, reingrese el DNI del titular de la tarjeta"
+                    minlength: "El DNI del titular de la tarjeta no puede contener menos de 7 digitos.Por favor, reingrese el DNI del titular de la tarjeta",
+                    maxlength: "El DNI del titular de la tarjeta no puede contener mas de 7 digitos. Por favor, reingrese el DNI del titular de la tarjeta"
                 },
                 pais: {
                     required: "Por favor, ingrese el país en donde recibe la factura"
@@ -284,13 +284,14 @@ $(".prev-step").click(function() {
     }
     var $active = $('.wizard .nav-tabs li.active');
     prevTab($active);
-    
+
     current_fs.hide();
     next_fs.show();
 });
 
 for (i = 0; i < pasajeros; i++) {
-    $(".informacion-pasajero").append('<div class="row">' +
+    console.log(pasajeros);
+    var appendable = '<div class="row">' +
         '<h3 class="subtitulo-representacion">Información del Pasajero ' + (i+1) + '</h3>' +
         '<div class="col-md-6" class="form-group">' +
         '<label for="nombre' + i + '" class="datos">Nombre<span class="obligatorio">*</span></label>' +
@@ -371,75 +372,14 @@ for (i = 0; i < pasajeros; i++) {
         '<option value="12">Diciembre</option>' +
         '</select>' +
         '<select class="seleccion no-left-margin" id="año' + i + '" name="fecha_año' + i + '">' +
-        '<option value="">Año</option>' +
-        '<option value="1951">1951</option>' +
-        '<option value="1952">1952</option>' +
-        '<option value="1953">1953</option>' +
-        '<option value="1954">1954</option>' +
-        '<option value="1955">1955</option>' +
-        '<option value="1956">1956</option>' +
-        '<option value="1957">1957</option>' +
-        '<option value="1958">1958</option>' +
-        '<option value="1959">1959</option>' +
-        '<option value="1960">1960</option>' +
-        '<option value="1961">1961</option>' +
-        '<option value="1962">1962</option>' +
-        '<option value="1963">1963</option>' +
-        '<option value="1964">1964</option>' +
-        '<option value="1965">1965</option>' +
-        '<option value="1966">1966</option>' +
-        '<option value="1967">1967</option>' +
-        '<option value="1968">1968</option>' +
-        '<option value="1969">1969</option>' +
-        '<option value="1970">1970</option>' +
-        '<option value="1971">1971</option>' +
-        '<option value="1972">1972</option>' +
-        '<option value="1973">1973</option>' +
-        '<option value="1974">1974</option>' +
-        '<option value="1975">1975</option>' +
-        '<option value="1976">1976</option>' +
-        '<option value="1977">1977</option>' +
-        '<option value="1978">1978</option>' +
-        '<option value="1979">1979</option>' +
-        '<option value="1980">1980</option>' +
-        '<option value="1981">1981</option>' +
-        '<option value="1982">1982</option>' +
-        '<option value="1983">1983</option>' +
-        '<option value="1984">1984</option>' +
-        '<option value="1985">1985</option>' +
-        '<option value="1986">1986</option>' +
-        '<option value="1987">1987</option>' +
-        '<option value="1988">1988</option>' +
-        '<option value="1989">1989</option>' +
-        '<option value="1990">1990</option>' +
-        '<option value="1991">1991</option>' +
-        '<option value="1992">1992</option>' +
-        '<option value="1993">1993</option>' +
-        '<option value="1994">1994</option>' +
-        '<option value="1995">1995</option>' +
-        '<option value="1996">1996</option>' +
-        '<option value="1997">1997</option>' +
-        '<option value="1998">1998</option>' +
-        '<option value="1999">1999</option>' +
-        '<option value="2000">2000</option>' +
-        '<option value="2001">2001</option>' +
-        '<option value="2002">2002</option>' +
-        '<option value="2003">2003</option>' +
-        '<option value="2004">2004</option>' +
-        '<option value="2005">2005</option>' +
-        '<option value="2006">2006</option>' +
-        '<option value="2007">2007</option>' +
-        '<option value="2008">2008</option>' +
-        '<option value="2009">2009</option>' +
-        '<option value="2010">2010</option>' +
-        '<option value="2011">2011</option>' +
-        '<option value="2012">2012</option>' +
-        '<option value="2013">2013</option>' +
-        '<option value="2014">2014</option>' +
-        '<option value="2015">2015</option>' +
-        '<option value="2016">2016</option>' +
-        '<option value="2017">2017</option>' +
-        '</select>' +
+        '<option value="">Año</option>';
+
+        // '<option value="2017">2017</option>' +
+        for (var j = 2017; j > 1900; j--) {
+            appendable += '<option value="' + j + '">' + j + '</option>';
+        }
+
+        appendable += '</select>' +
         '<br>' +
         '<div class="row">' +
         '<label id="dia' + i + '-error" class="error error-dia-mes-año" for="dia' + i + '" ></label>' +
@@ -451,7 +391,9 @@ for (i = 0; i < pasajeros; i++) {
         '</div>' +
         '</div>' +
         '</div>' +
-        '<br>');
+        '<br>';
+
+        $(".informacion-pasajero").append(appendable);
         $('input[name="nombre' + i + '"]').rules("add",{
             required: true,
             minlength: 2,
@@ -464,7 +406,7 @@ for (i = 0; i < pasajeros; i++) {
                     maxlength: "El nombre del pasajero debe tener como máximo 41 caracteres. Por faovr, reingrese el nombre del pasajero",
                     digits: "El nombre del pasajero no puede tener números. Por favor, reingrese el nombre del pasajero",
                     letters_space: "El nombre del pasajero solo puede contener letras y espacios. Por favor, reingrese el nombre del pasajero"
-                }           
+                }
         });
         $('input[name="apellido' + i + '"]').rules("add",{
             required: true,
@@ -491,13 +433,13 @@ for (i = 0; i < pasajeros; i++) {
         $('input[name="documento' + i + '"]').rules("add",{
             required: true,
             only_numbers: true,
-            min: 11500001,
-            max: 56000000,
+            minlength: 8,
+            maxlength: 8,
             messages:{
                     required: "Por favor, ingrese número de identificación del pasajero",
                     only_numbers: "El número de identifiación solo puede contener digits. Por favor, reingrese el número de identificación del pasajero",
-                    min: "El número de identificación del pasajero no puede ser menor a 11500001. Por favor, reingrese el número de identificación del pasajero",
-                    max: "El número de identiifación del pasajero no puede ser mayor a 56000000. Por favor, reingrese el número de identificación del pasajero"
+                    minlength: "El número de identificación del pasajero no puede contener menos de 8 digitos. Por favor, reingrese el número de identificación del pasajero",
+                    maxlength: "El número de identiifación del pasajero no puede contener mas de 8 digitos. Por favor, reingrese el número de identificación del pasajero"
             }
         });
         $('select[name="fecha_dia' + i + '"]').rules("add",{
@@ -508,19 +450,19 @@ for (i = 0; i < pasajeros; i++) {
         });
         $('select[name="fecha_mes' + i + '"]').rules("add",{
             required:true,
-            mes_valido:true, 
+            mes_valido:true,
             messages:{
                 required: "Por favor, ingrese mes del nacimiento del pasajero"
             }
         });
         $('select[name="fecha_año' + i + '"]').rules("add",{
-            required:true, 
+            required:true,
             //febrero_biciesto:true,
             messages:{
                 required: "Por favor, ingrese año de nacimiento del pasajero"
-            }  
+            }
         });
-        
+        $(".js-example-basic-single").select2();
 }
 
 
@@ -614,9 +556,9 @@ jQuery.validator.addMethod("mes_valido", function(value, element){
             var mifecha=moment(fecha, "DD-MM-YYYY");
         }
          if(!mifecha.isValid()){
-            return false; 
+            return false;
         }
-    } return true; 
+    } return true;
 }, "Los datos ingresados son inconsistentes. Recuerde que Febrero solo tiene 28 dias excepto en años biciestos. Por favor, chequee y cambie los datos necesarios");
 
 jQuery.validator.addMethod("vencimiento", function(value, element) {
@@ -670,10 +612,10 @@ jQuery.validator.addMethod("amex_master_visa", function(value, element) {
 //             $(this).next().slideToggle().toggleClass('open-content');
 //         }
 //     });
-//     return false;     
+//     return false;
 // });
 
-//$("#phone").intlTelInput(); 
+//$("#phone").intlTelInput();
 
 //Si llega a surgir algun error que no maneje, el error se va a mostrar en español
 

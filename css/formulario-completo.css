@@ -1,4 +1,4 @@
-a {
+.unclickable {
     pointer-events: none;
 }
 
@@ -203,7 +203,7 @@ a:focus {
 .datos {
     text-align: left;
     margin-top: 30px;
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 100px;
 }
 
@@ -507,12 +507,13 @@ label {
 }
 
 .checkbox{
-    position: absolute;
     font-size: large;
     transform: scale(2);
     -ms-transform: scale(2);
     -webkit-transform: scale(2);
     padding: 10px;
+    margin-left: 30px;
+    margin-top: 20px;
 }
 
 #formulario-contacto{
@@ -544,4 +545,16 @@ label {
 .subtitulo-representacion{
     margin-left: 15px; 
 }
+
+.confirmacion{
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#confirmacion{
+    margin-left: -270px;
+    margin-top: 15px;
+}
+
 

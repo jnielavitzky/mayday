@@ -37,7 +37,6 @@ $(document).ready(function() {
     var vuelta_url = sessionStorage.getItem("map2");
 
     if (ida_url == null) {
-        display_modal("Error", "Por favor empieze su busqueda desde la pagina principal de Mayday.");
         window.location.href = "index.html";
         return;
     }
