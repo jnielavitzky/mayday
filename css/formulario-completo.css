@@ -203,7 +203,7 @@ a:focus {
 .datos {
     text-align: left;
     margin-top: 30px;
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 100px;
 }
 
@@ -253,6 +253,16 @@ label {
     border-color: #e0e0e0;
     border-style: solid;
     width: 100px;
+}
+
+.fill-in-xxs {
+    height: 30px;
+    margin-left: 100px;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: #e0e0e0;
+    border-style: solid;
+    width: 70px;
 }
 
 #codigo-de-seguridad {
@@ -450,8 +460,8 @@ label {
     height: 200px;
     position: absolute;
     z-index: 1;
-    left: 900px;
-    top: 40px;
+    left: 1010px;
+    top: 120px;
 }
 
 .titulos-resumen {
@@ -497,10 +507,54 @@ label {
 }
 
 .checkbox{
-    position: absolute;
     font-size: large;
     transform: scale(2);
     -ms-transform: scale(2);
     -webkit-transform: scale(2);
     padding: 10px;
+    margin-left: 30px;
+    margin-top: 20px;
 }
+
+#formulario-contacto{
+    display: none;
+}
+
+#formulario-completo{
+    display: none; 
+}
+
+#formulario-pago{
+    display: none;
+}
+
+.titulo-representativo{
+    border-style: solid;
+    border-color: #4ca3ff;
+    margin-bottom: 30px; 
+    background-color: #ffffff;
+    border-radius: 7px; 
+    font-weight: 200; 
+    font-size: 30px; 
+    color: #4ca3ff; 
+    height: 60px; 
+    padding-top: 7px; 
+    border-width: 2px; 
+}
+
+.subtitulo-representacion{
+    margin-left: 15px; 
+}
+
+.confirmacion{
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#confirmacion{
+    margin-left: -270px;
+    margin-top: 15px;
+}
+
+
