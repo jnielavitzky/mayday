@@ -1,3 +1,5 @@
+var pasajeros = getPassengers();
+
 $(document).ready(function() {
     //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
@@ -36,6 +38,33 @@ $(document).ready(function() {
     });
 });
 
+function getPassengers() {
+
+    var ida_url = sessionStorage.getItem("map");
+    console.log(ida_url)
+
+    adults = parseInt(getUrlParameter(ida_url, "adults"));
+    children = parseInt(getUrlParameter(ida_url, "children"));
+    infants = parseInt(getUrlParameter(ida_url, "infants"));
+
+    return adults + children + infants;
+};
+
+function getUrlParameter(url, sParam) {
+    var sPageURL = url,
+    sURLVariables = sPageURL.split('&'),
+    sParameterName,
+    i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
 function nextTab(elem) {
     $(elem).next().find('a[data-toggle="tab"]').click();
 }
@@ -64,8 +93,6 @@ $(document).ready(function() {
         x--;
     });
 });
-
-var pasajeros = 2;
 
 $(document).ready(function() {
 
