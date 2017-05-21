@@ -684,6 +684,6 @@ function setSummary(){
         } else {
             $("#numero-dpto-resumen").text($("#piso-casa").val());
         }
-        $("#ticket-resumen").load("./ticket_test.html");
+        $("#ticket-resumen").html(sessionStorage.getItem("ticket"));
     }
 }
