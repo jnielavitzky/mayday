@@ -1,4 +1,4 @@
-var pasajeros = 1; //getPassengers();
+var pasajeros = getPassengers();
 var mifecha; 
 
 $(document).ready(function() {
