@@ -1,4 +1,4 @@
-var pasajeros = 1//getPassengers();
+var pasajeros = getPassengers();
 var mifecha; 
 
 $(document).ready(function() {
@@ -133,8 +133,8 @@ $(document).ready(function() {
             nro_documento: {
                 required: true,
                 only_numbers: true,
-                min: 11500001,
-                max: 56000000
+                minlength: 8,
+                maxlength: 8
             },
             pais: {
                 required: true
@@ -203,8 +203,8 @@ $(document).ready(function() {
                 nro_documento: {
                     required: "Por favor, ingrese su DNI",
                     only_numbers: "El DNI sólo puede contener números. Por favor, reingrese el DNI del titular de la tarjeta",
-                    min: "El DNI del titular de la tarjeta no puede ser menor a 11500001. Por favor, reingrese el DNI del titular de la tarjeta",
-                    max: "El DNI del titular de la tarjeta no puede ser mayor a 56000000. Por favor, reingrese el DNI del titular de la tarjeta"
+                    minlength: "El DNI del titular de la tarjeta no puede contener menos de 7 digitos.Por favor, reingrese el DNI del titular de la tarjeta",
+                    maxlength: "El DNI del titular de la tarjeta no puede contener mas de 7 digitos. Por favor, reingrese el DNI del titular de la tarjeta"
                 },
                 pais: {
                     required: "Por favor, ingrese el país en donde recibe la factura"
@@ -491,13 +491,13 @@ for (i = 0; i < pasajeros; i++) {
         $('input[name="documento' + i + '"]').rules("add",{
             required: true,
             only_numbers: true,
-            min: 11500001,
-            max: 56000000,
+            minlength: 8,
+            maxlength: 8,
             messages:{
                     required: "Por favor, ingrese número de identificación del pasajero",
                     only_numbers: "El número de identifiación solo puede contener digits. Por favor, reingrese el número de identificación del pasajero",
-                    min: "El número de identificación del pasajero no puede ser menor a 11500001. Por favor, reingrese el número de identificación del pasajero",
-                    max: "El número de identiifación del pasajero no puede ser mayor a 56000000. Por favor, reingrese el número de identificación del pasajero"
+                    minlength: "El número de identificación del pasajero no puede contener menos de 8 digitos. Por favor, reingrese el número de identificación del pasajero",
+                    maxlength: "El número de identiifación del pasajero no puede contener mas de 8 digitos. Por favor, reingrese el número de identificación del pasajero"
             }
         });
         $('select[name="fecha_dia' + i + '"]').rules("add",{

@@ -579,9 +579,9 @@
                                         <div class="tab-pane" role="tabpanel" id="resumen">
                                             <div class="row">
                                                     <div class="col-md-12 titulo-representativo">Resúmen</div>
-                                                </div>
+                                            </div>
                                             <p>Usted ha completado con éxito todo los pasos</p>
-                                            <p>Acepte los términos y condiciones para poder confimar su compra</p>
+                                            
                                             <label class="titulos-resumen">Información de Vuelo</label>
                                             <div class="row">
                                                 <div id="ticket-resumen"></div>
@@ -659,8 +659,16 @@
                                             <br>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <input type="checkbox" name="acepto" title="Por favor acepte los términos y condiciones" class="checkbox"><span class="terminos">He leído y acepto los términos y condiciones</span>
-                                                </input>
+                                                    <div class="confirmacion">Para poder confirmar su compra deberá aceptar los términos y condiciones</div>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input type="checkbox" name="acepto" title="Por favor acepte los términos y condiciones" class="checkbox"></input>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="confirmacion" id="confirmacion">&nbsp; He leído y acepto los términos y condiciones</div>
+                                                        </div>     
+                                                    </div>
+                                                    
                                             </div>
                                         </div>
                                         <ul class="list-inline pull-right">
