@@ -4,9 +4,13 @@ var cities;
 
 var airport_city_map = {};
 
+var timer_timeout;
+
+var error_call;
+
 function fillCitySelects(callback, error_callback) {
 
-
+    error_call = error_callback;
     $.getJSON("http://hci.it.itba.edu.ar/v1/api/geo.groovy?method=getairports", function(data) {
         airports = data["airports"];
         done_data(callback, error_callback);
@@ -20,12 +24,19 @@ function fillCitySelects(callback, error_callback) {
         error_callback()
     });
 
+    timer_timeout = setTimeout(timeout_fun, 70000);
+}
 
+function timeout_fun() {
+    clearTimeout(timer_timeout);
+    error_call();
 }
 
 function done_data(callback, error_callback) {
     if (airports == null || cities == null)
         return;
+
+    clearTimeout(timer_timeout);
 
     for (var key in airports) {
         var city_code = airports[key]["city"]["id"];

@@ -54,84 +54,93 @@
         <!--  MAIN NAV  -->
         <div class="container main-nav">
             <!-- FIRST ROW -->
-            <div class='row'>
-                <div class="col-sm-3 col-sm-offset-1 nav-comp">
-                    <h3  class="nav-titles">Tipo de Vuelo</h3>
-                    <div class="col-lg-12 col-lg-offset-2">
-                        <select id="tipovuelo" class="form-control large">
-                            <option value="2" onclick="twoWay()">Ida y Vuelta</option>
-                            <option value="1" onclick="oneWay()">Ida</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-3 nav-comp">
-                    <h3  class="nav-titles">Origen</h3>
-                    <div class="col-lg-12 col-lg-offset-2">
-                        <select id="cities-from" class="form-control js-example-basic-single large"></select>
-                    </div>
-                </div>
-                <div class="col-md-3 nav-comp">
-                    <h3  class="nav-titles">Destino</h3>
-                    <div class="col-lg-12 col-lg-offset-2">
-                        <select id="cities-to" class="form-control js-example-basic-single large"></select>
+            <div class="loader_container_index">
+                <div class="loader">
+                    <div id="loader_plane" class="plane">
                     </div>
                 </div>
             </div>
-
-            <!-- SECOND ROW -->
+            <div id="inputs">
                 <div class='row'>
-                    <div class="col-sm-3 col-sm-offset-1">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <h3 class="nav-titles-3">Partida</h3>
-                            <div class="input-group date">
-                                <input id="salida" class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
-                            </div>
+                    <div class="col-sm-3 col-sm-offset-1 nav-comp">
+                        <h3  class="nav-titles">Tipo de Vuelo</h3>
+                        <div class="col-lg-12 col-lg-offset-2">
+                            <select id="tipovuelo" class="form-control large">
+                                <option value="2" onclick="twoWay()">Ida y Vuelta</option>
+                                <option value="1" onclick="oneWay()">Ida</option>
+                            </select>
                         </div>
                     </div>
-                    <div id="soloIda" class="col-sm-3">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <h3 class="nav-titles-3">Vuelta</h3>
-                            <div class="input-group date">
-                                <input id="vuelta" class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
-                            </div>
+                    <div class="col-md-3 nav-comp">
+                        <h3  class="nav-titles">Origen</h3>
+                        <div class="col-lg-12 col-lg-offset-2">
+                            <select id="cities-from" class="form-control js-example-basic-single large"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 nav-comp">
+                        <h3  class="nav-titles">Destino</h3>
+                        <div class="col-lg-12 col-lg-offset-2">
+                            <select id="cities-to" class="form-control js-example-basic-single large"></select>
                         </div>
                     </div>
                 </div>
 
-            <!-- THIRD ROW -->
-            <div class='row'>
-                <div class="col-md-2 col-md-offset-1">
-                    <h3 class="nav-titles-2">Mayores</h3>
+                <!-- SECOND ROW -->
+                    <div class='row'>
+                        <div class="col-sm-3 col-sm-offset-1">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <h3 class="nav-titles-3">Partida</h3>
+                                <div class="input-group date">
+                                    <input id="salida" class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="soloIda" class="col-sm-3">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <h3 class="nav-titles-3">Vuelta</h3>
+                                <div class="input-group date">
+                                    <input id="vuelta" class="datepicker form-control" type="text" name="date"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- THIRD ROW -->
+                <div class='row'>
+                    <div class="col-md-2 col-md-offset-1">
+                        <h3 class="nav-titles-2">Mayores</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <h3 class="nav-titles-2">Menores</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <h3 class="nav-titles-2">Infantes</h3>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <h3 class="nav-titles-2">Menores</h3>
-                </div>
-                <div class="col-md-2">
-                    <h3 class="nav-titles-2">Infantes</h3>
+
+                <!-- FOURTH ROW -->
+                <div class='row'>
+                    <div class="col-md-2 alignment">
+                        <button class="btn-circular" type="button" onclick="onClickUP(1)">+</button>
+                        <a class="counter" id="clickmayores">2</a>
+                        <button class="btn-circular" type="button" onclick="onClickDOWN(1)">-</button>
+                    </div>
+                    <div class="col-md-2 alignment-2">
+                        <button class="btn-circular" type="button" onclick="onClickUP(2)">+</button>
+                        <a class="counter" id="clickmenores">0</a>
+                        <button class="btn-circular" type="button" onclick="onClickDOWN(2)">-</button>
+                    </div>
+                    <div class="col-md-2 alignment-2">
+                        <button class="btn-circular" type="button" onclick="onClickUP(3)">+</button>
+                        <a class="counter" id="clickinfantes">0</a>
+                        <button class="btn-circular" type="button" onclick="onClickDOWN(3)">-</button>
+                    </div>
+                    <div class="col-md-2 alignment-3">
+                        <a onclick="find()" class="btn btn-default btn-lg btn-block" href="#" role="button">Buscar</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- FOURTH ROW -->
-            <div class='row'>
-                <div class="col-md-2 alignment">
-                    <button class="btn-circular" type="button" onclick="onClickUP(1)">+</button>
-                    <a class="counter" id="clickmayores">2</a>
-                    <button class="btn-circular" type="button" onclick="onClickDOWN(1)">-</button>
-                </div>
-                <div class="col-md-2 alignment-2">
-                    <button class="btn-circular" type="button" onclick="onClickUP(2)">+</button>
-                    <a class="counter" id="clickmenores">0</a>
-                    <button class="btn-circular" type="button" onclick="onClickDOWN(2)">-</button>
-                </div>
-                <div class="col-md-2 alignment-2">
-                    <button class="btn-circular" type="button" onclick="onClickUP(3)">+</button>
-                    <a class="counter" id="clickinfantes">0</a>
-                    <button class="btn-circular" type="button" onclick="onClickDOWN(3)">-</button>
-                </div>
-                <div class="col-md-2 alignment-3">
-                    <a onclick="find()" class="btn btn-default btn-lg btn-block" href="#" role="button">Buscar</a>
-                </div>
-            </div>
         </div>
         <!--  END MAIN NAV -->
 
@@ -139,7 +148,9 @@
         <div class="container sale">
             <div class='row'>
                 <h1 class="title">Destacados de la Semana</h1>
-                <div id="loader" class="loader"></div>
+                <div id="second_loader_container">
+                    <div id="loader" class="loader"></div>
+                </div>
             </div>
             <div class="container hide animate" id="card-container"></div>
         </div>
@@ -182,6 +193,7 @@
 </body>
 </html>
 <script type="text/javascript">
+    $("#inputs").hide();
     $(".js-example-basic-single").select2({
         placeholder: "Seleccione una ciudad"
     });
@@ -189,8 +201,11 @@
         $(this).datepicker('hide');
     });
     fillCitySelects(function() {
-        //console.log("Fill selects done.");
+        console.log("Fill selects done.");
+        $(".loader_container_index").hide();
     }, function () {
-        //console.log("Fill selects error."); <<<<<ACA ES ERROR DE SERVIDORRRR
+        console.log("Fill selects error."); //<<<<<ACA ES ERROR DE SERVIDORRRR
+        $(".loader_container_index").hide();
+        display_modal("Error", "Error de comunicacion con el servidor. Por favor, intente de nuevo mas tarde.");
     });
 </script>

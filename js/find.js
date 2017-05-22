@@ -1,3 +1,20 @@
+$("#inputs").hide();
+$(".js-example-basic-single").select2({
+    placeholder: "Seleccione una ciudad"
+});
+$('.datepicker').on('changeDate', function(ev){
+    $(this).datepicker('hide');
+});
+fillCitySelects(function() {
+    console.log("Fill selects done.");
+    $(".loader_container_index").hide();
+    $("#inputs").show();
+}, function () {
+    console.log("Fill selects error."); //<<<<<ACA ES ERROR DE SERVIDORRRR
+    $(".loader_container_index").hide();
+    display_modal("Error", "Error de comunicacion con el servidor. Por favor, intente de nuevo mas tarde.");
+});
+
 $(document).ready(function () {
     $("#tipovuelo").on("change", function () {
         if ($("#tipovuelo").val() == "2") {

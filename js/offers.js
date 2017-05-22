@@ -72,6 +72,6 @@ function getPhoto(description, country) {
 }
 
 var time = function time() {
-    $('.loader').hide();
+    $('#second_loader_container').hide();
     $("#card-container").removeClass('hide');
 }
