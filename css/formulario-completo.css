@@ -15,6 +15,7 @@ body {
 }
 
 .ticket_limitado {
+    margin-left: 200px;
     width: 800px !important;
     height: 400px !important;
 }
