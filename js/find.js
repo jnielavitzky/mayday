@@ -12,7 +12,7 @@ fillCitySelects(function() {
 }, function () {
     console.log("Fill selects error."); //<<<<<ACA ES ERROR DE SERVIDORRRR
     $(".loader_container_index").hide();
-    display_modal("Error", "Error de comunicacion con el servidor. Por favor, intente de nuevo mas tarde.");
+    display_modal("Error", "Error de comunicación con el servidor. Por favor, intente de nuevo más tarde.");
 });
 
 $(document).ready(function () {
@@ -51,7 +51,7 @@ function find() {
 
 
     if (sel_adu == 0 && sel_chi == 0 && sel_inf == 0) {
-        display_error("Debe seleccionar mas de un pasajero.");
+        display_error("Debe seleccionar más de un pasajero.");
         return;
     }
 
@@ -80,7 +80,7 @@ function find() {
         }
 
         if (date_salida.isAfter(date_vuelta)) {
-            display_error("La fecha de vuelta tiene que ser anterior a la fecha de vuelta.");
+            display_error("La fecha de salida tiene que ser anterior a la fecha de vuelta.");
             return;
         }
         var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&page_size=100000&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;

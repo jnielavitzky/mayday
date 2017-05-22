@@ -141,7 +141,7 @@ function no_results() {
 }
 
 function timeout_error() {
-    display_modal("Error de Servidor", "Error de comunicación con el sistema. Por favor, intente de vuelta.");
+    display_modal("Error", "Error de comunicación con el servidor. Por favor, intente de nuevo más tarde.");
     clearTimeout(timeout_timer);
     $(".loader_container").hide();
 }
@@ -777,7 +777,7 @@ $("#search").on("click", function() {
 
 
     if (sel_adu == 0 && sel_chi == 0 && sel_inf == 0) {
-        display_modal("Error", "Debe seleccionar mas de un pasajero.");
+        display_modal("Error", "Debe seleccionar más de un pasajero.");
         return;
     }
 
@@ -806,7 +806,7 @@ $("#search").on("click", function() {
         }
 
         if (date_salida.isAfter(date_vuelta)) {
-            display_modal("Error", "La fecha de vuelta tiene que ser anterior a la fecha de vuelta.");
+            display_modal("Error", "La fecha de salida tiene que ser anterior a la fecha de vuelta.");
             return;
         }
         var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&page_size=100000&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
@@ -888,17 +888,17 @@ function get_message_for_code(code) {
         case 130:
         case 131:
         case 132:
-            return "Error de servidor. Por favor, intente de vuelta mas tarde.";
+            return "Error de servidor. Por favor, intente de vuelta más tarde.";
         case 118:
-            return "Fecha destino o origen de incorecta. Por favor, intente de nuevo.";
+            return "Fecha destino o origen de incorrecta. Por favor, intente de nuevo.";
         case 125:
-            return "El aeropuerto de origen no es valido.";
+            return "El aeropuerto de origen no es válido.";
         case 126:
-            return "El aeropuerto de destino no es valido.";
+            return "El aeropuerto de destino no es válido.";
         case 999:
-            return "Error de servidor. Por favor, intente de nuevo mas tarde.";
+            return "Error de servidor. Por favor, intente de nuevo más tarde.";
         default:
-            return "Error de comunicacion con el servidor. Por favor, intente de vuelta mas tarde.";
+            return "Error de comunicación con el servidor. Por favor, intente de vuelta más tarde.";
     }
 }
 
