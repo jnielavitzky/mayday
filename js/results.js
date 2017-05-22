@@ -723,7 +723,7 @@ function setDurationSlider() {
         return;
     }
 
-    if (max_dur == min_dur) {
+    if (max_dur == min_dur || Math.abs(max_dur - min_dur) <= 1) {
         $(".duration_range_container").hide();
         return;
     }
@@ -908,12 +908,16 @@ $('.datepicker').on('changeDate', function(ev) {
 
 $(document).on('click', ".buy_button", function() {
 
+    selected_currency = currencies[2];
+    changedCurrency();
+
     var this_button = $(this);
     var ticket = $(this).closest(".ticket");
     var ticket_clone = ticket.clone();
     ticket_clone.find(".buy_button").remove();
     ticket_clone.find(".total_title").css("margin-top", "80px");
     sessionStorage.setItem("ticket", ticket_clone.html());
+
     window.location.href = 'formulario-completo.html';
     // console.log(sessionStorage.getItem("ticket"));
 });
