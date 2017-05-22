@@ -23,7 +23,6 @@
 
     <script type="text/javascript" src="./js/show.js"></script>
     <script type="text/javascript" src="./js/find.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVQVpfMOhjlfKQxYprCUD77OkvjN725Y&callback=initMap"> </script>
     <script type="text/javascript" src="./js/map.js"></script>
     <script src="https://use.fontawesome.com/12d273ae19.js"></script>
 
@@ -42,6 +41,23 @@
 
         <!-- MAP -->
         <div class="container" id="map"></div>
+        <script>
+        var google;
+        function initMap() {
+            var uluru = {lat: -34.603289, lng: -58.367824};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVQVpfMOhjlfKQxYprCUD77OkvjN725Y&callback=initMap">
+        </script>
 
         <!-- END MAP -->
 
