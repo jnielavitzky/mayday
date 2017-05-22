@@ -712,9 +712,15 @@ function bookFlight() {
         dataType: "json",
         success: function(data) {
             console.log(data);
+            if (data["error"] == null) {
+                $("#reservaHecha").modal();
+            }else{
+                display_modal("Error", "Hubo un error en el servidor. Por favor, intente más tarde.")
+            }
+
         },
         failure: function(errMsg) {
-            alert(errMsg);
+            display_modal("Error", "Error de servidor. Por favor, intente de nuevo.");
             console.log(errMsg);
         }
     });
@@ -785,4 +791,12 @@ function getData() {
     data["contact"] = contact;
 
     return data;
+}
+
+function display_modal(title, subtitle) {
+    var title_div = $("#error_modal").find(".modal-title");
+    var subtitle_div = $("#error_modal").find(".bar_subtitle");
+    title_div.text(title);
+    subtitle_div.text(subtitle);
+    $("#error_modal").modal();
 }

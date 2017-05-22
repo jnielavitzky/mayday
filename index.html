@@ -182,7 +182,9 @@
 </body>
 </html>
 <script type="text/javascript">
-    $(".js-example-basic-single").select2();
+    $(".js-example-basic-single").select2({
+        placeholder: "Seleccione una ciudad"
+    });
     $('.datepicker').on('changeDate', function(ev){
         $(this).datepicker('hide');
     });
