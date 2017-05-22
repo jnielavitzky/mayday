@@ -51,17 +51,17 @@ function find() {
 
 
     if (sel_adu == 0 && sel_chi == 0 && sel_inf == 0) {
-        display_modal("Error", "Debe seleccionar mas de un pasajero.");
+        display_error("Debe seleccionar mas de un pasajero.");
         return;
     }
 
     if (from_city == to_city) {
-        display_modal("Error", "El aeropuerto de origen tiene que ser distinto al de destino.");
+        display_error("El aeropuerto de origen tiene que ser distinto al de destino.");
         return;
     }
 
     if (!date_salida.isValid()) {
-        display_modal("Error", "Debe completar la fecha de partida correctamente.");
+        display_error("Debe completar la fecha de partida correctamente.");
         return;
     }
 
@@ -75,12 +75,12 @@ function find() {
         var correct_date_vuelta = date_vuelta.format("YYYY-M-D");
 
         if (!date_vuelta.isValid()) {
-            display_modal("Error", "Debe completar la fecha de vuelta correctamente.");
+            display_error("Debe completar la fecha de vuelta correctamente.");
             return;
         }
 
         if (date_salida.isAfter(date_vuelta)) {
-            display_modal("Error", "La fecha de vuelta tiene que ser anterior a la fecha de vuelta.");
+            display_error("La fecha de vuelta tiene que ser anterior a la fecha de vuelta.");
             return;
         }
         var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&page_size=100000&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
@@ -90,6 +90,10 @@ function find() {
     }
 
     window.location.href = "results.html";
+}
+
+function display_error(error) {
+    $("#error_index").text(error);
 }
 
 function display_modal(title, subtitle) {

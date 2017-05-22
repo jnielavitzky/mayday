@@ -31,12 +31,7 @@
 
     <link rel="shortcut icon" href="images/paper-plane.png">
 
-    <script type="text/javascript" src="./js/main-nav.js"></script>
-    <script type="text/javascript" src="./js/offers.js"></script>
-    <script type="text/javascript" src="./js/server_data.js"></script>
-    <script type="text/javascript" src="./js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="./js/show.js"></script>
-    <script type="text/javascript" src="./js/find.js"></script>
+
 
 </head>
 <body>
@@ -138,7 +133,10 @@
                     <div class="col-md-2 alignment-3">
                         <a onclick="find()" class="btn btn-default btn-lg btn-block" href="#" role="button">Buscar</a>
                     </div>
+                    <p id="error_index"></p>
                 </div>
+
+
             </div>
 
         </div>
@@ -193,19 +191,11 @@
 </body>
 </html>
 <script type="text/javascript">
-    $("#inputs").hide();
-    $(".js-example-basic-single").select2({
-        placeholder: "Seleccione una ciudad"
-    });
-    $('.datepicker').on('changeDate', function(ev){
-        $(this).datepicker('hide');
-    });
-    fillCitySelects(function() {
-        console.log("Fill selects done.");
-        $(".loader_container_index").hide();
-    }, function () {
-        console.log("Fill selects error."); //<<<<<ACA ES ERROR DE SERVIDORRRR
-        $(".loader_container_index").hide();
-        display_modal("Error", "Error de comunicacion con el servidor. Por favor, intente de nuevo mas tarde.");
-    });
+
 </script>
+<script type="text/javascript" src="./js/main-nav.js"></script>
+<script type="text/javascript" src="./js/offers.js"></script>
+<script type="text/javascript" src="./js/server_data.js"></script>
+<script type="text/javascript" src="./js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="./js/show.js"></script>
+<script type="text/javascript" src="./js/find.js"></script>

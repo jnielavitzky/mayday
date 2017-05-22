@@ -5,14 +5,17 @@ var result;
 var call;
 
 $(document).ready(function() {
+    // console.log("dale");
     call = setTimeout(time,5000);
     $.getJSON('http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getlastminuteflightdeals&from=BUE', function(json) {
         var error = json;
         if(error != null){
+            console.log(json);
             offers = json["deals"];
             var id = json["currency"]["id"];
             var url = "http://hci.it.itba.edu.ar/v1/api/misc.groovy?method=getcurrenciesratio&id1=" + id + "&id2=ARS";
             $.getJSON(url, function(currency) {
+                console.log(currency);
                 ratio = currency["ratio"];
                 bestOffers();
                 for(var i = 0; i < selected.length; i++){

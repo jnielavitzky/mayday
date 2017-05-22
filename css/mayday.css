@@ -1,4 +1,15 @@
 
+#error_index {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    /*margin-left: 20%;*/
+    color: red;
+    font-size: 18px;
+}
+
 .loader_container_index {
     margin-top: 15%;
     margin-left: -1%;
