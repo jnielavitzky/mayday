@@ -650,7 +650,7 @@ $("#currency").on("change", function() {
 
 function defaultCurrency() {
     for (currency of currencies) {
-        if (currency.id == "USD") {
+        if (currency.id == "ARS") {
             selected_currency = currency;
         }
     }
@@ -660,7 +660,7 @@ function setCurrenciesSelect() {
     if (currencies == null)
         return;
     for (currency of currencies) {
-        var option = "<option value = '" + currency.id + "' " + ((currency.id == "USD") ?
+        var option = "<option value = '" + currency.id + "' " + ((currency.id == "ARS") ?
             "selected" : "") + ">" + currency.description + " - " + currency.symbol + "</option>";
         $("#currency").append(option);
     }
