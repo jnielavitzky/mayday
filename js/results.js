@@ -1,24 +1,14 @@
 var out_flights;
 var in_flights;
-
 var out_filters;
 var in_filters;
-
 var airline_logos;
-
 var timeout_timer;
-
 var flight_codes = {};
-
 var currencies;
-
 var selected_currency;
-
 var selected_rating = 1;
-
 var single_flight = false;
-
-
 
 
 $(document).ready(function() {
@@ -78,8 +68,8 @@ $(document).ready(function() {
         $("#vuelta").val(moment(selected_date_to, "YYYY-M-D").format("DD/MM/YYYY"));
     }
     $("#flight_type").trigger("change");
-    console.log(ida_url);
-    console.log(vuelta_url);
+    // console.log(ida_url);
+    // console.log(vuelta_url);
 
 
 
@@ -591,7 +581,7 @@ function filter_by_duration(obj) {
 }
 
 $("#remove_airlines").on("click", function() {
-    console.log("remove");
+    // console.log("remove");
     $("#airlines_select").val(null).trigger("change");
 });
 $("#remove_fligh").on("click", function() {
@@ -729,7 +719,7 @@ function setDurationSlider() {
 
     // console.log(max_dur + " : " + min_dur);
     if (!Number.isInteger(min_dur) || !Number.isInteger(max_dur)) {
-        console.log("returned");
+        // console.log("returned");
         return;
     }
 
@@ -803,7 +793,7 @@ $("#search").on("click", function() {
 
     var correct_date_salida = date_salida.format("YYYY-M-D");
 
-    var url1 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&from=" + from_city + "&to=" + to_city + "&dep_date=" + correct_date_salida + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
+    var url1 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&page_size=100000&from=" + from_city + "&to=" + to_city + "&dep_date=" + correct_date_salida + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
     sessionStorage.setItem("map", url1);
     if ($("#flight_type").val() == "1") {
 
@@ -819,7 +809,7 @@ $("#search").on("click", function() {
             display_modal("Error", "La fecha de vuelta tiene que ser anterior a la fecha de vuelta.");
             return;
         }
-        var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
+        var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&page_size=100000&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
         sessionStorage.setItem("map2", url2);
     } else {
         sessionStorage.removeItem("map2");
@@ -912,11 +902,11 @@ function get_message_for_code(code) {
     }
 }
 
-$('.datepicker').on('changeDate', function(ev){
+$('.datepicker').on('changeDate', function(ev) {
     $(this).datepicker('hide');
 });
 
-$(document).on('click', ".buy_button", function () {
+$(document).on('click', ".buy_button", function() {
 
     var this_button = $(this);
     var ticket = $(this).closest(".ticket");
@@ -924,7 +914,7 @@ $(document).on('click', ".buy_button", function () {
     ticket_clone.find(".buy_button").remove();
     ticket_clone.find(".total_title").css("margin-top", "80px");
     sessionStorage.setItem("ticket", ticket_clone.html());
-    window.location.href='formulario-completo.html';
+    window.location.href = 'formulario-completo.html';
     // console.log(sessionStorage.getItem("ticket"));
 });
 

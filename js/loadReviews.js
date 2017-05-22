@@ -28,7 +28,6 @@ $(document).ready(function() {
         if (flight_number != "") {
             URL += "&flight_number=" + flight_number;
         }
-        console.log(URL);
 
         var myObj, html = "";
 

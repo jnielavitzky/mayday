@@ -50,7 +50,7 @@ function find() {
 
     var correct_date_salida = date_salida.format("YYYY-M-D");
 
-    var url1 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&from=" + from_city + "&to=" + to_city + "&dep_date=" + correct_date_salida + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
+    var url1 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&page_size=100000&from=" + from_city + "&to=" + to_city + "&dep_date=" + correct_date_salida + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
     sessionStorage.setItem("map", url1);
     if ($("#tipovuelo").val() == "2") {
 
@@ -66,7 +66,7 @@ function find() {
             display_modal("Error", "La fecha de vuelta tiene que ser anterior a la fecha de vuelta.");
             return;
         }
-        var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
+        var url2 = "http://hci.it.itba.edu.ar/v1/api/booking.groovy?method=getonewayflights&page_size=100000&from=" + to_city + "&to=" + from_city + "&dep_date=" + correct_date_vuelta + "&adults=" + sel_adu + "&children=" + sel_chi + "&infants=" + sel_inf;
         sessionStorage.setItem("map2", url2);
     } else {
         sessionStorage.removeItem("map2");
