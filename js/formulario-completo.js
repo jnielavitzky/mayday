@@ -37,6 +37,14 @@ $(document).ready(function() {
         placement: "left",
         trigger: 'hover'
     });
+
+    $('#confirmar').click(function(){
+        $("#confirmar").hide();
+        $("#row_confirmacion").hide();
+        $("#resumen_botones").hide();
+    });
+
+
 });
 
 function getPassengers() {
